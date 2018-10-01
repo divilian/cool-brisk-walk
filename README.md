@@ -7,4 +7,6 @@ UMW textbook for CPSC 284 (Applied Discrete Mathematics)
 To build:
 ```
 $ pdflatex brisk.tex
+$ pdflatex brisk.tex
 ```
+(twice)
