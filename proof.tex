@@ -1,0 +1,882 @@
+
+\chapter{Proof}
+
+We've seen a lot of pretty sights on our cool brisk walk. We've caught a
+glimpse of the simple elegance of sets and relations, the precision of
+probabilistic reasoning, the recursive structure of trees, the explosive
+nature of combinatorics, and much more. None of these things have we
+plumbed to the depths, but we've appreciated their beauty and taken note of
+where they stood along our blazed trail. You'll remember this hike when you
+run into such concepts again and again in future computer science and
+math courses, and in your career beyond academics.
+
+Now we have one more stop to make before returning to the trailhead, and
+that deals with the notion of \textit{proof}. As we've studied these
+various mathematical entities, I've pointed out certain of their
+properties. A free tree has one more vertex than edge, for example. The
+cardinality of the union of two sets is at least as big as each of their
+individual unions. If you flip-all-the-bits-and-add-one in a two's
+complement scheme, and then perform that flip-and-add operation again,
+you'll return to the original number. But with a few exceptions, we haven't
+\textit{proven} any of these things. I've just stated them, and you've
+taken them on faith.
+
+\index{proof}
+In order to establish reliable truth, of course, professional
+mathematicians aren't satisfied with unsubstantiated statements. They need
+to be convinced that the claims we make do truly hold, and provably so, in
+all circumstances. What they seek is a \textbf{proof} of a claim: an
+irrefutable sequence of logical steps that leads inescapably from our
+premises to our conclusion. There are several ways to construct a
+convincing proof, and this chapter will highlight some of them.
+
+Most authors of discrete math texts, by the way, interweave the concept of
+proof throughout the entire book. I'm taking a radical departure by
+deferring this fundamental idea until the very end. Why did I make this
+choice? A couple of reasons. First, as I said at the very beginning, my
+target audience for this book is future practitioners, not theoretical
+researchers. I think most practicing computer scientists need fluency with
+the tools of discrete math, not the ability to devise new fundamental
+theorems about them. We mostly need to use, not to prove. The second reason
+is that I've found that interspersing proofs throughout the presentation
+often distracts the reader from the concepts at hand, since the focus
+shifts slightly from the concept being discussed (the function, the
+directed graph, what have you) to the proof \textit{about} the concept.
+When the proof itself takes center stage, it forces the actual subject
+matter to share the limelight. And with technical material like this, we
+need all the light we can get.
+
+\section{Proof concepts}
+
+A proof is essentially a chain of reasoning, in which each step can be
+logically deduced from the ones that preceded it. It's a way of putting
+your thought process on display so it can be scrutinized to make sure it
+holds water. Any step of your reasoning which was unwarranted will be
+exposed, and perhaps reveal that the conclusion you thought was true isn't
+necessarily dependable after all.
+
+Here's an example from everyday life. I'm driving home from work one
+afternoon, and I believe that my wife and children will be gone when I
+arrive. I'll be coming home to an empty house. 
+
+Now why do I believe this? Well, if I unravel my reasoning, it goes like
+this. First, today is Wednesday. On Wednesday nights, my wife and children
+normally go to church for dinner and service. Second, my wife likes to call
+me ahead of time if this plan changes. My cell phone is in my pocket, and
+has not rung, and so I conclude that the plan has not changed. I look at my
+watch, and it reads 5:17pm, which is after the time they normally leave, so
+I know I'm not going to catch them walking out the door. This is, roughly
+speaking, my thought process that justifies the conclusion that the house
+will be empty when I pull into the garage.
+
+Notice, however, that this prediction depends precariously on several
+facts. What if I spaced out the day of the week, and this is actually
+Thursday? All bets are off. What if my cell phone battery has run out of
+charge? Then perhaps she \textit{did} try to call me but couldn't reach me.
+What if I set my watch wrong and it's actually 4:17pm? \textit{Etc.} Just
+like a chain is only as strong as its weakest link, a whole proof falls
+apart if even one step isn't reliable.
+
+\index{artificial intelligence (AI)}
+Knowledge bases in artificial intelligence systems are designed to support
+these chains of reasoning. They contain statements expressed in formal
+logic that can be examined to deduce \textit{only} the new facts that
+logically follow from the old. Suppose, for instance, that we had a
+knowledge base that currently contained the following facts:
+\begin{center}
+\begin{enumerate}
+\item A$\Rightarrow$C
+\item $\neg$(C$\wedge $D)
+\item (F$\vee \neg$E)$\Rightarrow$D
+\item A$\vee$B
+\end{enumerate}
+\end{center}
+\index{propositional logic}
+These facts are stated in propositional logic, and we have no idea what any
+of the propositions really \textit{mean}, but then neither does the
+computer, so hey. Fact \#1 tells us that if proposition A (whatever that
+may mean) is true, then we know C is true as well. Fact \#2 tells us that
+we know C$\wedge$D is false, which means at least one of the two must be
+false. And so on. Large knowledge bases can contain thousands or even
+millions of such expressions.  It's a complete record of everything the
+system ``knows."
+
+Now suppose we learn an additional fact: $\neg$B. In other words, the
+system interacts with its environment and comes to the conclusion that
+proposition B must be false. What else, if anything, can now be safely
+concluded from this?
+
+It turns out that we can now conclude that \textit{F is also false.} How
+do we know this? Here's how:
+\begin{enumerate}
+\index{disjunctive syllogism}
+\item Fact \#4 says that either A or B (or both) is true. But we just
+discovered that B was false. So if it ain't B, it must be A, and therefore
+we conclude that \textbf{A must be true}. (For the curious, this rule of
+common sense is called a ``disjunctive syllogism.")
+\index{\textit{modus ponens}}
+\item Now if A is true, we know that C must also be true, because fact \#1
+says that A implies C. So we conclude that \textbf{C is true.} (This one
+goes by the Latin phrase ``\textit{modus ponens}.")
+\index{\textit{modus tollens}}
+\index{disjunction}
+\item Fact \#2 says that C$\wedge$D must be \textit{false}. But we just
+found out that C was true, so it must be D that's false in order to make
+the conjunction false. So we conclude that \textbf{D is false.} (This is a
+disjunctive syllogism in disguise, combined with De Morgan's law.)
+\item Finally, fact \#3 tells us that if either F were true or E were false,
+then that would imply that D would be true. But we just found out that D is
+false. Therefore, neither F nor $\neg$E can be true. (This step combines
+``\textit{modus tollens}" with ``disjunction elimination.")
+So we conclude that \textbf{F must be false}. \textit{Q.E.D.}
+\end{enumerate}
+\index{\textit{quod erat demonstrandum (Q.E.D.)}}
+(The letters ``\textit{Q.E.D.}" at the end of a proof stand for a Latin
+phrase meaning, ``we just proved what we set out to prove." It's kind of a
+way to flex your muscles as you announce that you're done.)
+
+Not all proofs are performed in formal logic like this; some use algebra,
+set theory, or just plain English. But the idea is the same: start with
+what you know, procede to derive new knowledge using only legal operations,
+and end with your conclusion.
+
+\index{axioms}
+\index{postulates}
+The things we're allowed to start with are called \textbf{axioms} (or
+\textbf{postulates}). An axiom is a presupposition or definition that is
+\textit{given} to be true, and so it is legal grounds from which to start.
+A proof can't even get off the ground without axioms. For instance, in
+step~1 of the above proof, we noted that either A or B must be true, and so
+if B isn't true, then A must be.  But we couldn't have taken this step
+without knowing that disjunctive syllogism is a valid form of reasoning.
+It's not important to know all the technical names of the rules that I
+included in parentheses. But it is important to see that we made use of an
+axiom of reasoning on every step, and that if any of those axioms were
+incorrect, it could lead to a faulty conclusion.
+
+\index{theorems}
+\index{distributive}
+\index{Venn diagrams}
+\index{union (of sets)}
+\index{intersection (of sets)}
+When you create a valid proof, the result is a new bit of knowledge called
+a \textbf{theorem} which can be used in future proofs. Think of a theorem
+like a subroutine in programming: a separate bit of code that does a job and
+can be invoked at will in the course of doing other things. One theorem we
+learned in chapter~\ref{chap:sets} was the distributive property of sets;
+that is, that X $\cap$ (Y $\cup$ Z) = (X $\cap$ Y) $\cup$ (X $\cap$ Z).
+This can be proven through the use of Venn diagrams, but once you've proven
+it, it's accepted to be true, and can be used as a ``given" in future
+proofs.
+
+\section{Types of proof}
+
+There are a number of accepted ``styles" of doing proofs. Here are some
+important ones:
+
+\subsection{Direct proof}
+\index{direct proof}
+
+The examples we've used up to now have been \textbf{direct proof}s. This is
+where you start from what's known and proceed directly by positive steps
+towards your conclusion.
+
+\index{word ladders}
+\index{Carroll, Lewis}
+Direct proofs remind me of a game called ``word ladders," invented by Lewis
+Carroll, that you might have played as a child:
+
+\begin{center}
+\texttt{WARM} \\
+\texttt{||||} \\
+\texttt{????} \\
+\texttt{||||} \\
+\texttt{COLD}
+\end{center}
+You start with one word (like \texttt{WARM}) and you have to come up with a
+sequence of words, \textit{each of which differs from the previous by only
+one letter}, such that you eventually reach the ending word (like
+\texttt{COLD}). It's sort of like feeling around in the dark:
+\begin{center}
+\texttt{WARM} \\
+\texttt{WAR\underline{T}} \\
+\texttt{WA\underline{L}T} \\
+\texttt{W\underline{I}LT} \\
+\texttt{WIL\underline{D}} \\
+\texttt{||||} \\
+\texttt{....}
+\end{center}
+This attempt seemed promising at first, but now it looks like it's going
+nowhere.  (``\texttt{WOLD}?" ``\texttt{CILD}?" Hmm....) After starting over
+and playing around with it for a while, you might stumble upon:
+\begin{center}
+\texttt{WARM} \\
+\texttt{W\underline{O}RM} \\
+\texttt{WOR\underline{D}} \\
+\texttt{\underline{C}ORD} \\
+\texttt{CO\underline{L}D}
+\end{center}
+This turned out to be a pretty direct path: for each step, the letter we
+changed was exactly what we needed it to be for the target word
+\texttt{COLD}. Sometimes, though, you have to meander away from the target
+a little bit to find a solution, like going from \texttt{BLACK} to
+\texttt{WHITE}:
+\begin{nobreak}
+\begin{center}
+\texttt{BLACK} \\
+\texttt{\underline{C}LACK} \\
+\texttt{C\underline{R}ACK} \\
+\texttt{\underline{T}RACK} \\
+\texttt{TR\underline{I}CK} \\
+\texttt{TRIC\underline{E}} \\
+\texttt{TRI\underline{T}E} \\
+\texttt{\underline{W}RITE} \\
+\texttt{W\underline{H}ITE}
+\end{center}
+\end{nobreak}
+Here, we had to temporarily change our first letter three different times
+--- two of which seemingly brought us no nearer to \texttt{WHITE} --- in
+order to successfully forge a path through the tangled forest.
+
+\index{axioms}
+Knowing which direction to set out on is a matter of intuition plus trial
+and error. Given the axioms of any system (whether algebra, predicate
+logic, sets, \textit{etc.}) there are an unfathomable number of different
+ways to proceed. The vast majority of them are bound to lead to dead ends.
+This is why a valid proof, when it is finished, is often an elegant and
+beautiful thing. It's a thin braid of jewels glistening in the midst of a
+whole lot of mud.
+
+\subsection{Indirect proof}
+\index{indirect proof}
+\index{proof by contradiction}
+\index{\textit{reductio ad absurdum}}
+
+Also known as a \textbf{proof by contradiction} or \textbf{\textit{reductio
+ad absurdum}}, the \textbf{indirect proof} starts in a completely opposite
+way. It says, ``okay, I'm trying to prove X. Well, suppose for the sake of
+argument I assume that the opposite --- \textit{not} X --- is true. Where
+would that lead me?" If you follow all the rules and it leads you to a
+contradiction, this tells you that the original assumption of $\neg$X must
+have been false. And this in turn proves that X must be true.
+
+We do this all the time in our thinking. Say you're driving down the
+highway. How do you \textit{know} that the alternator in your car engine is
+working? A direct proof would require that you open the hood and examine
+the part, testing to ensure it works properly. An indirect proof simply
+says, ``well, suppose it \textit{weren't} working properly. Then, my car
+engine wouldn't operate. But here I am, driving down the road, and the
+engine obviously \textit{does} operate, so that tells me that the
+alternator must be working properly."
+
+\index{Euclid}
+One of the most famous indirect proofs dates from Euclid's
+\textit{Elements} in 300 B.C. It proves that the square root of 2 is an
+irrational number, a great surprise to mathematicians at the time (most of
+whom doubted the very existence of irrational numbers). Remember that an
+irrational number is one that \textit{cannot} be expressed as the ratio of
+two integers, no matter what the integers are.
+
+Proving this directly seems pretty hard, since how do you prove that there
+\textit{aren't} any two integers whose ratio is $\sqrt{2}$, no matter how
+hard you looked? I mean, 534,927 and 378,250 are pretty dang close:
+\[
+\Bigg(\frac{534,927}{378,250}\Bigg)^2 = 2.000005.
+\]
+How could we possibly prove that no matter how hard we look, we can never
+find a pair that will give it to us exactly?
+
+One way is to assume that $\sqrt{2}$ \textit{is} a rational number, and
+then prove that down that path lies madness. It goes like this. Suppose
+$\sqrt{2}$ is rational, after all. That means that there must be two
+integers, call them $a$ and $b$, whose ratio is exactly equal to
+$\sqrt{2}$:
+\[
+\frac{a}{b} = \sqrt{2}.
+\]
+This, then, is the starting point for our indirect proof. We're going to
+proceed under this assumption and see where it leads us.
+
+By the way, it's clear that we could always reduce this fraction to lowest
+terms in case it's not already. For instance, if $a=6$ and $b=4$, then our
+fraction would be $\frac{6}{4}$, which is the same as $\frac{3}{2}$, so we
+could just say $a=3$ and $b=2$ and start over. Bottom line: if $\sqrt{2}$
+is rational, then we can find two integers $a$ and $b$ that have no common
+factor (if they do have a common factor, we'll just divide it out of both
+of them and go with the new numbers) whose ratio is $\sqrt{2}$.
+
+Okay then. But now look what happens. Suppose we square both sides of the
+equation (a perfectly legal thing to do):
+\begin{align*}
+\frac{a}{b} &= \sqrt{2} \\
+\Bigg(\frac{a}{b}\Bigg)^2 &= (\sqrt{2})^2 \\
+\frac{a^2}{b^2} &= 2 \\
+a^2 &= 2{b^2}. \\
+\end{align*}
+Now if $a^2$ equals 2 times something, then $a^2$ is an even number. But
+$a^2$ can't be even unless $a$ itself is even. (Think hard about that one.)
+This proves, then, that $a$ is even. Very well. It must be equal to twice
+some other integer. Let's call that $c$. We know that $a=2c$, where $c$ is
+another integer. Substitute that into the last equation and we get:
+\begin{align*}
+(2c)^2 &= 2{b^2} \\
+4c^2 &= 2{b^2} \\
+2c^2 &= b^2. \\
+\end{align*}
+So it looks like $b^2$ must be an even number as well (since it's equal to
+2 times something), and therefore $b$ is also even. But wait a minute. We
+started by saying that $a$ and $b$ \textit{had no common factor}. And now
+we've determined that they're both even numbers! This means they both have
+a factor of 2, which contradicts what we started with. The only thing we
+introduced that was questionable was the notion that there \textit{are} two
+integers $a$ and $b$ whose ratio was equal to $\sqrt{2}$ to begin with.
+That must be the part that's faulty then. Therefore, $\sqrt{2}$ is
+\textit{not} an irrational number. \textit{Q.E.D.}
+
+% DUH how about a DISCRETE MATH example???
+
+\section{Proof by induction}
+\index{mathematical induction}
+
+\index{recursion}
+\index{rooted trees}
+One of the most powerful methods of proof --- and one of the most difficult
+to wrap your head around --- is called \textbf{mathematical induction}, or
+just ``induction" for short. I like to call it ``proof by recursion,"
+because this is exactly what it is. Remember that we discussed recursion in
+the context of rooted trees (see p.\ref{recursion}). A tree can be thought
+of as a node with several children --- each of which are, in turn, trees.
+Each of \textit{them} is the root node of a tree comprised of yet
+smaller trees, and so on and so forth. If you flip back to the left-hand
+side of Figure~\ref{rootedtree} on p.\ref{page:rootedtree}, you'll see that
+A is the root of one tree, and its two children, F and B, are roots of
+their own smaller trees in turn. If we were to traverse this tree in (say)
+pre-order, we'd visit the root, then visit the left and right subtrees in
+turn, treating each of them as their \textit{own} tree. In this way we've
+broken up a larger problem (traversing the big tree) into smaller problems
+(traversing the smaller trees F and B). The A node has very little to do:
+it just visits itself, then defers all the rest of the work onto its
+children. This idea of pawning off most of the work onto smaller
+subproblems \textit{that you trust will work} is key to the idea of
+inductive proofs.
+
+Mathematical induction is hard to wrap your head around because it feels
+like cheating. It seems like you never actually prove anything: you defer
+all the work to someone else, and then declare victory. But the chain of
+reasoning, though delicate, is strong as iron.
+
+\subsection{Casting the problem in the right form}
+
+\index{predicates}
+\index{natural numbers ($\mathbb{N}$)}
+Let's examine that chain. The first thing you have to be able to do is
+express the thing you're trying to prove as \textit{a predicate about
+natural numbers}. In other words, you need to form a predicate that has one
+input, which is a natural number. You're setting yourself up to prove that
+the predicate is true \textit{for all natural numbers.} (Or at least, all
+natural numbers of at least a certain size.)
+
+\index{drinking age}
+\index{voting age}
+Suppose I want to prove that in the state of Virginia, all legal drinkers
+can vote. Then I could say ``let \textsc{Vote}($n$) be the proposition that
+a citizen of age $n$ can vote."
+
+If I want to prove an algebraic identity, like $\sum_{i=1}^x{i} =
+\frac{x(x+1)}{2}$, then I have to figure out which variable is the one that
+needs to vary across the natural numbers. In this case it's the $x$
+variable in my equation. So I'll say ``let P($n$) be the proposition that
+$\sum_{i=1}^n{i} = \frac{n(n+1)}{2}$." (The choice of the letter ``$n$"
+isn't important here --- it just needs to be a letter that stands for a
+number. We could have chosen anything, even sticking with $x$. Later, we'll
+use ``$k$" as a stand-in, so keep your eyes peeled for that.)
+
+If I want to prove that the number of leaves in a perfect binary tree is
+one more than the number of internal nodes, I'd have to think about which
+\textit{quantity} I can parameterize on (\textit{i.e.}, which quantity I
+can use for my $n$.) In this case, I'd probably use the \textit{height} of
+the tree. I'd say ``let P($n$) be the proposition that the number of leaves
+in a perfect binary tree of height $n$ is one more than the number of
+internal nodes."
+
+These are just examples. In any case, you need to cast your proof in a form
+that allows you to make statements in terms of the natural numbers. Then
+you're ready to begin the process of proving by induction that your
+predicate is true for \textit{all} the natural numbers.
+
+\subsection{Proof by induction: weak form}
+\index{weak form of induction}
+
+There are actually two forms of induction, the weak form and the strong
+form. Let's look at the \textbf{weak form} first. It says:
+\begin{enumerate}
+\item \label{basecaseweak} \textit{If} a predicate is true for a certain number,
+\item \label{inductivestepweak} \textit{and} its being true for some number
+would reliably mean that it's also true for the next number (\textit{i.e.},
+one number greater), 
+\item \textit{then} it's true for all numbers.
+\end{enumerate}
+All you have to do is prove those two things, and you've effectively proven
+it for every case.
+
+\index{base case (of a proof)}
+\index{inductive step}
+The first step is called the \textbf{base case}, and the ``certain number"
+we pick is normally either 0 or 1. The second step, called the
+\textbf{inductive step}, is where all the trouble lies. You have to look
+really, really carefully at how it's worded, above. We are \textit{not}
+assuming that the predicate is true for any old number! We are simply
+considering, \textit{if} it's true for any old number, whether that would
+necessarily imply it's also true for the next number. In terms of the
+predicate, we're asking ``does P($k$) imply P($k+1$)?" In other words: ``we
+aren't sure if P($k$) is true. But if it does --- a big ``if," of course
+--- would that logically demand that P($k+1$) was also true?" If you can
+prove that it does, then you're in business.
+
+\index{dominos}
+The whole thing is set up like a row of dominos. If one domino falls, then
+the one after it will also fall. And if that one falls, then so will the
+next. All that is needed is a base case to tip over the first domino, and
+by this trail of causality, \textit{all} the dominos will fall.
+
+\index{inductive hypothesis}
+One terminology note: the entire second step is called the inductive step,
+but the first half of it (the part where we assume that P($k$) is true) is
+called the \textbf{inductive hypothesis}. We never prove the inductive
+hypothesis; rather, we assume it, and then see if that allows us to deduce
+that P($k+1$) would also be true.
+
+
+\subsubsection{Example 1}
+
+\index{drinking age}
+\index{voting age}
+Let's work this out for the drinking/voting example. Let \textsc{Vote}($n$)
+be the proposition that a citizen of age $n$ can vote. Our proof goes like
+this:
+\begin{enumerate} 
+
+\item \textbf{base case.} \textsc{Vote}(21) is true, because a 21-year old
+is old enough to vote in the state and national elections.
+
+\item \textbf{inductive step.}
+\textsc{Vote}(k)$\Rightarrow$\textsc{Vote}(k+1). Why? Because nobody's
+gettin' any younger. If you can vote in a particular year, then you're also
+old enough to vote next year. Unless the laws change, there will never be a
+case when someone old enough to vote this year turns out to be too young to
+vote next year.
+
+\item Wow. We're done. \textit{Q.E.D.} and all that.
+\end{enumerate}
+The only specific example we showed was true was \textsc{Vote}(21). And yet
+we managed to prove \textsc{Vote}($n$) for \textit{any} number $n\geq21$.
+
+\index{inductive step}
+\index{inductive hypothesis}
+Let's look back at that inductive step, because that's where all the action
+is. It's crucial to understand what that step does \textit{not} say. It
+doesn't say ``\textsc{Vote}($k$) is true for some number $k$." If it did,
+then since $k$'s value is arbitrary at that point, we would basically be
+assuming the very thing we were supposed to prove, which is circular
+reasoning and extremely unconvincing. But that's not what we did. Instead,
+we made the inductive hypothesis and said, ``okay then, let's assume for a
+second a 40-year-old can vote. We don't know for sure, but let's say she
+can. Now, if that's indeed true, can a 41-year-old also vote? The answer is
+yes." We might have said, ``okay then, let's assume for a second a
+7-year-old can vote. We don't know for sure, but let's say she can. Now, if
+that's indeed true, can an 8-year-old also vote? The answer is yes." Note
+carefully that we did \textit{not} say that 8-year-olds can vote! We merely
+said that \textit{if} 7-year-olds can, why then 8-year-olds must be able to
+as well. Remember that X$\Rightarrow$Y is true if either X is false or Y is
+true (or both). In the 7/8-year-old example, the premise X turns out to be
+false, so this doesn't rule out our implication.
+
+The result is a row of falling dominos, up to whatever number we wish. Say
+we want to verify that a \textbf{25-year-old} can vote. Can we be sure? Well:
+\begin{enumerate}
+\item If a 24-year-old can vote, then that would sure prove it (by the
+inductive step).
+\item So now we need to verify that a 24-year-old can vote. Can he? Well,
+if a 23-year-old can vote, then that would sure prove it (by the inductive
+step).
+\item Now everything hinges on whether a 23-year-old can vote. Can he? Well,
+if a 22-year-old can vote, then that would sure prove it (by the inductive
+step).
+\item So it comes down to whether a 22-year-old can vote. Can he? Well,
+if a 21-year-old can vote, then that would sure prove it (by the inductive
+step).
+\item And now we need to verify whether a 21-year-old can vote. Can he? Yes
+(by the base case).
+\end{enumerate}
+
+\subsubsection{Example 2}
+
+\index{Gauss, Carl Friedrich}
+A famous story tells of Carl Friedrich Gauss, perhaps the most brilliant
+mathematician of all time, getting in trouble one day as a schoolboy. As
+punishment, he was sentenced to tedious work: adding together all the
+numbers from 1 to 100. To his teacher's astonishment, he came up with the
+correct answer in a moment, not because he was quick at adding integers,
+but because he recognized a trick. The first number on the list (1) and the
+last (100) add up to 101. So do the second number (2) and the
+second-to-last (99). So do 3 and 98, and so do 4 and 97, \textit{etc.}, all
+the way up to 50 and 51. So really what you have here is 50 different sums
+of 101 each, so the answer is $50\times 101 = 5050$. In general, if you add
+the numbers from 1 to $x$, where $x$ is any integer at all, you'll get
+$\frac{x}{2}$ sums of $x+1$ each, so the answer will be $\frac{x(x+1)}{2}$.
+
+Now, use mathematical induction to prove that Gauss was right
+(\textit{i.e.}, that $\sum_{i=1}^x{i} = \frac{x(x+1)}{2}$) for all numbers
+$x$.
+
+First we have to cast our problem as a predicate about natural numbers.
+This is easy: we say ``let P($n$) be the proposition that $\sum_{i=1}^n{i}
+= \frac{n(n+1)}{2}$."
+
+Then, we satisfy the requirements of induction:
+
+\begin{enumerate} 
+
+\item \textbf{base case.} We prove that P(1) is true simply by plugging it
+in. Setting $n=1$ we have
+\begin{align*}
+\sum_{i=1}^1{i} & \stackrel{?}{=} \frac{1(1+1)}{2} \\
+1 & \stackrel{?}{=} \frac{1(2)}{2} \\
+1 &= 1 \quad \checkmark
+\end{align*}
+
+\item \textbf{inductive step.}
+We now must prove that P($k$)$\Rightarrow$P($k+1$). Put another way, we
+\textit{assume} P($k$) is true, and then use that assumption to prove that
+P($k+1$) is also true.
+
+Let's be crystal clear where we're going with this. Assuming that P($k$) is
+true means we can count on the fact that
+\begin{align*}
+1+2+3+\cdots+k = \frac{k(k+1)}{2}.
+\end{align*}
+
+What we need to do, then, is prove that P($k+1$) is true, which amounts to
+proving that
+\begin{align*}
+1+2+3+\cdots+(k+1) = \frac{(k+1)((k+1)+1)}{2}.
+\end{align*}
+
+Very well. First we make the inductive hypothesis, which allows us to
+assume:
+\begin{align*}
+1+2+3+\cdots+k = \frac{k(k+1)}{2}.
+\end{align*}
+The rest is just algebra. We add $k+1$ to both sides of the equation, then
+multiply things out and factor it all together. Watch carefully:
+\begin{align*}
+1+2+3+\cdots+k+(k+1) &= \frac{k(k+1)}{2} + (k+1) \\
+&= \frac{1}{2}k^2 + \frac{1}{2}k + k + 1 \\
+&= \frac{1}{2}k^2 + \frac{3}{2}k + 1 \\
+&= \frac{k^2+3k+2}{2} \\
+&= \frac{(k+1)(k+2)}{2} \\
+&= \frac{(k+1)((k+1)+1)}{2}. \quad \checkmark
+\end{align*}
+
+\end{enumerate}
+Therefore, $\forall n\geq1 \ \text{P}(n)$.
+
+
+\subsubsection{Example 3}
+
+Another algebra one. You learned in middle school that $(ab)^n=a^n b^n$.
+Prove this by mathematical induction.
+
+Solution: Let P($n$) be the proposition that $(ab)^n=a^n b^n$. 
+
+\begin{enumerate}
+\item \textbf{base case.} We prove that P(1) is true simply by plugging it
+in. Setting $n=1$ we have
+\begin{align*}
+(ab)^1 &= \stackrel{?}{=} a^1 b^1 \\
+ab &= ab \quad \checkmark
+\end{align*}
+
+\item \textbf{inductive step.}
+We now must prove that P($k$)$\Rightarrow$P($k+1$). Put another way, we
+\textit{assume} P($k$) is true, and then use that assumption to prove that
+P($k+1$) is also true.
+
+Let's be crystal clear where we're going with this. Assuming that P($k$) is
+true means we can count on the fact that
+\begin{align*}
+(ab)^k = a^k b^k.
+\end{align*}
+
+What we need to do, then, is prove that P($k+1$) is true, which amounts to
+proving that
+\begin{align*}
+(ab)^{k+1} = a^{k+1} b^{k+1}.
+\end{align*}
+
+Now we know by the very definition of exponents that:
+\begin{align*}
+(ab)^{k+1} &= ab(ab)^k. \\
+\end{align*}
+
+Adding in our inductive hypothesis then lets us determine:
+\begin{align*}
+(ab)^{k+1} &= ab(ab)^k \\
+&= ab \cdot a^k b^k \\
+&= a \cdot a^k \cdot b \cdot b^k \\
+&= a^{k+1} b^{k+1} \quad \checkmark
+\end{align*}
+\end{enumerate}
+
+Therefore, $\forall n\geq1 \ \text{P}(n)$.
+
+
+\subsubsection{Example 4}
+
+\index{perfect binary tree}
+\index{leaves}
+\index{internal nodes}
+Let's switch gears and talk about structures. Prove that the number of
+leaves in a perfect binary tree is one more than the number of internal
+nodes.
+
+Solution: let P($n$) be the proposition that a perfect binary tree of
+height $n$ has one more leaf than internal node. That is, if $l_k$ is the
+number of \textit{l}eaves in a tree of height $k$, and $i_k$ is the number of
+\textit{i}nternal nodes in a tree of height $k$, let P($n$) be the
+proposition that $l_n = i_n + 1$.
+
+\begin{enumerate}
+\item \textbf{base case.} We prove that P(0) is true simply by inspection.
+If we have a tree of height 0, then it has only one node (the root). This
+sole node is a leaf, and is not an internal node. So this tree has 1 leaf,
+and 0 internal nodes, and so $l_0 = i_0 + 1$. \quad \checkmark
+
+\item \textbf{inductive step.}
+We now must prove that P($k$)$\Rightarrow$P($k+1$). Put another way, we
+\textit{assume} P($k$) is true, and then use that assumption to prove that
+P($k+1$) is also true.
+
+Let's be crystal clear where we're going with this. Assuming that P($k$) is
+true means we can count on the fact that
+\begin{align*}
+l_k = i_k + 1.
+\end{align*}
+
+What we need to do, then, is prove that P($k+1$) is true, which amounts to
+proving that
+\begin{align*}
+l_{k+1} = i_{k+1} + 1.
+\end{align*}
+
+We begin by noting that the number of nodes \textit{on level $k$} of a perfect
+binary tree is $2^k$. This is because the root is only one node, it has two
+children (giving 2 nodes on level 1), both those children have two children
+(giving 4 nodes on level 2), all four of those children have two children
+(giving 8 nodes on level 3), \textit{etc.} Therefore, $l_k = 2^k$, and
+$l_{k+1} = 2^{k+1}$.
+
+Further, we observe that $i_{k+1} = i_k + l_k$: this is just how trees
+work. In words, suppose we have a perfect binary tree of height $k$, and we
+add another level of nodes to it, making it a perfect binary tree of height
+$k+1$. Then \textit{all} of the first tree's nodes (whether internal or
+leaves) become internal nodes of bigger tree.
+
+Combining these two facts, we have $i_{k+1} = i_k + 2^k$. By the inductive
+hypothesis, we assume that $2^k = i_k + 1$, and we now must prove that
+$2^{k+1} = i_{k+1} + 1$. Here goes:
+\begin{align*}
+n_{k+1} &= n_k + 2^k &\textsl{(property of trees)} \\
+n_{k+1} &= 2^k - 1 + 2^k &\textsl{(using inductive hypothesis)} \\
+n_{k+1} + 1 &= 2^k + 2^k \\
+n_{k+1} + 1 &= 2(2^k) \\
+n_{k+1} + 1 &= 2^{k+1}. \quad \checkmark
+\end{align*}
+
+\end{enumerate}
+
+Therefore, $\forall n\geq0 \ \text{P}(n)$.
+
+
+\subsection{Proof by induction: strong form}
+\index{strong form of induction}
+
+Now sometimes we actually need to make a stronger assumption than just
+``the single proposition P($k$) is true" in order to prove that P($k+1$) is
+true. In all the examples above, the $k+1$ case flowed directly from the
+$k$ case, and only the $k$ case. But sometimes, you need to know that
+\textit{all} the cases less than $k+1$ are true in order to prove the $k+1$
+case. In those situations, we use the \textbf{strong form} of mathematical
+induction. It says:
+
+\index{base case (of a proof)}
+\index{inductive step}
+\begin{enumerate}
+\item \label{basecasestrong} \textit{If} a predicate is true for a certain number,
+\item \label{inductivestepstrong} \textit{and} its being true for \textit{all
+numbers up to and including some number} would reliably mean that it's also
+true for the next number (\textit{i.e.}, one number greater), 
+\item \textit{then} it's true for all numbers.
+\end{enumerate}
+\index{inductive hypothesis}
+It's exactly the same as the weak form, except that the inductive
+hypothesis is stronger. Instead of having to prove
+\begin{center}
+P($k$)$\Rightarrow$P($k+1$),
+\end{center}
+we get to prove
+\begin{center}
+($\forall i\leq k$ P($i$))$\Rightarrow$P($k+1$).
+\end{center}
+At first glance that might not seem any easier. But if you look carefully,
+you can see that we've \textit{added information} to the left hand side of
+the implication.  No longer do we need to rely on the single fact that P(5)
+is true in order to prove P(6). Now we get to take advantage of the fact
+that P(1), P(2), P(3), P(4), and P(5) are \textit{all} known to be true
+when we try to prove P(6). And that can make a world of difference.
+
+
+\subsubsection{Example 1}
+
+The Fundamental Theorem of Arithmetic says that every natural number
+(greater than 2) is expressible as the product of one or more primes.  For
+instance, 6 can be written as ``$2 \cdot 3$", where 2 and 3 are primes. The
+number 7 is itself prime, and so can be written as ``$7$." The number 9,180
+can be written as ``$2 \cdot 2 \cdot 3 \cdot 3 \cdot 3 \cdot 5 \cdot 17$," all of
+which are primes. How can we prove that this is always possible, no matter
+what the number?
+
+Let P($n$) be the proposition that the number $n$ can be expressed as a
+product of prime numbers. Our proof goes like this:
+
+\begin{enumerate} 
+
+\item \textbf{base case.} P(2) is true, since 2 can be written as ``2," and
+2 is a prime number. (Note we didn't use 0 or 1 as our base case here,
+since actually neither of those numbers is expressible as a product of
+primes. Fun fact.)
+
+\item \textbf{inductive step.}
+We now must prove that ($\forall i \leq k$ \ P($k$))$\Rightarrow$P($k+1$).
+Put another way, we \textit{assume} that P($i$) is true for every number up
+to $k$, and then use that assumption to prove that P($k+1$) is true as
+well.
+
+Regarding the number $k+1$, there are two possibilities: either it's prime,
+or it's not. If it is, then we're done, because it can obviously be written
+as just itself, which is the product of one prime. (23 can be written as
+``23.") But suppose it's not.
+Then, it can be broken down as the product of two numbers, each less than
+itself. (21 can be broken down as $7 \cdot 3$; 24 can be broken down as $6
+\cdot 4$ or $12 \cdot 2$ or $8 \cdot 3$, take your pick.) Now we know nothing
+special about those two numbers\dots \textit{except} the fact that the
+inductive hypothesis tells us that \textit{all} numbers less than $k+1$ are
+expressible as the product of one or more primes! So these two numbers,
+whatever they may be, are expressible as the product of primes, and so when
+you multiply them together to get $k+1$, you will have a longer string of
+primes multiplied together. Therefore, ($\forall i \leq k$ \
+P($k$))$\Rightarrow$P($k+1$).
+
+\end{enumerate}
+
+Therefore, by the strong form of mathematical induction, $\forall n \geq 2$
+\ P($n$).
+
+You can see why we needed the strong form here. If we wanted to prove that
+15 is expressible as the product of primes, knowing that 14 is expressible
+as the product of primes doesn't do us a lick of good. What we needed to
+know was that 5 and 3 were expressible in that way. In general, the strong
+form of induction is useful when you have to break something into smaller
+parts, but there's no guarantee that the parts will be ``one less" than the
+original. You only know that they'll be \textit{smaller} than the original.
+A similar example follows.
+
+\subsubsection{Example 2}
+
+\index{free trees}
+\index{edges}
+\index{nodes (of a graph)}
+Earlier (p.\pageref{onelessedge}) we stated that every free tree has one less
+edge than node. Prove it.
+
+Let P($n$) be the proposition that a free tree with $n$ nodes has $n-1$
+edges.
+
+\begin{enumerate} 
+
+\item \textbf{base case.} P(1) is true, since a free tree with 1 node is
+just a single lonely node, and has no edges.
+
+\item \textbf{inductive step.}
+We now must prove that ($\forall i \leq k$ \ P($k$))$\Rightarrow$P($k+1$).
+Put another way, we assume that all trees \textit{smaller} than the one
+we're looking at have one more node than edge, and then use that
+assumption to prove that the tree we're looking at also has one more node
+than edge. 
+
+We proceed as follows. Take any free tree with $k+1$ nodes. Removing any
+edge gives you \textit{two} free trees, each with $k$ nodes or less. (Why?
+Well, if you remove any edge from a free tree, the nodes will no longer be
+connected, since a free tree is ``minimally connected" as it is. And we
+can't break it into \textit{more} than two trees by removing a single edge,
+since the edge connects exactly two nodes and each group of nodes on the
+other side of the removed edge are still connected to each other.)
+
+Now the sum of the nodes in these two smaller trees is still $k+1$. (This
+is because we haven't removed any nodes from the original free tree ---
+we've simply removed an edge.) If we let $k_1$ be the number of nodes in
+the first tree, and $k_2$ the number of nodes in the second, we have $k_1 +
+k_2 = k + 1$.
+
+Okay, but how many \textit{edges} does the first tree have? Answer: $k_1 -
+1$. How do we know that? \textit{By the inductive hypothesis.} We're
+assuming that any tree smaller than $k+1$ nodes has one less edge than
+node, and so we're taking advantage of that (legal) assumption here.
+Similarly, the second tree has $k_2 - 1$ edges.
+
+The total number of edges in these two trees is thus $k_1 - 1 + k_2 - 1$,
+or $k_1 + k_2 - 2$. Remember that $k+1 = k_1 + k_2$ (no nodes removed), and
+so this is a total of $k+1-2 = k-1$ edges.
+
+Bingo. \textit{Removing} one edge from our original tree of $k+1$ nodes
+gave us a total of $k-1$ edges. Therefore, that original tree must have had
+$k$ edges. We have now proven that a tree of $k+1$ nodes has $k$ edges,
+assuming that all smaller trees also have one less edge than node.
+
+\end{enumerate}
+
+Therefore, by the strong form of mathematical induction, $\forall n \geq 1$
+\ P($n$).
+
+\section{Final word}
+
+Finding proofs is an art. In some ways, it's like programming: you have a
+set of building blocks, each one defined very precisely, and your goal is
+to figure out how to assemble those blocks into a structure that starts
+with only axioms and ends with your conclusion. It takes skill, patience,
+practice, and sometimes a little bit of luck. 
+
+\index{Appel, Kenneth}
+\index{Haken, Wolfgang}
+\index{Wiles, Andrew}
+\index{Goldbach, Christian}
+\index{P=NP?}
+Many mathematicians spend years pursuing one doggedly difficult proof, like
+Appel and Haken who finally cracked the infamous four-color map problem in
+1976, or Andrew Wiles who solved Fermat's Last Theorem in 1994. Some famous
+mathematical properties may never have proofs, such as Christian Goldbach's
+1742 conjecture that every even integer is the sum of two primes, or the
+most elusive and important question in computing theory: does P=NP? (Put
+very simply: does the class of problems where it's easy to verify a
+solution once you have it but crazy hard to find one actually have an easy
+algorithm for finding them we just haven't figured out yet? Most computer 
+scientists think ``no," but despite a mind-boggling number of hours
+invested by the brightest minds in the world, no one has ever been able to
+prove it one way or the other.)
+
+Most practicing computer scientists spend time taking advantage of the
+known results about mathematical objects and structures, and rarely if ever
+have to construct a water-tight proof about them. For the more
+theoretically-minded student, however, who enjoys probing the basis behind
+the tools and speculating about additional properties that might exist,
+devising proofs is an essential skill that can also be very rewarding.

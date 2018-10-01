@@ -1,0 +1,205 @@
+
+\chapter{Meetup at the trailhead}
+
+Before we set out on our ``cool, brisk walk," let's get oriented. What
+\textit{is} discrete mathematics, anyway? Why is it called that? What does
+it encompass? And what is it good for?
+
+Let's take the two words of the subject, in reverse order. First,
+\textit{math}. When most people hear ``math," they think ``numbers." After
+all, isn't math the study of quantity? And isn't that the class where we
+first learned to count, add, and multiply?
+
+Mathematics certainly has its root in the study of numbers ---
+specifically, the ``natural numbers" (the integers from 1 on up) that
+fascinated the ancient Greeks. Yet math is broader than this, almost to the
+point where numbers can be considered a special case of something deeper.
+In this book, when we talk about trees, sets, or formal logic, there might
+not be a number in sight.
+
+Math is about \textbf{abstract, conceptual objects that have
+properties, and the implications of those properties.} An ``object" can be
+any kind of ``thought material" that we can define and reason about
+precisely. Much of math deals with questions like, ``suppose we defined a
+certain kind of thing that had certain attributes.  What would be the
+implications of this, if we reasoned it all the way out?" The ``thing" may
+or may not be numerical, whatever it turns out to be. Like a number,
+however, it will be crisply defined, have certain known aspects to it, and
+be capable of combining with other things in some way.
+
+Fundamental to math is that it deals with the \textit{abstract}. Abstract,
+which is the opposite of concrete, essentially means something that can't
+be perceived with the senses. A computer chip is concrete: you can touch
+it, you can see it. A number is not; nor is a function, a binary tree, or a
+logical implication. The only way to perceive these things is with the
+power of the mind. We will write expressions and draw pictures of many of
+our mathematical structures in order to help visualize them, and nearly
+everything we study will have practical applications whereby the
+abstractness gets grounded in concreteness for some useful purpose. But the
+underlying mathematical entity remains abstract and ethereal --- only
+accessible to the mind's eye. We may use a pencil to form the figure ``5"
+on a piece of paper, but that is only a concrete manifestation of the
+underlying concept of ``five-ness." Don't mistake the picture or the symbol
+for the thing itself, which always transcends any mere physical
+representation.
+
+The other word in the name of our subject is ``discrete" (not to be
+confused with ``discreet," which means something else entirely). The best
+way to appreciate what discrete means is to contrast it with its opposite,
+continuous. Consider the following list:
+
+\begin{center}
+\begin{tabular}{c c}
+Discrete & Continuous \\
+\hline
+whole numbers ($\mathbb{Z}$) & real numbers ($\mathbb{R}$) \\
+\texttt{int} & \texttt{double} \\
+digital & analog \\
+quantum & continuum \\
+counting & measuring \\
+number theory & analysis \\
+$\Sigma$ & $\int$ \\
+-- & $\frac{d}{dx}$ \\
+\end{tabular}
+\end{center}
+
+What do the left-hand entries have in common? They describe things that are
+measured in crisp, distinct intervals, rather than varying smoothly over a
+range. Discrete things jump suddenly from position to position, with rigid
+precision.  If you're 5 feet tall, you might some day grow to 5.3 feet; but
+though there might be 5 people in your family, there will never be 5.3
+(although there could be 6 someday).
+
+The last couple of entries on this list are worth a brief comment. They are
+math symbols, some of which you may be familiar with. On the right side ---
+in the continuous realm --- are $\int$ and $\frac{d}{dx}$, which you'll
+remember if you've taken calculus. They stand for the two fundamental
+operations of integration and differentiation. Integration, which can be
+thought of as finding ``the area under a curve," is basically a way of
+adding up a whole infinite bunch of numbers over some range. When you
+``integrate the function $x^2$ from 3 to 5," you're really adding up all
+the tiny, tiny little vertical slivers that comprise the area from $x=3$ on
+the left to $x=5$ on the right. Its corresponding entry in the left-column
+of the table is $\Sigma$, which is just a short-hand for ``sum up a bunch
+of things." Integration and summation are equivalent operations, it's just
+that when you integrate, you're adding up all the (infinitely many) slivers
+across the real-line continuum. When you sum, you're adding up a fixed
+sequence of entries, one at a time, like in a loop. $\Sigma$ is just the
+discrete ``version" of $\int$. 
+
+The same sort of relationship holds between ordinary subtraction (``--")
+and differentiation ($\frac{d}{dx}$). If you've plotted a bunch of discrete
+points on $x$-$y$ axes, and you want to find the slope between two of them,
+you just subtract their $y$ values and divide by the ($x$) distance between
+them. If you have a smooth continuous function, on the other hand, you use
+differentiation to find the slope at a point: this is essentially
+subtracting the tiny tiny difference between two supremely close points and
+then dividing by the distance between them. Thus subtraction is just the
+discrete ``version" of $\frac{d}{dx}$.
+
+Don't worry, you don't need to have fully understood any of the integration
+or differentiation stuff I just talked about, or even to have taken
+calculus yet. I'm just trying to give you some feel for what ``discrete"
+means, and how the dichotomy between discrete and continuous really runs
+through all of math and computer science. In this book, we will mostly be
+focusing on discrete values and structures, which turn out to be of more
+use in computer science.  That's partially because as you probably know,
+computers themselves are discrete, and can only store and compute discrete
+values. There can be many of them --- megabytes, gigabytes, terabytes ---
+but each value stored is fundamentally comprised of bits, each of which has
+a value of either 0 or 1. This is unlike the human brain, by the way, whose
+neuronal synapses communicate based on the \textit{continuous} quantities
+of chemicals present in their axons. So I guess ``computer" and ``brain"
+are another pair of entries we could add to our discrete vs. continuous
+list.
+
+There's another reason, though, why discrete math is of more use to
+computer scientists than continuous math is, beyond just the bits-and-bytes
+thing. Simply put, computers operate algorithmically. They carry out
+programs in step-by-step, iterative fashion. First do this, then do that,
+then move on to something else. This mechanical execution, like the ticking
+of a clock, permeates everything the computer can do, and everything we can
+tell it to do. At a given moment in time, the computer \textit{has}
+completed step 7, but \textit{not} step 8; it has accumulated 38 values,
+but not yet 39; its database has exactly 15 entries in it, no more and no
+less; it knows that after accepting this friend request, there will be
+exactly 553 people in your set of friends. The whole paradigm behind
+reasoning about computers and their programs is discrete, and that's why we
+computer scientists find different problems worth thinking about than most
+of the world did a hundred years ago.
+
+But it's still math. It's just \textit{discrete} math. There's a lot to
+come, so limber up and let me know when you're ready to hit the road.
+
+\section{Exercises}
+
+Use an index card or a piece of paper folded lengthwise, and cover up the
+right-hand column of the exercises below. Read each exercise in the
+left-hand column, answer it in your mind, then slide the index card down to
+reveal the answer and see if you're right! For every exercise you missed,
+figure out why you missed it before moving on.
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.3\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.6\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\item 
+What's the opposite of concrete?
+&
+Abstract.
+\\
+\hline
+\item 
+What's the opposite of discrete?
+& 
+Continuous.
+\\
+\hline
+\item 
+Consider a quantity of water in a glass. Would you call it abstract, or concrete?
+Discrete, or continuous?
+& 
+Concrete, since it's a real entity you can experience with the senses.
+Continuous, since it could be any number of ounces (or liters, or
+tablespoons, or whatever). The amount of water certainly doesn't have to be
+an integer. (Food for thought: since all matter is ultimately comprised of
+atoms, are even substances like water discrete?)
+\\
+\hline
+\item 
+Consider the number 27. Would you call it abstract, or concrete?
+Discrete, or continuous?
+& 
+Abstract, since you can't see or touch or smell ``twenty-seven." Probably
+discrete, since it's an integer, and when we think of whole numbers we
+think ``discrete." (Food for thought: in real life, how would you know
+whether I meant the integer ``27" or the decimal number ``27.0?" And does
+it matter?)
+\\
+\hline
+\item 
+Consider a bit in a computer's memory. Would you call it abstract, or
+concrete?  Discrete, or continuous?
+& 
+Clearly it's discrete. Abstract vs. concrete, though, is a little tricky.
+If we're talking about the actual transistor and capacitor that's
+physically present in the hardware, holding a tiny charge in some little
+chip, then it's concrete. But if we're talking about the value ``1" that is
+conceptually part of the computer's currently executing state, then it's
+really abstract just like 27 was. In this book, we'll always be talking
+about bits in this second, abstract sense.
+\\
+\hline
+\item 
+If math isn't just about numbers, what else is it about?
+& 
+Any kind of abstract object that has properties we can reason about.
+\\
+\hline
+
+\end{longtable}
+\end{enumerate}
+\end{small}

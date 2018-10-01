@@ -1,0 +1,890 @@
+
+\chapter{Sets}
+\label{chap:sets}
+
+\index{Cantor, Georg}
+The place from which we'll start our walk is a body of mathematics called
+``set theory." Set theory has an amazing property: it's so simple and
+applicable that almost all the rest of mathematics can be based on it! This
+is all the more remarkable because set theory itself came along pretty late
+in the game (as things go) --- it was singlehandedly invented by one
+brilliant man, Georg Cantor, in the 1870's. That may seem like a long time
+ago, but consider that by the time Cantor was born, mankind had already
+accumulated an immense wealth of mathematical knowledge: everything from
+geometry to algebra to calculus to prime numbers. Set theory was so elegant
+and universal, though, that after it was invented, nearly everything in
+math was redefined from the ground up to be couched in the language of
+sets. It turns out that this simple tool is an amazingly powerful way to
+reason about mathematical concepts of all flavors. Thus everything else in
+this book stands on set theory as a foundation.
+
+Cantor, by the way, went insane as he tried to extend set theory to fully
+encompass the concept of infinity. Don't let that happen to you.
+
+
+
+\section{The idea of a set}
+
+A \textbf{set} \index{sets} is a selection of certain things out of a
+(normally larger) group.  When we talk about a set, we're declaring that
+certain specific items from that group are \textit{in} the set, and certain
+items are \textit{not} in the set. There's no shades of gray: every element
+is either in or out. \index{elements (of sets)}
+
+For instance, maybe the overall group I'm considering is my family, which
+consists of five people: Daddy, Mommy, Lizzy, T.J., and Johnny. We could
+define one set --- call it $A$ --- that contains Daddy and Lizzy, but not
+the other three. Another set $B$ might have Lizzy, T.J., and Johnny in it,
+but not the two parents. The set $C$ might have Daddy and \textit{only}
+Daddy in it.  The set $D$ might have all five Davieses, \index{Davies
+family} and the set $E$
+might have nobody at all. \textit{Etc.} You can see that every set is just
+a way of specifying which elements are in and which are out.
+
+Normally a set will be based on some property of its members, rather than
+just being some random assortment of elements. That's what makes it worth
+thinking about.  For example, the set $P$ (for ``parents") might be ``all
+the Davieses who are parents": this set would contain Daddy and Mommy, and
+no one else. The set $F$ (for ``female") might be declared as the female
+members, and contain Mommy and Lizzy. The set $H$ (for ``humans") would
+contain all five elements of the group. And so on.
+
+As with most of math, it turns out to be useful to define symbols for these
+concepts, because then we can talk about them more precisely and concisely.
+We normally list the members of a set using curly braces, like this:
+\[
+A = \{~\text{Daddy}, \text{Lizzy}~\}
+\]
+or
+\[
+B = \{~\text{Lizzy}, \text{T.J.}, \text{Johnny}~\}
+\]
+Note that it doesn't matter what order you list the members in. The set
+$F$ of females contains Mommy and Lizzy, but it's not like Mommy is the
+``first" female or anything. That doesn't even make any sense. There is no
+``first." A set's members are all equally members. So $P$ is the same
+whether we write it like this:
+\[
+P = \{~\text{Daddy}, \text{Mommy}~\}
+\]
+or this:
+\[
+P = \{~\text{Mommy}, \text{Daddy}~\}.
+\]
+Those are just two different ways of writing the same thing.
+
+The set $E$ that had nobody in it can be written like this, of course:
+\[
+E = \{~\}
+\]
+but we sometimes use this special symbol instead:
+\[
+E = \varnothing.
+\]
+However you write it, this kind of set (one that has no elements) is
+referred to as an \textbf{empty set}.\index{empty set}
+
+The set $H$, above, contained \textit{all} the members of the group under
+consideration. Sometimes we'll refer to ``the group under consideration" as
+the ``domain of discourse." \index{domain of discourse ($\Omega$)} It too is a set, and we usually use the symbol
+$\Omega$ to refer to it.\footnote{Some authors use the symbol $U$ for this,
+and call it the ``universal set."\index{universal set}} So in this case,
+\[
+\Omega = \{~\text{Mommy}, \text{Johnny}, \text{T.J.}, \text{Daddy},
+\text{Lizzy}~\}.
+\]
+Another symbol we'll use a lot is ``$\in$", which means ``is a member
+of." \index{member (of set)} Since Lizzy is a female, we can write:
+\[
+\text{Lizzy} \in F
+\]
+to show that Lizzy is a member of the $F$ set. Conversely, we write:
+\[
+\text{T.J.} \notin F
+\]
+to show that T.J. is not. 
+
+As an aside, I mentioned that every item is either in, or not in, a set:
+there are no shades of gray. Interestingly, researchers have developed
+another body of mathematics called (I kid you not) ``fuzzy set theory."
+\index{sets, fuzzy} Fuzzy sets change this membership assumption: items can
+indeed be ``partially in" a set. One could declare, for instance, that
+Daddy is ``10\% female," which means he's only 10\% in the $F$ set. That
+might not make much sense for gender, but you can imagine that if we
+defined a set $T$ of ``the tall people," such a notion might be useful. At
+any rate, this example illustrates a larger principle which is important to
+understand: in math, things are the way they are simply because we've
+decided it's useful to think of them that way. If we decide there's a
+different useful way to think about them, we can define new assumptions and
+proceed according to new rules. It doesn't make any sense to say ``sets are
+(or aren't) \textit{really} fuzzy": because there is no ``really." All
+mathematics proceeds from whatever mathematicians have decided is useful to
+define, and any of it can be changed at any time if we see fit.
+
+\section{Defining sets}
+
+\index{extensional} 
+\index{intensional}
+There are two ways to define a set: \textbf{extensionally} and
+\textbf{intensionally}\footnote{Spelling nit: ``inten\textbf{s}ionally" has
+an `s' in it. ``Inten\textbf{t}ionally," meaning ``deliberately," is a
+completely different word.}. I'm not saying there are two kinds of sets:
+rather, there are simply two \textit{ways to specify} a set.
+
+To define a set extensionally is to list its actual members. That's what we
+did when we said $P = \{~\text{Daddy}, \text{Mommy}~\}$, above. In this
+case, we're not giving any ``meaning" to the set; we're just mechanically
+spelling out what's in it. The elements Daddy and Mommy are called the
+\textit{extension} \index{extensional} of the set $P$.
+
+The other way to specify a set is intensionally, which means to describe
+its meaning. Another way to think of this is specifying a rule by which it
+can be determined whether or not a given element is in the set. If I say
+``Let $P$ be the set of all parents," I am defining $P$ intensionally. I
+haven't explicitly said which specific elements of the set are in $P$. I've
+just given the meaning of the set, from which you can figure out the
+extension. We call ``parent-ness" the \textit{intension} \index{intensional}
+of $P$.
+
+Note that two sets with different intensions might nevertheless have
+the same extension. Suppose $O$ is ``the set of all people over 25 years
+old" and $R$ is ``the set of all people who wear wedding rings." If our
+$\Omega$ is the Davies family, then $O$ and $R$ have the same extension
+(namely, Mommy and Daddy). They have different intensions, though:
+conceptually speaking, they're describing different things. One could
+imagine a world in which older people don't all wear wedding rings, or one
+in which some younger people do. Within the domain of discourse of the
+Davies family, however, the extensions happen to coincide.
+
+Fact: we say two sets are equal \textit{if they have the same extension.}
+\index{equality (for sets)} This might seem unfair to intensionality, but
+that's the way it is. So it is totally legit to write:
+\[
+O = R
+\]
+since by the definition of set equality, they are in fact equal. I thought
+this was weird at first, but it's really no weirder than saying ``the
+number of years the Civil War lasted = Brett Favre's jersey number when he
+played for the Packers." The things on the left and right side of that
+equals sign refer conceptually to two very different things, but that
+doesn't stop them from both having the value 4, and thus being equal.
+
+\index{curly brace notation} 
+\index{set-builder notation}
+By the way, we sometimes use the curly brace notation in combination with a
+colon to define a set intensionally. Consider this:
+\[
+M = \{~k : \text{$k$ is between 1 and 20, and a multiple of 3}~\}.
+\]
+When you reach a colon, pronounce it as ``such that." So this says ``$M$ is
+the set of all numbers $k$ such that $k$ is between 1 and 20, and a
+multiple of 3." (There's nothing special about $k$, here; I could have
+picked any letter.) This is an intensional definition, since we haven't listed
+the specific numbers in the set, but rather given a rule for finding them.
+Another way to specify this set would be to write
+\[
+M = \{~3,6,9,12,15,18~\}
+\]
+which is an extensional definition of the same set.
+
+\index{intensional} 
+\index{extensional} 
+Interesting thought experiment: what happens if you enlarge the intension
+of a set by adding conditions to it?  Answer: increasing the intension
+\textit{decreases} the extension. For example, suppose $M$ is initially
+defined as the set of all males (in the Davies family). Now suppose I
+decide to add to that intension by making it the set of all \textit{adult}
+males. By adding to the intension, I have now reduced the extension from 
+\{~Daddy, T.J., Johnny~\} to just \{~Daddy~\}.  The reverse is true as well:
+trimming down the intension by removing conditions effectively increases
+the extension of the set. Changing ``all male persons" to just ``all
+persons" includes Mommy and Lizzy in the mix.
+
+
+\section{Finite and infinite sets}
+
+\index{sets, infinite} \index{sets, finite} Sets can have an infinite
+number of members. That doesn't make sense for the Davies family example,
+but for other things it does, of course, like:
+\[
+I = \{~k : \text{$k$ is a multiple of 3}~\}.
+\]
+\index{Cantor, Georg}
+
+Obviously there are infinitely many multiples of 3, and so $I$ has an
+unlimited number of members. Not surprisingly, we call $I$ an \textbf{infinite
+set}. More surprisingly, it turns out that there are different \textit{sizes}
+of infinite sets, and hence different \textit{kinds} of infinity. For
+instance, even though there are infinitely many whole numbers, and also
+infinitely many real (decimal) numbers, there are nevertheless \textit{more}
+real numbers than whole numbers. This is the thing that drove Cantor insane,
+so we won't discuss it more here. For now, just realize that every set is
+either finite or infinite. \index{infinity}
+
+You might think, by the way, that there's no way to define an infinite set
+extensionally, since that would require infinite paper. This isn't true,
+though, if we creatively use an ellipsis: \index{ellipsis}
+\[
+I = \{~3,6,9,12,15,\dots~\}
+\]
+This is an extensional definition of $I$, since we're explicitly listing
+all the members. It could be argued, though, that it's really intensional,
+since the interpretation of ``\dots" requires the reader to figure out the
+rule and mentally apply it to all remaining numbers. Perhaps in reality we
+are giving an intensional definition, cloaked in an extensional-looking
+list of members. I'm on the fence here.
+
+
+\section{Sets are not arrays}
+
+If you've done some computer programming, you might see a resemblance
+between sets and the collections of items often used in a program: arrays,
+perhaps, or linked lists. \index{arrays} \index{linked lists} To be sure,
+there are some similarities. But there are also some very important
+differences, which must not be overlooked:
+
+\begin{itemize}
+
+\item \textbf{No order.} \index{order (in sets)} As previously mentioned,
+there is no order to the members of a set. ``\{Daddy, Mommy\}" is the same
+set as ``\{Mommy, Daddy\}". In a computer program, of course, most arrays
+or lists have first, second, and last elements, and an index number
+assigned to each.
+
+\item \textbf{No duplicates.} \index{duplicates (in sets)} Suppose $M$ is
+the set of all males. What would it possibly mean to say $M$ = \{T.J.,
+T.J., Johnny\}?  Would that mean that ``T.J. is twice the man that Johnny
+is"? This is obviously nonsensical. The set $M$ is based on a property:
+maleness. Each element of $\Omega$ is either male, or it isn't. It can't be
+``male three times." Again, in an array or linked list, you could certainly
+have more than one copy of the same item in different positions.
+
+\item \textbf{Infinite sets.} 'Nuff said. I've never seen an array with
+infinitely many elements, and neither will you. \index{sets, infinite}
+
+\item \textbf{Untyped.} \index{typed} \index{untyped} \index{heterogeneous}
+Most of the time, an array or other collection in a computer program contains
+elements of only a single \textit{type}: it's an array of integers, or a
+linked list of \texttt{Customer} objects, for example. This is important
+because the program often needs to treat all elements in the collection the
+same way. Perhaps it needs to loop over the array to add up all the numbers,
+or iterate through a customer list and search for customers who have not
+placed an order in the last six months. The program would run into problems if
+it tried to add a string of text to its cumulative total, or encountered a
+\texttt{Product} object in the middle of its list of \texttt{Customer}s. Sets,
+though, can be \textbf{heterogeneous}, meaning they can contain different
+kinds of things. The Davies family example had all human beings, but nothing
+stops me from creating a set $X$ = \{~Jack Nicholson, Kim Kardashian,
+Universal Studios, 5786, $\bigstar$~\}.
+
+I don't press this point too hard for a couple of reasons. First, most
+programming languages do allow heterogeneous collections of some sort, even if
+they're not the most natural thing to express. In Java, you can define an
+\texttt{ArrayList} as a non-generic so that it simply holds items of class
+``\texttt{Object}." In C, you can have an array of \texttt{void *}'s ---
+pointers to some unspecified type --- which allows your array to point to
+different kinds of things. Unless it's a loosely-typed language,
+\index{loosely-typed languages} though (like Perl or JavaScript), it sort of
+feels like you're bending over backwards to do this. The other reason I make
+this distinction lightly is that when we're dealing with sets, we often
+\textit{do} find it useful to deal with things of only one type, and so our
+$\Omega$ ends up being \textbf{homogeneous} \index{homogeneous} anyway.
+
+\end{itemize}
+
+Perhaps the biggest thing to remember here is that a set is a purely
+abstract concept, whereas an array is a concrete, tangible, explicit list.
+When we talk about sets, we're reasoning in general about large conceptual
+things, whereas when we deal with arrays, we're normally iterating through
+them for some specific purpose. You can't iterate through a set very easily
+because (1) there's no order to the members, and (2) there might well be
+infinitely many of them anyway.
+
+
+\section{Sets are not ordered pairs (or tuples)}
+
+You'll remember from high school algebra the notion of an \textbf{ordered
+pair} $(x,y)$. \index{ordered pairs} We dealt with those when we wanted to
+specify a point to plot on a graph: the first coordinate gave the distance
+from the origin on the x-axis, and the second coordinate on the y-axis.
+Clearly an ordered pair is not a set, because as the name implies it is
+ordered: $(3,-4) \neq (-4,3)$. For this reason, we'll be very careful to
+use curly braces to denote sets, and parentheses to denote ordered pairs.
+
+By the way, although the word ``coordinate" is often used to describe the
+elements of an ordered pair, that's really a geometry-centric word that
+implies a visual plot of some kind. Normally we won't be plotting elements
+like that, but we will still have use to deal with ordered pairs. I'll just
+call the constituent parts ``elements" to make it more general.
+\index{coordinates} \index{elements (of sets)}
+
+Three-dimensional points need \textbf{ordered triple}s $(x,y,z)$,
+\index{ordered triples} and it doesn't take a rocket scientist to deduce
+that we could extend this to any number of elements. The question is what
+to call them, and you \textit{do} sort of sound like a rocket scientist (or
+other generic nerd) when you say \textbf{tuple}. \index{tuples} (Some
+people rhyme this word with ``Drupal," and others with ``couple," by the
+way, and there seems to be no consensus). If you have an ordered-pair-type
+thing with 5 elements, therefore, it's a 5-tuple (or a quintuple). If it
+has 117 elements, it's a 117-tuple, and there's really nothing else to call
+it. The general term (if we don't know or want to specify how many
+elements) is \textbf{n-tuple}. \index{n-tuples} In any case, it's an
+ordered sequence of elements that may contain duplicates, so it's very
+different than a set.
+
+
+\section{Sets of sets}
+
+Sets are heterogeneous \index{heterogeneous} --- a single set can contain four
+universities, seven integers, and an ahi tuna --- and so it might occur to you
+that they can contain other \textit{sets} as well. This is indeed true, but
+let me issue a stern warning: you can get in deep water very quickly when you
+start thinking about ``sets of sets." \index{sets of sets} In 1901, in fact,
+the philosopher Bertrand Russell pointed out that this idea can lead to
+unresolvable contradictions unless you put some constraints on it. What became
+known as ``Russell's Paradox" \index{Russell's paradox} famously goes as
+follows: consider the set $R$ of all sets that do \textit{not} have themselves
+as members\footnote{For instance, the set $Z$ of all zebras is a member of
+$R$, since $Z$ itself is a set (not a zebra) and so $Z \notin Z$. The set $S$,
+on the other hand, defined as ``the set of all sets mentioned in this book,"
+is \textit{not} a member of $R$, since $S$ contains itself as a member.}. Now
+is $R$ a member of itself, or isn't it? Either way you answer turns out to be
+wrong (try it!) which means that this whole setup must be flawed at some
+level.
+
+The good news is that as long as you don't deal with this kind of
+self-referential loop (``containing yourself as a member") then it's pretty
+safe to try at home. Consider this set:
+\[
+V = \{~3, 5, \{~5, 4~\}, 2~\}.
+\]
+This set has \textit{four} (not five) members. Three of $V$'s members are
+integers: 2, 3, and 5. The other one is a set (with no name given). That
+other set, by the way, has two members of its own: 4 and 5. If you were
+asked, ``is $4 \in V$"? the answer would be \textit{no}.
+
+As a corollary to this, there's a difference between \index{empty set}
+\[
+\varnothing
+\]
+and
+\[
+\{~\varnothing~\}.
+\]
+
+The former is a set with no elements. The latter is a set with \textit{one}
+element: and that element just happens to be a set with nothing in it.
+
+
+\section{Cardinality}
+
+\index{cardinality (of sets)}
+
+When we talk about the number of elements in a set, we use the word
+\textbf{cardinality}. You'd think we could just call it the ``size" of the
+set, but mathematicians sometimes like words that sound cool. The
+cardinality of $M$ (the set of males, where the Davies family is the domain
+of discourse) is 3, because there are three elements in it. The cardinality
+of the empty set \index{empty set} $\varnothing$ is 0. The cardinality of
+the set of all integers is $\infty$. \index{infinity} Simple as that.
+
+The notation we use for cardinality is vertical bars, like with absolute
+value. So we write: $|M| = 3$.
+
+To restate the example immediately above, $|\varnothing| = 0$, but
+$|\{\varnothing\}| = 1$.
+
+
+\section{Some special sets}
+
+In addition to the empty set, there are symbols for some other common sets,
+including:
+
+\begin{itemize}
+\item $\mathbb{Z}$ --- \index{integers ($\mathbb{Z}$)} the integers (positive, negative, and zero)
+\item $\mathbb{N}$ --- \index{natural numbers ($\mathbb{N}$)} the natural numbers (positive integers and zero)
+\item $\mathbb{Q}$ --- \index{rational numbers ($\mathbb{Q}$)} the rational numbers (all numbers that can be
+expressed as an integer divided by another integer)
+\item $\mathbb{R}$ --- \index{real numbers ($\mathbb{R}$)} the real numbers
+(all numbers that aren't imaginary, \index{imaginary numbers}
+even decimal numbers that aren't rational) 
+\end{itemize}
+
+\index{Cantor, Georg}
+The cardinality of all these sets is infinity, \index{infinity} although as I alluded to
+previously, $|\mathbb{R}|$ is in some sense ``greater than" $|\mathbb{N}|$.
+For the curious, we say that $\mathbb{N}$ is a \textbf{countably infinite}\index{infinite, countably}\index{infinite, uncountably} set, whereas $|\mathbb{R}|$ is \textbf{uncountably infinite}. Speaking very
+loosely, this can be thought of this way: if we start counting up all the
+natural numbers 0, 1, 2, 3, 4, \dots, we will never get to the end of them.
+But \textit{at least we can start counting}. With the real numbers, we
+can't even get off the ground. Where do you begin? Starting with 0 is fine,
+but then what's the ``next" real number? Choosing anything for your second
+number inevitably skips a lot in between. Once you've digested this, I'll
+spring another shocking truth on you: $|\mathbb{Q}|$ is actually
+\textit{equal} to
+$|\mathbb{N}|$, not greater than it as $|\mathbb{R}|$ is. Cantor came up
+with an ingenious numbering scheme whereby all the rational numbers ---
+including 3, $-9$, $\frac{4}{17}$, and $-\frac{1517}{29}$ --- can be listed
+off regularly, in order, just like the integers can. And so
+$|\mathbb{Q}|=|\mathbb{N}|\neq|\mathbb{R}|$. This kind of stuff can
+blow your mind.
+
+
+\section{Combining sets}
+
+Okay, so we have sets. Now what can we do with them? When you first learn
+about numbers back before kindergarten, the next thing you learn is how to
+combine numbers using various operations to produce other numbers. These
+include $+, -, \times, \div,$ exponents, roots, \textit{etc.} Sets, too,
+have operations that are useful for combining to make other sets. These
+include:
+
+\begin{itemize}
+
+\index{set operators}
+\index{or (logical operator)}
+\item \textbf{Union} ($\cup$). \index{union (of sets)} The union of two
+sets is a set that includes the elements that \textit{either (or both)} of
+them have as members.  For instance, if $A$ = \{~Daddy, Lizzy~\}, and $B$ =
+\{~Lizzy, T.J., Johnny \}, then $A \cup B$ = \{~Daddy, Lizzy, T.J.,
+Johnny~\}. Note that an element is in the union if it is in $A$ \textit{or}
+$B$. For this reason, there is a strong relationship between the union
+operator of sets and the ``or" ($\vee$) operator of boolean logic that
+we'll see later.
+
+\index{and (logical operator)}
+\item \textbf{Intersection} ($\cap$). \index{intersection (of sets)} The
+intersection of two sets is a set that includes the elements that
+\textit{both} of them have as members. In the above example, $A \cap B$ =
+\{~Lizzy~\}. There is a strong connection between intersection and the
+``and" ($\wedge$) boolean logic operator.
+
+\item \textbf{(Partial) complement} ($-$). \index{complement, partial (of
+sets)} Looks like subtraction, but significantly different. $A - B$
+contains \textit{the elements from A that are not also in B}. So you start
+with $A$, and then ``subtract off" the contents of $B$, if they occur. In
+the above example, $A-B$ = \{~Daddy~\}.  (Note that T.J.  and Johnny didn't
+really enter in to the calculation.) Unlike $\cup$ and $\cap$, $-$ is not
+\textbf{commutative}. \index{commutative} This means it's not symmetrical:
+$A-B$ doesn't (normally) give the same answer as $B-A$. In this example,
+$B-A$ is \{~T.J., Johnny~\}, whereas if you ever reverse the operands with
+union or intersection, you'll always get the same result as before.
+
+\item \label{complement} \textbf{(Total) complement} ($\overline{X}$).
+\index{complement, total (of sets)} Same as the partial complement, above,
+except that the implied first operand is $\Omega$. In other words, $A-B$ is
+``all the things in $A$ that aren't in $B$," whereas $\overline{B}$ is
+``all the things \textit{period} that aren't in $B$." Of course, ``all the
+things period" means ``all the things that we're currently talking about."
+The domain of discourse $\Omega$ \index{domain of discourse ($\Omega$)} is
+very important here. If we're talking about the Davies family,
+\index{Davies family} we would say that $\overline{M}$ = \{~Mommy,
+Lizzy~\}, because those are all the Davieses who aren't male. If, on the
+other hand, $\Omega$ is ``the grand set of absolutely everything," then not
+only is Mommy a member of $\overline{M}$, but so is the number 12, the
+French Revolution, and my nightmare last Tuesday about a rabid platypus.
+
+\item \textbf{Cartesian product} ($\times$). \index{Cartesian product (of
+sets)} Looks like multiplication, but \textit{very} different. When
+you take the Cartesian product of two sets $A$ and $B$, you don't even get
+the elements from the sets in the result. Instead, you get \textit{ordered
+pairs} \index{ordered pairs} of elements. These ordered pairs represent
+each combination of an element from A and an element from B. For instance,
+suppose $A$ = \{~Bob, Dave~\} and $B$ = \{~Jenny, Gabrielle, and
+Tiffany~\}. Then:
+
+\begin{center}
+$A \times B$ = \{
+(Bob, Jenny), (Bob, Gabrielle), (Bob, Tiffany),\\
+(Dave, Jenny), (Dave, Gabrielle), (Dave, Tiffany)~\}.
+\end{center}
+
+Study that list. The first thing to realize is that it consists of neither
+guys nor girls, but of ordered pairs. (Clearly, for example, Jenny $\notin
+A\times B$.) Every guy appears exactly once with every girl, and the guy is
+always the first element of the ordered pair.  Since we have two guys and
+three girls, there are six elements in the result, which is an easy way to
+remember the $\times$ sign that represents Cartesian product. (Do not,
+however, make the common mistake of thinking that $A \times B$ \textit{is}
+6. $A \times B$ is a set, not a number. The cardinality of the set, of
+course, is 6, so it's appropriate to write $|A \times B| = 6$.)
+
+\end{itemize}
+
+\subsection{Laws of combining sets}
+
+There are a bunch of handy facts that arise when combining sets using the
+above operators. The important thing is that these are all easily seen just
+by thinking about them for a moment. Put another way, \textit{these aren't
+facts to memorize; they're facts to look at and see for yourself.} They're
+just a few natural consequences of the way we've defined sets and
+operations, and there are many others.
+
+\begin{itemize}
+
+\item \textbf{Union and intersection are commutative.} \index{commutative}
+As noted above, it's easy to see that $A \cup B$ will always give the same
+result as $B \cup A$.  Same goes for $\cap$. (Not true for $-$, though.)
+
+\item \textbf{Union and intersection are associative.} \index{associative}
+``Associative" means that if you have an operator repeated several times,
+left to right, it doesn't matter which order you evaluate them in. $(A \cup
+B) \cup C$ will give the same result as $A \cup (B \cup C)$. This means we
+can freely write expressions like ``$X \cup Y \cup Z$" and no one can
+accuse us of being ambiguous. This is also true if you have three (or more)
+intersections in a row. Be careful, though: associativity does \textit{not}
+hold if you have unions and intersections mixed together. If I write $A
+\cup B \cap C$ it matters very much whether I do the union first or the
+intersection first. This is just how it works with numbers: $4 + 3 \times
+2$ gives either 10 or 14 depending on the order of operations. In algebra,
+we learned that $\times$ has precedence over +, and you'll always do that
+one first in the absence of parentheses. We could establish a similar order
+for set operations, but we won't: we'll always make it explicit with
+parens.
+
+\item \textbf{Union and intersection are distributive.}
+\index{distributive}
+\label{distributivelaw} You'll recall from basic algebra that $a \cdot
+(b+c) = ab + ac$. Similarly with sets,
+\[
+X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z).
+\]
+It's important to work this out for yourself rather than just memorize it
+as a rule. Why does it work? Well, take a concrete example. Suppose $X$ is
+the set of all female students, $Y$ is the set of all computer science
+majors, and $Z$ is the set of all math majors. (Some students, of course,
+double-major in both.) The left-hand side of the equals sign says ``first
+take all the math and computer science majors and put them in a group.
+Then, intersect that group with the women to extract only the female
+students." The result is ``women who are either computer science majors or
+math majors (or both)." Now look at the right-hand side. The first pair of
+parentheses encloses only female computer science majors. The right pair
+encloses female math majors. Then we take the union of the two, to get a
+group which contains only females, and specifically only the females who
+are computer science majors or math majors (or both). Clearly, the two
+sides of the equals sign have the same extension.
+
+The distributive property in basic algebra doesn't work if you flip the
+times and plus signs (normally $a+b\cdot c \neq (a+b)\cdot (a+c)$), but
+remarkably it does here:
+\[
+X \cup (Y \cap Z) = (X \cup Y) \cap (X \cup Z).
+\]
+Using the same definitions of $X$, $Y$, and $Z$, work out the meaning of
+this one and convince yourself it's always true.
+
+\item \textbf{Identity laws.} \index{identity laws (of sets)} Simplest thing you've learned all day: $X
+\cup \varnothing = X$ and $X \cap \Omega = X$. You don't change $X$ by
+adding nothing to it, or taking nothing away from it.
+
+\item \textbf{Domination laws.} \index{domination laws (of sets)} The flip side of the above is that $X \cup
+\Omega = \Omega$ and $X \cap \varnothing = \varnothing$. If you take $X$,
+and then add everything and the kitchen sink to it, you get everything and
+the kitchen sink. And if you restrict $X$ to having nothing, it of course
+has nothing.
+
+\item \textbf{Complement laws.} $X \cup \overline{X}  = \Omega$.
+\index{complement laws (of sets)} This is another
+way of saying ``everything (in the domain of discourse) \index{domain of
+discourse ($\Omega$)} is either in, or
+not in, a set." So if I take $X$, and then I take everything \textit{not}
+in $X$, and smoosh the two together, I get everything. In a similar vein,
+$X \cap \overline{X} = \varnothing$, \index{empty set} because there can't be any element that's
+both in $X$ and not in $X$: that would be a contradiction. Interestingly,
+the first of these two laws has become controversial in modern philosophy.
+It's called ``the law of the excluded middle," \index{law of the excluded
+middle} and is explicitly repudiated in many modern logic systems.
+
+\item \textbf{De Morgan's laws.} \label{demorganslaws} \index{De Morgan's
+laws} Now these are worth
+memorizing, if only because (1) they're incredibly important, and (2) they
+may not slip right off the tongue the way the previous properties do. The
+first one can be stated this way:
+
+\[
+\overline{X \cup Y} = \overline{X} \cap \overline{Y}.
+\]
+
+Again, it's best understood with a specific example. Let's say you're
+renting a house, and want to make sure you don't have any surly characters
+under the roof. Let $X$ be the set of all known thieves. Let $Y$ be the set
+of all known murderers. Now as a landlord, you don't want any thieves or
+murderers renting your property. So who are you willing to rent to? Answer:
+if $\Omega$ is the set of all people, you are willing to rent to $\overline{X
+\cup Y}$.
+
+Why that? Because if you take $X \cup Y$, that gives you all the
+undesirables: people who are either murderers or thieves (or both). You
+don't want to rent to any of them. In fact, you want to rent to the
+\textit{complement} of that set; namely, ``anybody else." Putting an
+overbar on that expression gives you all the non-thieves and non-murderers.
+
+Very well. But now look at the right hand side of the equation. $\overline{X}$
+gives you the non-thieves. $\overline{Y}$ gives you the non-murderers. Now in
+order to get acceptable people, you want to rent only to someone who's
+\textit{in both groups.} Put another way, they have to be both a non-thief
+and a non-murderer in order for you to rent to them. Therefore, they must
+be in the intersection of the non-thief group and the non-murderer group.
+Therefore, the two sides of this equation are the same.
+
+The other form of De Morgan's law is stated by flipping the intersections
+and unions: \index{De Morgan's laws}
+ 
+\[
+\overline{X \cap Y} = \overline{X} \cup \overline{Y}.
+\]
+
+Work this one out for yourself using a similar example, and convince
+yourself it's always true.
+
+Augustus De Morgan, by the way, was a brilliant 19$^\text{th}$ century
+mathematician with a wide range of interests. His name will come up again
+when we study logic and mathematical induction.
+
+\end{itemize}
+
+
+\section{Subsets}
+
+We learned that the ``$\in$" symbol is used to indicate set membership: the
+element on the left is a member of the set on the right. A related but
+distinct notion is the idea of a \textbf{subset}. \index{subsets} When we
+say $X \subseteq Y$ (pronounced ``$X$ is a subset of $Y$"), it means that
+\textit{every member of $X$ is also a member of $Y$.} The reverse is not
+necessarily true, of course, otherwise ``$\subseteq$" would just mean
+``$=$". So if $A$ = \{~Daddy, Lizzy~\} and $K$ = \{~Daddy, Mommy, Lizzy~\},
+then we can say $A \subseteq K$.
+
+Be careful about the distinction between ``$\in$" and ``$\subseteq$", which
+are often confused. With $\in$, the thing on the left is an
+\textit{element}, \index{elements (of sets)} whereas with $\subseteq$, the thing on the left is a set.
+This is further complicated by the fact that the element on the left-hand
+side of $\in$ might well \textit{be} a set.
+
+Let's give some examples. Suppose that $Q$ is the set \{~4, \{~9, 4~\}, 2
+\}. $Q$ has three elements here, one of which is itself a set. Now suppose
+that we let $P$ be the set \{~4, 9~\}. Question: is $P \in Q$? The answer
+is yes: the set \{~4, 9~\} (which is the same as the set \{~9, 4~\}, just
+written a different way) is in fact an element of the set $Q$. Next
+question: is $P \subseteq Q$? The answer is no, $P \not\subseteq Q$. If $P$
+were a subset of $Q$, that would imply that every member of $P$ (there are
+two of them: 9 and 4) is also an element of $Q$, whereas in fact, only 4
+is a member of $Q$, not 9. Last question: if $R$ is defined to be \{~2, 4
+\}, is $R \subseteq Q$? The answer is yes, since both 2 and 4 are also
+members of $Q$.
+
+Notice that by the definition, every set is a subset of itself. Sometimes,
+though, it's useful to talk about whether a set is really a \textit{sub}set
+of another, and you don't want it to ``count" if the two sets are actually
+equal. This is called a \textbf{proper subset}, \index{subsets, proper} and
+the symbol for it is $\subset$. You can see the rationale for the choice of
+symbol, because ``$\subseteq$" is kind of like ``$\leq$" for numbers, and
+``$\subset$" is like ``$<$".
+
+Every set is a subset (not necessarily a proper one) of $\Omega$, because
+our domain of discourse \index{domain of discourse ($\Omega$)} by
+definition contains everything that can come up in conversation. Somewhat
+less obviously, the empty set \index{empty set} is a subset of every set.
+It's weird to think that $\varnothing \subseteq Q$ when $Q$ has several
+things in it, but the definition does hold. ``Every" member of
+$\varnothing$ (there are none) is in fact also a member of $Q$.
+
+One note about reading this notation that I found confusing at first.
+Sometimes the expression ``$a \in X$" is pronounced ``$a$ is an element of
+$X$," but other times it is read ``$a$, \textit{which is} an element of
+$X$". This may seem like a subtle point, and I guess it is, but if you're
+not ready for it it can be a extra stumbling block to understanding the
+math (which is the last thing we need). Take this hypothetical (but quite
+typical) excerpt from a mathematical proof:
+
+\begin{center}
+``Suppose $k \in \mathbb{N} < 10\dots$"
+\end{center}
+
+If you read this as ``Suppose $k$ \textit{is} a natural number \textit{is}
+less than 10," it's ungrammatical. It really should be understood as
+``Suppose $k$ (which is a natural number) is less than 10." This is
+sometimes true of additional clauses as well. For instance, the phrase
+``Suppose $k \in \mathbb{R} > 0$ is the x-coordinate of the first
+point" should be read ``Suppose $k$, \textit{which is a real number
+greater than zero}, is the x-coordinate of the first point."
+
+I'll leave you with a statement about numbers worth pondering and
+understanding:
+
+\[
+\varnothing \subset 
+\mathbb{N} \subset
+\mathbb{Z} \subset
+\mathbb{Q} \subset
+\mathbb{R} \subset
+\Omega.
+\]
+\index{natural numbers ($\mathbb{N}$)}
+\index{integers ($\mathbb{Z}$)}
+\index{rational numbers ($\mathbb{Q}$)}
+\index{real numbers ($\mathbb{R}$)}
+\index{empty set}
+\index{domain of discourse ($\Omega$)}
+
+
+\section{Power sets}
+
+\index{power sets}
+\textbf{Power set} is a curious name for a simple concept. We talk about
+the power set ``of" another set, which is \textit{the set of all subsets of
+that other set.} Example: suppose $A$ = \{~Daddy, Lizzy~\}. Then the power
+set of $A$, which is written as ``$\mathbb{P}(A)$" is: \{~\{~Daddy, Lizzy
+\}, \{~Daddy~\}, \{~Lizzy~\}, $\varnothing$~\}. Take a good look at all
+those curly braces, and don't lose any. There are four elements to the
+power set of $A$, each of which is one of the possible subsets. It might
+seem strange to talk about ``\textit{all} of the possible subsets" --- when
+I first learned this stuff, I remember thinking at first that there would
+be no limit to the number of subsets you could make from a set. But of
+course there is.  To create a subset, you can either include, or exclude,
+each one of the original set's members. In $A$'s case, you can either (1)
+include both Daddy and Lizzy, or (2) include Daddy but not Lizzy, or (3)
+include Lizzy but not Daddy, or (4) exclude both, in which case your subset
+is $\varnothing$. Therefore, $\mathbb{P}(A)$ includes all four of those
+subsets.
+
+\index{cardinality (of sets)} 
+Now what's the cardinality of $\mathbb{P}(X)$ for some
+set $X$? That's an interesting question, and one well worth pondering. The
+answer ripples through the heart of a lot of combinatorics
+\index{combinatorics} and the binary number system, \index{binary numbers}
+topics we'll cover later. And the answer is right at our fingertips, if we
+just extrapolate from the previous example. To form a subset of $X$, we
+have a choice to either \textit{in}clude, or else \textit{ex}clude, each of
+its elements. So there's two choices for the first element\footnote{I know
+there's really no ``first" element, but work with me here.}, and then
+whether we choose to include or exclude that first element, there are two
+choices for the second. Regardless of what we choose for those first two,
+there are two choices for the third, \textit{etc.} So if $|X|=2$ (recall
+that this notation means ``$X$ has two elements" or ``$X$ has a cardinality
+of 2"), then its power set has $2 \times 2$ members. If $|X|=3$, then its
+power set has $2 \times 2 \times 2$ members.  In general:
+
+\[
+|\mathbb{P}(X)| = 2^{|X|}.
+\]
+
+As a limiting case (and a brain-bender) notice that if $X$ is the empty
+set, \index{empty set} then $\mathbb{P}(X)$ has \textit{one} (not zero)
+members, because there is in fact \textit{one} subset of the empty set:
+namely, the empty set itself. So $|X|=0$, and $|\mathbb{P}(X)|=1$. And that
+jives with the above formula.
+
+
+\section{Partitions}
+\label{partitions}
+\index{partitions}
+
+\index{collectively exhaustive} 
+\index{mutually exclusive}
+
+Finally, there's a special variation on the subset concept called a
+\textbf{partition}. A partition is a group of subsets of another set that
+together are both \textbf{collectively exhaustive} and \textbf{mutually
+exclusive}. This means that every element of the original set is in
+\textit{one and only one} of the sets in the partition. Formally, a
+partition of $X$ is a group of sets $X_1, X_2, \dots, X_n$ such that:
+
+\[
+X_1 \cup X_2 \cup \cdots \cup X_n = X,
+\]
+\text{and} 
+\[
+X_i \cap X_j = \varnothing \quad \text{for all $i$, $j$}.
+\]
+
+So let's say we've got a group of subsets that are supposedly a partition
+of $X$. The first line, above, says that if we combine the contents of all
+of them, we get everything that's in $X$ (and nothing more). This is called
+being collectively exhaustive. The second line says that no two of the sets
+have anything in common: they are mutually exclusive.
+
+As usual, an example is worth a thousand words. \index{Davies family}
+Suppose the set $D$ is \{ Daddy, Mommy, Lizzy, T.J., Johnny.~\} A
+partition is any way of dividing $D$ up into subsets that meet the above
+conditions. One such partition is:
+
+\begin{center}
+\{~Lizzy, T.J.~\},
+\{~Mommy, Daddy~\}, and
+\{~Johnny~\}.
+\end{center}
+
+Another one is:
+
+\begin{center}
+\{~Lizzy~\},
+\{~T.J.~\},
+\{~Mommy~\}, and
+\{~Johnny, Daddy~\}.
+\end{center}
+
+Yet another is:
+
+\begin{center}
+$\varnothing$,
+$\varnothing$,
+\{~Lizzy, T.J., Johnny, Mommy, Daddy~\}, and
+$\varnothing$.
+\end{center}
+
+All of these are ways of dividing up the Davies family into groups so that
+no one is in more than one group, and everyone is in some group. The
+following is \textit{not} a partition:
+
+\begin{center}
+\{~Mommy, Lizzy, T.J.~\}, and
+\{~Daddy~\}
+\end{center}
+
+because it leaves out Johnny. This, too, is \textit{not} a partition:
+
+\begin{center}
+\{~Daddy~\}, 
+\{~Mommy, T.J.~\}, and
+\{~Johnny, Lizzy, Daddy~\}
+\end{center}
+
+because Daddy appears in two of the subsets.
+
+By the way, realize that every set ($S$) together with its (total)
+complement ($\overline{S}$) forms a partition of the entire domain of
+discourse $\Omega$. \index{domain of discourse ($\Omega$)} This is because
+every element either is, or is not, in any given set. The set of males and
+non-males are a partition of $\Omega$ because everything is either a male
+or a non-male, and never both (inanimate objects and other nouns are
+non-males, just as women are). The set of prime numbers and the set of
+everything-except-prime-numbers are a partition. The set of underdone
+cheeseburgers and the set of everything-except-underdone-cheeseburgers form
+a partition of $\Omega$.  By pure logic, this is true no matter what the
+set is.
+
+You might wonder why partitions are an important concept. The answer is
+that they come up quite a bit, and when they do, we can make some important
+simplifications. Take $S$, the set of all students at UMW. We can partition
+it in several different ways. If we divide $S$ into the set of males and
+the set of females, we have a partition: every student is either male or
+female, and no student is both. If we divide them into freshmen,
+sophomores, juniors, and seniors, we again have a partition. But dividing
+them into computer science majors and English majors does \textit{not} give
+us a partition. For one thing, not everyone is majoring in one of those two
+subjects. For another, some students might be double-majoring in both.
+Hence this group of subsets is neither mutually exclusive nor collectively
+exhaustive.
+
+\index{cardinality (of sets)}
+Question: is the number of students $|S|$  equal to the
+number of male students plus the number of female students? Obviously yes.
+But why? The answer: because the males and the females form a partition. If
+we added up the number of freshmen, sophomores, juniors, and seniors, we
+would also get $|S|$. But adding up the number of computer science majors
+and English majors would almost certainly \textit{not} be equal to $|S|$,
+because some students would be double-counted and others counted not at
+all. This is an example of the kind of beautiful simplicity that partitions
+provide.
+

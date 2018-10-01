@@ -1,0 +1,73 @@
+\documentclass[11pt]{book}
+\usepackage{array}           % For double-column exercises.
+\usepackage{longtable}       % For double-column exercises.
+\usepackage[normalem]{ulem}  % For strikethrough.
+\usepackage{enumitem}        % To "resume" enumerated lists.
+\usepackage{epsfig}       
+\usepackage{afterpage}       
+\usepackage{multicol}       
+\usepackage{fancybox}       
+\usepackage{makeidx}       
+%\usepackage{enumerate}       
+
+\makeindex 
+
+\newenvironment{custommargins}[2]%
+  {\addtolength{\leftskip}{#1}\addtolength{\rightskip}{#2}}{\par}
+
+% Set left margin - The default is 1 inch, so the following
+% command sets a 2-inch left margin.
+\setlength{\oddsidemargin}{1in}
+\setlength{\evensidemargin}{0in}
+% Set width of the text - What is left will be the right margin.
+% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+\setlength{\textwidth}{5.5in}
+
+% Set top margin - The default is 1 inch, so the following
+% command sets a 0.75-inch top margin.
+\setlength{\topmargin}{.75in}
+
+% Set height of the text - What is left will be the bottom margin.
+% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+\setlength{\textheight}{7.25in}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,latexsym}
+
+\setlength{\parindent}{0pt}
+\setlength{\baselineskip}{1.5pt}
+\setlength{\parskip}{6pt}
+
+
+\begin{document}
+
+\title{A Cool Brisk Walk\\Through Discrete Mathematics\\{\small version
+1.2.2}}
+\author{Stephen Davies, Ph.D.\\Computer Science Department\\University of Mary Washington}
+\date{}
+\maketitle
+
+\frontmatter
+
+\renewcommand{\contentsname}{Contents at a glance}
+\setcounter{tocdepth}{0}
+\tableofcontents
+
+\include{preface}
+
+\mainmatter
+\include{intro}
+\include{sets}
+\include{setsEx}
+\include{relations}
+\include{relationsEx}
+\include{probability}
+\include{probabilityEx}
+\include{structures}
+\include{counting}
+\include{numbers}
+\include{logic}
+\include{proof}
+
+\backmatter
+\printindex
+
+\end{document}

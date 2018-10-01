@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <defs/>
+    <g>
+        <g latexdraw:type="ellipse" id="id550">
+            <ellipse cx="328.0" cy="63.5" rx="34.0" ry="12.5"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="silver"/>
+        </g>
+        <g latexdraw:type="ellipse" id="id552">
+            <ellipse cx="162.5" cy="124.5" rx="23.5" ry="13.5"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="ellipse" id="id554">
+            <ellipse cx="137.5" cy="289.5" rx="38.5" ry="14.5"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="text" id="id556"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="308.0">
+            <text x="308.0" y="69.0"><![CDATA[Molly]]></text>
+        </g>
+        <g latexdraw:type="text" id="id560"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="149.0">
+            <text x="149.0" y="131.0"><![CDATA[Jim]]></text>
+        </g>
+        <g latexdraw:type="text" id="id564"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="459.0">
+            <text x="459.0" y="133.0"><![CDATA[\psovalbox[linewidth=0.04]{Randi}]]></text>
+        </g>
+        <g latexdraw:type="text" id="id568"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="84.0">
+            <text x="84.0" y="209.0"><![CDATA[\psovalbox[linewidth=0.04]{Ben}]]></text>
+        </g>
+        <g latexdraw:type="text" id="id572"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="391.0">
+            <text x="391.0" y="211.0"><![CDATA[\psovalbox[linewidth=0.04]{Owen}]]></text>
+        </g>
+        <g latexdraw:type="text" id="id576"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="544.0">
+            <text x="544.0" y="211.0"><![CDATA[\psovalbox[linewidth=0.04]{Xander}]]></text>
+        </g>
+        <g latexdraw:type="line" id="id580">
+            <line x1="296.0" x2="184.0" y1="69.0" y2="116.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="line" id="id581">
+            <line x1="360.0" x2="457.0" y1="71.0" y2="116.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="line" id="id582">
+            <line x1="462.0" x2="418.0" y1="137.0" y2="192.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="line" id="id583">
+            <line x1="503.0" x2="567.0" y1="138.0" y2="191.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="line" id="id584">
+            <line x1="153.0" x2="106.0" y1="137.0" y2="191.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="line" id="id585">
+            <line x1="107.0" x2="135.0" y1="217.0" y2="276.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="text" id="id586"
+            font-family="Times New Roman" fill="black" font-size="18" latexdraw:x="111.0">
+            <text x="111.0" y="296.0"><![CDATA[Jennifer]]></text>
+        </g>
+    </g>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:displayBorders>false</latexdraw:displayBorders>
+            <latexdraw:autoAdjust>true</latexdraw:autoAdjust>
+            <latexdraw:ppc>50</latexdraw:ppc>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:unit>cm</latexdraw:unit>
+            <latexdraw:classicGrid>false</latexdraw:classicGrid>
+            <latexdraw:gridGap>10</latexdraw:gridGap>
+            <latexdraw:code>0</latexdraw:code>
+            <latexdraw:displayGrid>true</latexdraw:displayGrid>
+            <latexdraw:magneticGrid>false</latexdraw:magneticGrid>
+            <latexdraw:autoUpdate>true</latexdraw:autoUpdate>
+            <latexdraw:version>2.0.8</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1239</latexdraw:width>
+                <latexdraw:height>852</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>347</latexdraw:x>
+                <latexdraw:y>24</latexdraw:y>
+            </latexdraw:position>
+            <latexdraw:dividerPosition>0.7707828894269573</latexdraw:dividerPosition>
+            <latexdraw:displayCodePanel>true</latexdraw:displayCodePanel>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:delimitorOpacity>130</latexdraw:delimitorOpacity>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

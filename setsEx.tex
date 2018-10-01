@@ -1,0 +1,326 @@
+
+\section{Exercises}
+
+Use an index card or a piece of paper folded lengthwise, and cover up the
+right-hand column of the exercises below. Read each exercise in the
+left-hand column, answer it in your mind, then slide the index card down to
+reveal the answer and see if you're right! For every exercise you missed,
+figure out why you missed it before moving on.
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.4\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.5\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\item Is the set \{~Will, Smith~\} the same as the set \{~Smith, Will~\}?
+&
+Yes indeed.
+\\
+\hline
+
+\item Is the ordered pair (Will, Smith) the same as (Smith, Will)?
+&
+No. Order matters with ordered pairs (hence the name), and with any size 
+tuple for that matter.
+\\
+\hline
+
+\item Is the set \{~\{~Luke, Leia~\}, Han~\} the same as the set \{~Luke,
+\{~Leia, Han~\}~\}?
+&
+No. For instance, the first set has Han as a member but the second set does
+not. (Instead, it has another set as a member, and that inner set happens
+to include Han.)
+\\
+\hline
+
+\item What's the first element of the set \{~Cowboys, Redskins, Steelers~\}?
+&
+The question doesn't make sense. There is no ``first element" of a set. All
+three teams are equally members of the set, and could be listed in any
+order.
+\\
+\hline
+
+\item \label{definesets1} Let $G$ be \{~Matthew, Mark, Luke, John~\}, $J$
+be \{~Luke, Obi-wan, Yoda~\}, $S$ be the set of all Star Wars characters, and
+$F$ be the four gospels from the New Testament.
+
+Now then. Is $J \subseteq G$?
+&
+No.
+\\
+\hline
+
+\item Is $J \subseteq S$?
+&
+Yes.
+\\
+\hline
+
+\item Is Yoda $\in J$?
+&
+Yes.
+\\
+\hline
+
+\item Is Yoda $\subseteq J$?
+&
+No. Yoda isn't even a set, so it can't be a subset of anything.
+\\
+\hline
+
+\item Is \{~Yoda~\} $\subseteq J$?
+&
+Yes. The (unnamed) set that contains only Yoda is in fact a subset of $J$.
+\\
+\hline
+
+\item Is \{~Yoda~\} $\in J$?
+&
+No. Yoda is one of the elements of $J$, but \{~Yoda~\} is not. In other
+words, $J$ contains Yoda, but $J$ does not contain a set
+which contains Yoda (nor does it contain any sets at all, in fact).
+\\
+\hline
+
+\item Is $S \subseteq J$?
+&
+No.
+\\
+\hline
+
+\item Is $G \subseteq F$?
+&
+Yes, since the two sets are equal.
+\\
+\hline
+
+\item Is $G \subset F$?
+&
+No, since the two sets are equal, so neither is a \textit{proper} subset of
+the other.
+\\
+\hline
+
+\item Is $\varnothing \subseteq S$?
+&
+Yes, since the empty set is a subset of \textit{every} set.
+\\
+\hline
+
+\item Is $\varnothing \subseteq \varnothing$?
+&
+Yes, since the empty set is a subset of \textit{every} set.
+\\
+\hline
+
+\item Is $F \subseteq \Omega$?
+&
+Yes, since every set is a subset of $\Omega$.
+\\
+\hline
+
+\item Is $F \subset \Omega$?
+&
+Yes, since every set is a subset of $\Omega$, and $F$ is certainly not
+equal to $\Omega$.
+\\
+\hline
+
+\item Suppose $X$ = \{ Q, $\varnothing$, \{ Z \} \}. Is $\varnothing \in X$?
+Is $\varnothing \subseteq X$?
+&
+Yes and yes. The empty set is an element of $X$ because it's one of the
+elements, and it's also a subset of $X$ because it's a subset of every set.
+Hmmm.
+\\
+\hline
+
+\item \label{definesets2} Let $A$ be \{~Macbeth, Hamlet, Othello~\}, $B$ be
+\{~Scrabble, Monopoly, Othello~\}, and $T$ be \{~Hamlet, Village, Town~\}.
+
+What's $A \cup B$?
+&
+\{~Macbeth, Hamlet, Othello, Scrabble, Monopoly~\}. (The elements can be
+listed in any order.)
+\\
+\hline
+
+\item What's $A \cap B$?
+&
+\{~Othello~\}.
+\\
+\hline
+
+\item What's $A \cap \overline{B}$?
+&
+\{~Macbeth, Hamlet~\}.
+\\
+\hline
+
+\item What's $B \cap T$?
+&
+$\varnothing$.
+\\
+\hline
+
+\item What's $B \cap \overline{T}$?
+&
+$B$. (which is \{~Scrabble, Monopoly, Othello~\}.)
+\\
+\hline
+
+\item What's $A \cup (B \cap T)$? \label{bintersecttinparens}
+&
+\{~Hamlet, Othello, Macbeth~\}.
+\\
+\hline
+
+\item What's $(A \cup B) \cap T$?
+&
+\{~Hamlet~\}. (Note: not the same answer as in item \ref{bintersecttinparens} now that the parens are placed differently.)
+\\
+\hline
+
+\item What's $A - B$?
+&
+\{~Macbeth, Hamlet~\}.
+\\
+\hline
+
+\item What's $T - B$?
+&
+Simply $T$, since the two sets have nothing in common.
+\\
+\hline
+
+\item What's $T \times A$?
+&
+\{~(Hamlet, Macbeth), (Hamlet, Hamlet), (Hamlet, Othello), 
+   (Village, Macbeth), (Village, Hamlet), (Village, Othello), 
+   (Town, Macbeth), (Town, Hamlet), (Town, Othello)~\}. The order of the
+ordered pairs within the set is not important; the order of the elements within
+each ordered pair \textit{is} important.
+\\
+\hline
+
+\item What's $(B \cap B) \times (A \cap T)$?
+&
+\{~(Scrabble, Hamlet), (Monopoly, Hamlet), (Othello, Hamlet)~\}.
+\\
+\hline
+
+\item What's $|A \cup B \cup T|$?
+&
+7.
+\\
+\hline
+
+\item What's $|A \cap B \cap T|$?
+&
+0.
+\\
+\hline
+
+\item What's $|(A \cup B \cup T) \times (B \cup B \cup B)|$?
+&
+21. (The first parenthesized expression gives rise to a set with 7
+elements, and the second to a set with three elements ($B$ itself). Each
+element from the first set gets paired with an element from the second, so
+there are 21 such pairings.)
+\\
+\hline
+
+\item Is $A$ an extensional set, or an intensional set?
+&
+The question doesn't make sense. Sets aren't ``extensional" or
+``intensional"; rather, a given set can be \textit{described} extensionally
+or intensionally. The description given in item~\ref{definesets2} is an
+extensional one; an intensional description of the same set would be ``The
+Shakespeare tragedies Stephen studied in high school."
+\\
+\hline
+
+\item Recall that $G$ was defined as \{~Matthew, Mark, Luke, John~\}. Is
+this a partition of $G$?
+\begin{itemize}
+\item \{~Luke, Matthew~\}
+\item \{~John~\}
+\end{itemize}
+&
+No, because the sets are not collectively exhaustive (Mark is missing).
+\\
+\hline
+
+\item Is this a partition of $G$?
+\begin{itemize}
+\item \{~Mark, Luke~\}
+\item \{~Matthew, Luke~\}
+\end{itemize}
+&
+No, because the sets are neither collectively exhaustive (John is missing)
+nor mutually exclusive (Luke appears in two of them).
+\\
+\hline
+
+\item Is this a partition of $G$?
+\begin{itemize}
+\item \{~Matthew, Mark, Luke~\}
+\item \{~John~\}
+\end{itemize}
+&
+Yes. (Trivia: this partitions the elements into the synoptic gospels and
+the non-synoptic gospels).
+\\
+\hline
+
+\item Is this a partition of $G$?
+\begin{itemize}
+\item \{~Matthew, Luke~\}
+\item \{~John, Mark~\}
+\end{itemize}
+&
+Yes. (This partitions the elements into the gospels which feature a
+Christmas story and those that don't).
+\\
+\hline
+
+\item Is this a partition of $G$?
+\begin{itemize}
+\item \{~Matthew, John~\}
+\item \{~Luke~\}
+\item \{~Mark~\}
+\item $\varnothing$
+\end{itemize}
+&
+Yes. (This partitions the elements into the gospels that were written by
+Jews, those that were written by Greeks, those that were written by
+Romans, and those that were written by Americans).
+\\
+\hline
+
+\item What's the power set of \{~Rihanna~\}?
+&
+\{ \{ Rihanna \}, $\varnothing$ \}.
+\\
+\hline
+
+\item Is \{~peanut, jelly~\} $\in \mathbb{P}$(\{~peanut, butter, jelly~\}?
+&
+Yes, since \{~peanut, jelly~\} is one of the eight subsets of \{~peanut,
+butter, jelly~\}. (Can you name the other seven?)
+\\
+\hline
+
+\item Is it true for \textit{every} set $S$ that $S \in \mathbb{P}(S)$?
+&
+Yep.
+\\
+\hline
+
+\end{longtable}
+\end{enumerate}
+\end{small}

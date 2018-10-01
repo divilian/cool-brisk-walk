@@ -1,0 +1,78 @@
+
+\section{Exercises}
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.5\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.4\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\item At a swim meet, the competitors in the 100-m freestyle are Ben, Chad,
+Grover, and Tim. These four swimmers make up our sample space $\Omega$ for
+the winner of this heat. \\
+Is Chad $\in \Omega$?
+&
+Yes.
+\\
+\hline
+\item Is Tim an outcome?
+&
+Yes.
+\\
+\hline
+\item Is Ben an event?
+&
+No, since outcomes are \textit{elements} of the sample space, while events
+are \textit{subsets} of the sample space.
+\\
+\hline
+\item Is \{~Chad, Grover~\} an event?
+&
+Yes.
+\\
+\hline
+\item Is \{~Ben~\} an event?
+&
+Yes.
+\\
+\hline
+\item Suppose I told you that Pr(\{Ben\})=.1, Pr(\{Chad\})=.2, Pr(\{Grover\})=.3,
+and Pr(\{Tim\})=.3. Would you believe me?
+&
+Better not. This is not a valid probability measure, since the sum of the
+probabilities of all the outcomes, Pr($\Omega$), is not equal to 1. 
+\\
+\hline
+\item Suppose I told you that Pr(\{Ben, Chad\})=.3, and Pr(\{Ben, Tim\})=.4, and
+Pr(\{Grover\})=.4. Could you tell me the probability that Ben wins the
+heat?
+&
+Yes. If Pr(\{Ben, Chad\})=.3 and Pr(\{Grover\})=.4, that leaves .3
+probability left over for Tim. And if Pr(\{Ben, Tim\})=.4, this implies
+that Pr(\{Ben\})=.1.
+\\
+\hline
+\item And what's the probability that someone besides Chad wins?
+&
+Pr($\overline{\{\text{Chad}\}}$) = $1 - $Pr(\{Chad\}), so we just need to
+figure out the probability that Chad wins, and take one minus that. Clearly
+if Pr(\{Ben, Chad\})=.3 (as we were told), and Pr(\{Ben\})=.1 (as we
+computed), then Pr(\{Chad\})=.2, and the probability of a non-Chad winner
+is .8.
+\\
+\hline
+\item Okay, so we have the probabilities of our four swimmers Ben, Chad,
+Grover, and Tim each winning the heat at .1, .2, .4, and .3, respectively.\\
+Now suppose Ben, Chad, and Grover are UMW athletes, Tim is from Marymount,
+Ben and Tim are juniors, and Chad and Grover are sophomores. We'll
+define $U$=\{Ben,Chad,Grover\}, $M$=\{Tim\}, $J$=\{Ben,Tim\}, and
+$S$=\{Chad,Grover\}. \\
+What's Pr($U$)?
+&
+.7.
+\\
+\hline
+\end{longtable}
+\end{enumerate}
+\end{small}

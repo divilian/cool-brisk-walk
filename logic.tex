@@ -1,0 +1,972 @@
+
+% Add Barack Obama is ONLY example.
+
+\chapter{Logic}
+
+To a great extent, logic governs the way your mind works, even among
+so-called ``irrational people." If we want to capture logical processes and
+represent them in a computer program, we need a way to express these
+thoughts in a form suitable for automated reasoning. This is primarily why
+computer scientists study logic.
+
+\index{artificial intelligence (AI)}
+Interestingly, the material in this chapter covers the very bottom and the
+very top of the technology stack. At the bottom, we have actual physical
+hardware that consists of circuits turning bits on and off. The rules that
+govern when we want to turn which bits on and off are based on ``logic
+gates," or tiny physical devices that implement the logical principles of
+this chapter on a micro scale. At the other end of the spectrum, we have
+highly abstract programs aiming towards ``artificial intelligence." These
+systems are centered around a ``knowledge base" of accumulated facts, and
+regularly examine those known facts to make decisions and draw additional
+conclusions. What does a knowledge base consist of? You guessed it: logical
+statements that are described in this chapter.
+
+\section{Propositional logic} 
+
+\index{propositional logic}
+\index{propositions}
+\index{truth value (of a proposition)}
+The simpler --- but less powerful --- of the two logic systems we'll study
+is called \textbf{propositional logic}. It has this name because the core
+building block is the \textbf{proposition}. A proposition is simply a
+statement that has a ``truth value," which means that it is either true or
+false. The statement ``all plants are living beings" could be a
+proposition, as could ``Barack Obama was the first African-American
+President" and ``Kim Kardashian will play the title role in the upcoming
+\textit{Batman Reborn}." By contrast, questions like ``are you okay?"
+cannot be propositions, nor can commands like ``hurry up and answer
+already!" or phrases like ``Lynn's newborn schnauzer," because they are not
+statements that can be true or false. (Linguistically speaking, propositions
+have to be in the indicative mood.)
+
+We normally use capital letters (what else?) to denote propositions, like:
+
+\quad\quad Let A be the proposition that UMW is in Virginia.
+
+\quad\quad Let B be the proposition that the Queen of England is male.
+
+\quad\quad Let C be the proposition that dogs are carnivores.
+
+Don't forget that a proposition doesn't have to be true in order to be a
+valid proposition (B is still a proposition, for example). It just matters
+that it is labeled and that it has the potential to be true or false. 
+
+\index{atomic (propositions)}
+Propositions are considered \textbf{atomic}. This means that they are
+\textit{indivisible}: to the logic system itself, or to a computer program,
+they are simply an opaque chunk of truth (or falsity) called ``A" or
+whatever. When we humans read the description of A, we realize that it has
+to do with the location of a particular institution of higher education,
+and with the state of the union that it might reside (or not reside) in.
+All this is invisible to an artificially intelligent agent, however, which
+treats ``A" as nothing more than a stand-in label for a statement that has
+no further discernible structure.
+
+So things are pretty boring so far. We can define and label propositions,
+but none of them have any connections to the others. We change that by
+introducing \textbf{logical operators} (also called \textbf{logical
+connectives}) with which we can build up compound constructions out of
+multiple propositions. The six connectives we'll learn are:
+
+\index{logical operators}
+\begin{center}
+\begin{tabular}{l l}
+$\wedge$ --- ``and" & \quad $\neg$ --- ``not"  \\
+$\vee$ --- ``or" & \quad $\Rightarrow$ --- ``implies" (or ``if\dots then \dots") \\
+$\oplus$ --- ``xor" (exclusive ``or") & \quad $\Leftrightarrow$ --- ``equiv" (equivalent)\\
+\end{tabular}
+\end{center}
+
+Just as the ordinary algebraic operators (+, -, \textit{etc.}) can be used
+to join numbers and produce another number, and just as the set operators
+can be used to join sets and produce another set, the logical operators can
+be used to join propositions and produce another proposition. The
+expression ``34 + 59" produces the number 93. The expression
+``\{X,Y\}$\cup$\{Y,Z\}" produces the set \{X,Y,Z\}. And the expression
+``A~$\wedge$~B" produces the value \textsl{false}, since although UMW is
+located in Virginia, the Queen is female.
+
+Let's run through the six operators, some of which are intuitive and some
+of which are not:
+
+\begin{description}
+
+\index{logical operators}
+\index{and (logical operator)}
+\index{conjunction}
+\index{intersection (of sets)}
+\item[$\wedge$ (``and")] The proposition X$\wedge$Y is true when both X and
+Y are true propositions. ``A$\wedge$C" represents the proposition ``UMW is
+in Virginia \textit{and} dogs are carnivores," which has a truth value of
+\textsl{true} since both components are true. This operation is sometimes
+called a \textbf{conjunction}. Notice that the ``$\wedge$"
+sign somewhat resembles the ``$\cap$" sign for set intersection. This is
+not an accident. An element is in the intersection of two sets if it is a
+member of the first \textit{and} the second set. Hence mathematicians have
+chosen symbols which reinforce this connection.
+
+\index{or (logical operator)}
+\index{inclusive or}
+\index{disjunction}
+\index{union (of sets)}
+\item[$\vee$ (``or")] The proposition X$\vee$Y is true when either X or Y
+(or both) are true propositions. ``B$\vee$C" represents the proposition
+``The Queen of England is male \textit{or} dogs are carnivores," which has
+a truth value of \textsl{true} since the second component is true. This
+operation is sometimes called a \textbf{disjunction}. The
+$\vee$ looks somewhat like the ``$\cup$" sign for set union, since an
+element is in the union of two sets if it is an element of the first set
+\textit{or} the second set (or both). This operator is sometimes called an
+``inclusive or" since it is true if both propositions are true.
+
+\index{xor (logical operator)}
+\index{exclusive or}
+\item[$\oplus$ (``xor")] The $\oplus$ operator is just like $\vee$ except
+that it's \textit{exclusive}: the proposition X$\oplus$Y is true when
+\textit{either} X \textit{or} Y (but not both) are true propositions. 
+``B$\vee$C" and ``B$\oplus$C" are both true, but ``A$\oplus$C" is false,
+since UMW is in Virginia \textit{and} dogs are carnivores.
+
+\index{not (logical operator)}
+\index{negation}
+\index{unary operator}
+\item[$\neg$ (``not")] This operator is different from the others in that
+it's \textit{unary}, which means that it only operates on one proposition
+instead of two. All it does is flip the value from true to false (or vice
+versa.) The proposition ``A" is true, but the proposition ``$\neg$A" is
+false. ``$\neg$B," on the other hand, is true. This operation is sometimes
+called a \textbf{negation}.
+
+\index{implies (logical operator)}
+\item[$\Rightarrow$ (``implies")] Okay, now for the toughest one. We're
+going to spend significant time thinking through this one carefully,
+because it's both important (in some ways, the most important of the
+operators) and also potentially baffling. I've studied this stuff for
+years, and I still sometimes get stuck when trying to figure out
+$\Rightarrow$.
+
+\index{premise (of implication)}
+\index{conclusion (of implication)}
+If we say ``X$\Rightarrow$Y," we're claiming that ``\textit{if} X is true,
+\textit{then} Y is true." Note carefully that \textit{we are not claiming
+that X itself is true.} We're simply asserting that \textit{if} it's true,
+then Y must necessarily also be true. We call the first part of a
+$\Rightarrow$ proposition the \textbf{premise}, and the second part the
+\textbf{conclusion}. Here, X is the premise and Y the conclusion.
+
+So far, it seems easy. It gets tougher when you realize that
+X$\Rightarrow$Y is true \textit{whenever either X is false or Y is true
+(or both).} For example, A$\Rightarrow$C is a true proposition, believe
+it or not. In English, it says ``UMW being in Virginia implies that dogs
+are carnivores." The proposition B$\Rightarrow$A is also true: ``The
+Queen of England being male implies that UMW is in Virginia." What possible
+sense can we make out of these nonsensical claims?
+
+The key to understanding it, for me at least, is twofold. First, remember
+that to a computer (or a logic system), there is no \textit{meaning} to the
+propositions: they're simply atomic building blocks, each of which is true
+or false. So the fact that to a human, the content of the propositions
+might have nothing to do with each other --- English Queens and dogs --- is
+irrelevant to a computer: it just thinks indifferently in terms of ``X" and
+``Y," and has no idea what real-world entities any of this refers to.
+Second, think in terms of ruling out counterexamples. When I assert
+X$\Rightarrow$Y, what I'm saying is ``it's impossible for X to be true
+and Y false, because X's truthfulness would imply Y's truthfulness." Just
+as when I assert X$\vee$Y I'm promising that either X or Y is true (or
+both), when I assert X$\Rightarrow$Y I'm promising that either X is true
+or Y is false (or both).
+
+In this way, it starts to make sense when someone says, ``Iowa being in
+the Southern hemisphere implies that Batman's cape is red." That assertion
+is like a promise: ``\textit{if} it turns out that Iowa is in the Southern
+hemisphere, then I guarantee Batman's cape is red." But since Iowa
+\textit{isn't} in the Southern hemisphere, all bets are off. The
+conclusion was conditional on the premise.
+
+\index{artificial intelligence (AI)}
+\index{\textit{modus ponens}}
+The reason this operator is so important is that in artificial
+intelligence, the name of the game is concluding new facts from known
+existing facts, so that knowledge is increased. Every time a 'bot learns
+that X$\Rightarrow$Y is true, and then also learns that the premise (X) is
+true, it can conclude that the conclusion (Y) is true, even if it was
+never explicitly told that Y was true. This rule of logic is called
+\textit{modus ponens}, and is the workhorse of automated knowledge bases.
+
+\index{equiv (logical operator)}
+\item[$\Leftrightarrow$ (``equiv")] Finally, the proposition
+X$\Leftrightarrow$Y is true whenever X and Y have the same value: they're
+either both true, or both false. This can be seen as ``implies in both
+directions," since X$\Leftrightarrow$Y means ``if X is true, then Y is
+true; and if Y is true, then X is true." This operator is also the inverse
+of $\oplus$, since X$\oplus$Y is true only if X and Y are different, and
+X$\Leftrightarrow$Y is true only if they're the same.
+
+\end{description}
+
+These operators, which each produce another proposition (called a
+\textbf{compound proposition}) from the proposition(s) they operate on, can
+be combined to form complex expressions. For instance:
+
+\begin{itemize}
+\item $\neg$B is the proposition that the Queen of England is not male.
+(This is true.)
+\item A $\wedge$ $\neg$B is the proposition that UMW is in Virginia and the
+Queen of England is not male. (This is also true.)
+\item C $\oplus$ (A $\wedge$ $\neg$ B) is the proposition that \textit{either}
+dogs are carnivores \textit{or} UMW is in Virginia and the Queen of England
+is not male. (This is false, because both halves of the xor are true.)
+\item (C $\oplus$ (A $\wedge \neg$ B)) $\Rightarrow$ $\neg$A is the
+proposition that if \textit{either} dogs are carnivores \textit{or} UMW
+resides in Virginia and the Queen of England is not male, then UMW must not
+reside in Virginia. (This is true, since dogs are carnivores \textit{and}
+UMW resides in Virginia and the Queen of England is not male, so the
+left-hand side of the $\Rightarrow$ is false, which means that the entire
+expression is true regardless of the truth value of the right-hand side
+(which is also false, since UMW doesn't \textit{not} reside in Virginia.)
+\item \textit{Etc.}
+
+\end{itemize}
+
+
+\subsection{Truth tables}
+
+\index{intensional}
+\index{extensional}
+Several times in this book, we've drawn the distinction between
+\textit{intension} --- the inner, conceptual meaning --- and
+\textit{extension} --- the exhaustive list of examples. A set can have both
+an intension like ``the prime numbers less than ten" and an extension like
+\{2,3,5,7\}. A relation can have an intension like ``\textsl{isDaughterOf}"
+and an extension like ``\{(Lisa,Homer), (Lisa,Marge), (Maggie,Homer),
+(Maggie,Marge)\}." So, too, with the logical connectives. When we say that
+the ``$\wedge$" operator means ``both propositions must be true," we're
+specifying the conceptual meaning of the ``and" operator. Another way to
+describe it, however, would be to just list its value for all the possible
+inputs.
+
+\index{truth tables}
+Such an exhaustive list is called a \textbf{truth table}. We specify every
+possible combination of inputs, and list the output for each one of them.
+Here's the truth table for ``$\wedge$":
+\index{and (logical operator)}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c|c c}
+X & Y & X$\wedge$Y \\
+\hline
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+1 & 1 & 1 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+We use ``1" to represent true and ``0" for false, just to make the table
+more compact. The ``$\wedge$" operator works on two propositions, either of
+which can have a truth value or 0 or 1. There are therefore, by the
+Fundamental Theorem of Counting, four different combinations of inputs, and
+so our truth table has four rows. The right-most column shows the output
+for each of these sets of inputs. It indicates that X$\wedge$Y is 1 only
+when both inputs are 1, and 0 otherwise. Even if we didn't grasp the simple
+concept that ``$\wedge$" is supposed to represent the concept of ``and," we
+could just look up the value of X$\wedge$Y if we knew the truth values of X
+and Y.
+
+Sometimes we show more than one output in a truth table. For instance, this
+truth table shows the values for the other five operators:
+\index{or (logical operator)}
+\index{xor (logical operator)}
+\index{implies (logical operator)}
+\index{equiv (logical operator)}
+\index{not (logical operator)}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c|c c c c c}
+X & Y & X$\vee$Y & X$\oplus$Y & $\neg$X & X$\Rightarrow$Y &
+X$\Leftrightarrow$Y \\
+\hline
+0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+0 & 1 & 1 & 1 & 1 & 1 & 0 \\
+1 & 0 & 1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 & 1 & 1 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+\index{unary operator}
+Take a moment and look carefully through the entries in that table, and
+make sure you agree that this correctly represents the outputs for the five
+operators. (Note that ``$\neg$", being a unary operator, only has X as an
+input, which means that the value of Y is effectively ignored for that
+column.)
+
+Now sometimes we have a more complex expression (like the (C $\oplus$ (A
+$\wedge \neg$B)) $\Rightarrow$ $\neg$A example from above) and we want to
+know the truth value of the entire expression. Under what circumstances ---
+\textit{i.e.}, for what truth values of A, B, and C --- is that expression
+true? We can use truth tables to calculate this piece by piece.
+
+Let's work through that example in its entirety. First, we set up the
+inputs for our truth table:
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|}
+A & B & C \\
+\hline
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 0 \\
+1 & 0 & 1 \\
+1 & 1 & 0 \\
+1 & 1 & 1 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+In this case, there are three inputs to the expression (A, B, and C) and so
+we have $2^3$, or eight, rows in the truth table.
+
+Now we work our way through the expression inside out, writing down the
+values of intermediate parts of the expression. We need to know the value
+of $\neg$B to figure some other things out, so let's start with that one:
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|c}
+A & B & C & $\neg$B \\
+\hline
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 \\
+0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 \\
+1 & 1 & 1 & 0 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+Now we can compute A $\wedge \neg$B, a component of the expression:
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|c c}
+A & B & C & $\neg$B & A$\wedge \neg$B\\
+\hline
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 1 & 1 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 \\
+1 & 0 & 0 & 1 & 1 \\
+1 & 0 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+This produces a 1 only for rows where A is true \textit{and} B is false.
+Knowing this allows us to compute the value of (C $\oplus$ (A $\wedge
+\neg$B)):
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|c c c}
+A & B & C & $\neg$B & A$\wedge \neg$B & (C$\oplus$(A$\wedge \neg$B)) \\
+\hline
+0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 1 & 0 & 1 \\
+0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 0 & 0 & 1 \\
+1 & 0 & 0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 & 1 & 0 \\
+1 & 1 & 0 & 0 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 & 1 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+which is true only when the value of C is different than the value of (A
+$\wedge \neg$B). We're almost there now. All we need is $\neg$A:
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|c c c c}
+A & B & C & $\neg$B & A$\wedge \neg$B & (C$\oplus$(A$\wedge \neg$B)) &
+$\neg$A \\
+\hline
+0 & 0 & 0 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 & 0 & 1 & 1 \\
+0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+1 & 0 & 0 & 1 & 1 & 1 & 0 \\
+1 & 0 & 1 & 1 & 1 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 & 1 & 0 \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+and we can finally obtain our answer:
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|c c c c c}
+A & B & C & $\neg$B & A$\wedge \neg$B & (C$\oplus$(A$\wedge \neg$B)) & $\neg$A & (C$\oplus$(A$\wedge \neg$B))$\Rightarrow$$\neg$A \\
+\hline
+0 & 0 & 0 & 1 & 0 & 0 & 1 & \textbf{1} \\
+0 & 0 & 1 & 1 & 0 & 1 & 1 & \textbf{1} \\
+0 & 1 & 0 & 0 & 0 & 0 & 1 & \textbf{1} \\
+0 & 1 & 1 & 0 & 0 & 1 & 1 & \textbf{1} \\
+1 & 0 & 0 & 1 & 1 & 1 & 0 & \textbf{0} \\
+1 & 0 & 1 & 1 & 1 & 0 & 0 & \textbf{1} \\
+1 & 1 & 0 & 0 & 0 & 0 & 0 & \textbf{1} \\
+1 & 1 & 1 & 0 & 0 & 1 & 0 & \textbf{0} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+\index{implies (logical operator)}
+That last step is the hardest one. We look at the third output column
+(C$\oplus$(A$\wedge \neg$B) and the fourth ($\neg$A) and mark down a 1 for
+each row in which the third is 0 or the fourth is 1. (Review the truth
+table for the ``$\Rightarrow$" operator if you have doubts about this.) The
+final result is that our complex expression is true for all possible values
+of A, B, and C, except when they have the values 1, 0, and 0, or else 1, 1,
+and 1, respectively. In our original example, we know that UMW \textit{is}
+in Virginia, the Queen is \textit{not} male, and dogs \textit{are}
+carnivores, so our input values are 1, 0, and 1 for A, B, and C. Therefore,
+for those inputs, this expression is true.
+
+
+\subsection{Tautologies}
+
+Let's work through this process for a different example. Suppose I want to
+know under what circumstances the expression $\neg$Z $\wedge$ (X
+$\Leftrightarrow$ Y) $\wedge$ (X $\oplus$ Z) $\Rightarrow$ (X $\wedge$
+$\neg$ Z) evaluates to true. When we follow the above procedure, it yields
+the following truth table:
+\footnotesize
+\index{truth tables}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c c|c c c c c c c}
+X & Y & Z & $\neg$Z & X$\Leftrightarrow$Y &
+$\neg$Z$\wedge$(X$\Leftrightarrow$Y) & X$\oplus$Z &
+$\neg$Z$\wedge$(X$\Leftrightarrow$Y)$\wedge$(X$\oplus$Z) & (X$\wedge\neg$Z) & 
+answer\footnotemark \\
+\hline
+0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & \textbf{1} \\
+0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & \textbf{1} \\
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & \textbf{1} \\
+0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & \textbf{1} \\
+1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 & \textbf{1} \\
+1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{1} \\
+1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & \textbf{1} \\
+1 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+\normalsize
+\footnotetext{``answer" means
+``$\neg$Z$\wedge$(X$\Leftrightarrow$Y)$\wedge$(X$\oplus$Y)$\Rightarrow$(X$\wedge\neg$Z),"
+which was too long to fit in the table heading.}
+
+(If you're looking for some practice, cranking through this example on your
+own and then comparing your answers to the above truth table isn't a bad
+idea at all.)
+
+\index{tautologies}
+You'll notice that the ``answer" column has \textit{all} 1's. This means
+that the expression is always true, no matter what the values of the
+individual propositions are. Such an expression is called a
+\textbf{tautology}: it's always true. The word ``tautology" has a 
+negative connotation in regular English usage: it refers to a statement so
+obvious as to not tell you anything, like ``all triangles have three
+sides," or ``the fatal overdose was deadly." But in logic, tautologies are
+quite useful, since they represent reliable identities.
+
+The tautology above was a contrived example, and not useful in practice.
+Here are some important others, though:
+\index{Law of the Excluded Middle}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c|c c}
+X & $\neg$X & \textbf{X$\vee\neg$X} \\
+\hline
+0 & 1 & \textbf{1} \\
+1 & 0 & \textbf{1} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+Sometimes called \textbf{the law of the excluded middle}, this identity
+states that either a proposition or its negative will always be true.
+(There is no third option.)
+
+\index{De Morgan's laws}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c|c c c c c c c}
+X & Y & X$\vee$Y & $\neg$(X$\vee$Y) & $\neg$X & $\neg$Y & $\neg$X$\wedge\neg$Y
+& \textbf{$\neg$(X$\vee$Y)$\Leftrightarrow$($\neg$X$\wedge\neg$Y)} \\
+\hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & \textbf{1} \\
+0 & 1 & 1 & 0 & 1 & 0 & 0 & \textbf{1} \\
+1 & 0 & 1 & 0 & 0 & 1 & 0 & \textbf{1} \\
+1 & 1 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+This is one of \textbf{De Morgan's Laws}, which we've seen previously with
+regards to sets (p.~\pageref{demorganslaws}). Here is the other:
+\index{De Morgan's laws}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c|c c c c c c c}
+X & Y & X$\wedge$Y & $\neg$(X$\wedge$Y) & $\neg$X & $\neg$Y & $\neg$X$\vee\neg$Y
+& \textbf{$\neg$(X$\wedge$Y)$\Leftrightarrow$($\neg$X$\vee\neg$Y)} \\
+\hline
+0 & 0 & 0 & 1 & 1 & 1 & 1 & \textbf{1} \\
+0 & 1 & 0 & 1 & 1 & 0 & 1 & \textbf{1} \\
+1 & 0 & 0 & 1 & 0 & 1 & 1 & \textbf{1} \\
+1 & 1 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+\index{negation}
+\index{disjunction}
+\index{conjunction}
+The first can be expressed as ``the negation of the disjunction is equal to
+the conjunction of the negations," and the second as ``the negation of the
+conjunction is equal to the disjunction of the negations." If that helps at
+all.
+
+One last identity is this one:
+\footnotesize
+\index{distributive}
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c|c c c c c c c}
+X & Y & Z & Y$\vee$Z & X$\wedge$(Y$\vee$Z) & X$\wedge$Y & X$\wedge$Z & 
+(X$\wedge$Y)$\vee$(X$\wedge$Z) &
+X$\wedge$(Y$\vee$Z)$\Leftrightarrow$(X$\wedge$Y)$\vee$(X$\wedge$Z) \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{1} \\
+0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
+0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{1} \\
+1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & \textbf{1} \\
+1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & \textbf{1} \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \textbf{1} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+\normalsize
+\index{union (of sets)}
+\index{intersection (of sets)}
+This is none other than the distributive law, which we also saw for set
+union and intersection (p.~\pageref{distributivelaw}) and which you should
+also remember from introductory algebra: $x\cdot(y+z)=x\cdot y+x\cdot z$.
+
+It's interesting, actually, when you compare the distributive law from
+algebra to the distributive law for logic:
+\begin{align*}
+x\cdot(y+z) &= x\cdot y+x\cdot z \\
+X\wedge(Y\vee Z) & \Leftrightarrow(X\wedge Y)\vee(X\wedge Z)
+\end{align*}
+The ``$\wedge$" operator is analogous to ``$\cdot$" (times), while ``$\vee$"
+corresponds to ``+" (plus). In fact, if you look at the truth tables for
+these two operators again, you'll see an uncanny resemblance:
+\begin{nobreak}
+\begin{center}
+\begin{tabular}{c c|c c}
+X & Y & X$\wedge$Y & X$\vee$Y \\
+\hline
+0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 1 & 1 & \textit{(1)} \\
+\end{tabular}
+\end{center}
+\end{nobreak}
+\index{truth tables}
+Except for the \textit{(1)} that I put in parentheses, this truth table is
+exactly what you'd get if you mathematically \textit{multiplied} ($\wedge$)
+and \textit{added} ($\vee$) the inputs! At some level, logically ``and-ing"
+\textit{is} multiplying, while ``or-ing" is adding. Fascinating.
+
+
+\section{Predicate logic}
+
+Propositional logic can represent a lot of things, but it turns out to be
+too limiting to be practically useful. And that has to do with the atomic
+nature of propositions. Every proposition is its own opaque chunk of
+truthhood or falsity, with no way to break it down into constituent parts.
+Suppose I wanted to claim that every state in the union had a governor. To
+state this in propositional logic, I'd have to create a brand new
+proposition for each state:
+
+\quad\quad Let G1 be the proposition that Alabama has a governor.
+
+\quad\quad Let G2 be the proposition that Alaska has a governor.
+
+\quad\quad Let G3 be the proposition that Arizona has a governor.
+
+\quad\quad \dots
+
+and then, finally, I could assert:
+\begin{center}
+G1 $\wedge$ G2 $\wedge$ G3 $\wedge \cdots \wedge$ G50.
+\end{center}
+
+That's a lot of work just to create a whole bunch of individual
+propositions that are essentially the same. What we need is some kind of 
+proposition \textit{template}, with which we can ``mint" new propositions
+of a similar form by plugging in new values.
+
+\index{predicate logic}
+\index{predicates}
+\index{propositions}
+This is exactly what a \textbf{predicate} is, which forms the basis for
+\textbf{predicate logic}, or ``\textit{first-order} predicate logic," to be
+more exact.\footnote{Or, if you want to sound really nerdy, you can call it
+\textbf{first-order predicate calculus}, which is a synonym.} A predicate
+is a formula that yields a proposition for each value of its inputs. For
+instance, I can define a predicate called ``\textsc{HasGovernor}" as
+follows:
+\begin{center}
+Let \textsc{HasGovernor}($x$) be the proposition that $x$ is a state that
+has a governor.
+\end{center}
+Then I can assert:
+\begin{center}
+\textsc{HasGovernor}(Virginia)
+\end{center}
+to state that Virginia has a governor. This mechanism alleviates the need
+to define fifty nearly-identical propositions. Instead, we define one
+predicate.
+
+\index{functions}
+\index{propositions}
+If you're a programmer, you can think of a predicate as a function that
+returns a boolean. Whether you're a programmer or not, you can think of a
+predicate as a function (in the chapter~\ref{chap:relations} sense) mapping
+objects to propositions:
+\[
+\textsc{HasGovernor} : \Omega \rightarrow P,
+\]
+\index{domain of discourse ($\Omega$)}
+where $P$ is the set of all propositions. Note that the domain of this
+function is $\Omega$, the entire domain of discourse. This means that you
+can give any input at all to the predicate. For instance, we can assert:
+\begin{center}
+$\neg$\textsc{HasGovernor}(mayonnaise)
+\end{center}
+which is perfectly true.\footnote{By the way, when I say you can give any
+input at all to a predicate, I mean any individual element from the domain
+of discourse. I don't mean that a \textit{set} of elements can be an input.
+This limitation is why it's called ``first-order" predicate logic.  If you
+allow sets to be inputs to predicates, it's called ``second-order predicate
+logic," and can get quite messy.} 
+
+\index{predicates}
+You may recall the word ``predicate" from your middle school grammar class.
+Every sentence, remember, has a subject and a predicate. In ``Billy jumps,"
+``Billy" is the subject, and ``jumps" the predicate. In ``The lonely boy
+ate spaghetti with gusto," we have ``the lonely boy" as the subject and
+``ate spaghetti with gusto" as the predicate. Basically, a predicate is
+anything that can describe or affirm something about a subject, which is
+exactly what we're doing here. Imagine asserting ``\textsc{Jumps}(Billy)"
+and ``\textsc{AteSpaghettiWithGusto}(lonely boy)."
+
+A predicate can have more than one input. Suppose we define the predicate
+\textsc{IsFanOf} as follows:
+
+\quad\quad Let \textsc{IsFanOf}($x,y$) be the proposition that $x$ digs the music of rock band $y$.
+
+Then I can assert:
+\begin{center}
+\textsc{IsFanOf}(Stephen, Led Zeppelin)
+
+\textsc{IsFanOf}(Rachel, The Beatles)
+
+\textsc{IsFanOf}(Stephen, The Beatles)
+
+$\neg$\textsc{IsFanOf}(Stephen, The Rolling Stones)
+\end{center}
+We could even define \textsc{TraveledToByModeInYear} with a bunch of inputs:
+
+\quad\quad Let \textsc{TraveledToByModeInYear}($p,d,m,y$) be the
+proposition that person $p$ traveled to destination $d$ by mode $m$ in year
+$y$.
+
+The following statements are then true:
+\begin{center}
+\textsc{TraveledToByModeInYear}(Stephen, Richmond, car, 2007) 
+
+\textsc{TraveledToByModeInYear}(Rachel, Austria, plane, 2010) 
+
+$\neg$\textsc{TraveledToByModeInYear}(Johnny, Mars, spaceship, 1776) 
+\end{center}
+
+Defining multiple inputs gives us more precision in defining relationships.
+Imagine creating the predicate ``\textsc{AteWithAttitude}" and then
+asserting:
+\begin{center}
+\textsc{AteWithAttitude}(lonely boy, spaghetti, gusto)
+
+$\neg$\textsc{AteWithAttitude}(Johnny, broccoli, gusto)
+
+\textsc{AteWithAttitude}(Johnny, broccoli, trepidation)
+\end{center}
+
+
+\subsection{Predicates and relations}
+\index{relations}
+
+The astute reader may have noticed that the \textsc{IsFanOf} predicate,
+above, seems awfully similar to an \textsl{isFanOf} relation defined
+between sets $P$ (the set of people) and $R$ (the set of rock bands), where
+isFanOf $\subseteq P \times R$. In both cases, we have pairs of people/bands
+for which it's true, and pairs for which it's false.
+
+\index{ordered pairs}
+\index{tuples}
+Indeed these concepts are identical. In fact, a relation can be defined as
+\textit{the set of ordered pairs (or tuples) for which a predicate is
+true.} Saying ``\textsc{IsFanOf}(Rachel, The Beatles)" and
+``$\neg$\textsc{IsFanOf}(Stephen, The Rolling Stones)" is really just
+another way of saying ``Rachel isFanOf The Beatles" and ``Stephen
+\sout{isFanOf} The Rolling Stones."
+ 
+
+\subsection{Quantifiers}
+\index{quantifiers}
+
+One powerful feature of predicate logic is the ability to make grandiose
+statements about many things at once. Suppose we did want to claim that
+every state had a governor. How can we do it?
+
+\index{universal quantifier ($\forall$)}
+We'll add to our repertoire the notion of \textbf{quantifiers}. There are
+two kinds of quantifiers in predicate logic, the first of which is called
+the \textbf{universal quantifier}. It's written ``$\forall$" and pronounced
+``for all." Here's an example:
+\[
+\forall x\ \textsc{HasGovernor}(x).
+\]
+This asserts that for \textit{every} x, \textsc{HasGovernor} is true.
+Actually, this isn't quite right, for although Michigan and California have
+governors, mayonnaise does not. To be precise, we should say:
+\[
+\forall x\in S\ \textsc{HasGovernor}(x),
+\]
+where $S$ is the set of all fifty states in the U.S.
+
+We can use a quantifier for any complex expression, not just a simple
+predicate. For instance, if $H$ is the set of all humans, then:
+\[
+\forall h\in H\ \textsc{Male}(h) \oplus \textsc{Female}(h)
+\]
+states that every human is either male or female, but not both. Another
+(more common) way to write this is to dispense with sets and define another
+predicate \textsc{Human}. Then we can say:
+\[
+\forall h\ \textsc{Human}(h) \Rightarrow \textsc{Male}(h) \oplus
+\textsc{Female}(h).
+\]
+Think this through carefully. We're now asserting that this expression is
+true for \textit{all} objects, whether they be Brad Pitt, Lady Gaga, or a
+bowl of oatmeal. To see that it's true for all three, let $h$ first be
+equal to Brad Pitt. We substitute Brad Pitt for $h$ and get:
+\begin{align*}
+\textsc{Human}(\text{Brad Pitt}) & \Rightarrow \textsc{Male}(\text{Brad Pitt}) \oplus \textsc{Female}(\text{Brad Pitt}) \\
+\text{true} & \Rightarrow \text{true} \oplus \text{false} \\
+\text{true} & \Rightarrow \text{true} \\
+\text{true} & \ \checkmark
+\end{align*}
+\index{implies (logical operator)}
+Remember that ``implies" ($\Rightarrow$) is true as long as the premise
+(left-hand side) is false and/or the conclusion (right-hand side) is true.
+In this case, they're both true, so we have a true end result. Something
+similar happens for Lady Gaga:
+\begin{align*}
+\textsc{Human}(\text{Lady Gaga}) & \Rightarrow \textsc{Male}(\text{Lady Gaga}) \oplus \textsc{Female}(\text{Lady Gaga}) \\
+\text{true} & \Rightarrow \text{false} \oplus \text{true} \\
+\text{true} & \Rightarrow \text{true} \\
+\text{true} & \ \checkmark
+\end{align*}
+So these two cases both result in true. But perhaps surprisingly, we also
+get true for oatmeal:
+\begin{align*}
+\textsc{Human}(\text{bowl of oatmeal}) & \Rightarrow \textsc{Male}(\text{bowl of oatmeal}) \oplus \textsc{Female}(\text{bowl of oatmeal}) \\
+\text{false} & \Rightarrow \text{false} \oplus \text{false} \\
+\text{false} & \Rightarrow \text{false} \\
+\text{true} & \ \checkmark
+\end{align*}
+Whoa, how did \textit{true} pop out of that? Simply because the premise was
+false, and so all bets were off. We effectively said ``\textit{if} a bowl
+of oatmeal is human, \textit{then} it will either be male or female. But
+it's not, so never mind." Put another way, the bowl of oatmeal did
+\textit{not} turn out to be a counterexample, and so we're confident
+claiming that this expression is true ``for \textit{all} h": $\forall$h.
+
+\index{existential quantifier ($\exists$)}
+The other kind of quantifier is called the \textbf{existential quantifier}.
+As its name suggests, it asserts the \textit{existence} of something. We
+write it ``$\exists$" and pronounce it ``there exists." For example,
+\[
+\exists x\ \textsc{HasGovernor}(x)
+\]
+asserts that there is \textit{at least one} state that has a governor. This
+doesn't tell us how \textit{many} states this is true for, and in fact
+despite their name, quantifiers really aren't very good at ``quantifying"
+things for us, at least numerically. As of 2008, the statement
+\[
+\exists x\ \textsc{President}(x) \wedge \textsc{African-American}(x)
+\]
+is true, and always will be, no matter how many more African-American U.S.
+presidents we have. Note that in compound expressions like this, a variable
+(like $x$) always stands for a \textit{single} entity wherever it appears.
+For hundreds of years there have existed African-Americans, and there have
+existed Presidents, so the expression above would be ridiculously obvious
+if it meant only ``there have been Presidents, and there have been
+African-Americans." But the same variable $x$ being used as inputs to
+\textit{both} predicates is what seals the deal and makes it represent the
+much stronger statement ``there is at least one individual who is
+personally \textit{both} African-American \textit{and} President of the
+United States at the same time."
+
+\index{negation}
+\index{universal quantifier ($\forall$)}
+\index{existential quantifier ($\exists$)}
+It's common practice to negate quantifiers, both universal and existential. 
+As of 2012, the following statement is still true:
+\[
+\neg \exists p\ \textsc{President}(p) \wedge \textsc{Female}(p).
+\]
+This conveys that there does \textit{not} exist a female president. As
+another example, if one day Missouri overhauls its government structure and
+replaces it with a mobocracy, perhaps we'll state:
+\[
+\neg \forall x\ \textsc{HasGovernor}(x).
+\]
+
+
+\subsection{Interchanging quantifiers}
+\index{quantifiers}
+
+Some illuminating themes can be seen when we examine the relationship that
+the two types of quantifiers have to each other. Consider this one first:
+\begin{align}
+\forall x \ P(x) \Leftrightarrow \neg \exists x\ \neg P(x), \label{inter1}
+\end{align}
+where P is any predicate (or for that matter, any expression involving many
+predicates). That's sensible. It states: ``if $P$ is true of all things,
+then there does \textit{not} exist anything that it \textit{isn't} true
+for." Three other equivalences come to light:
+\begin{align}
+\neg \forall x \ P(x) & \Leftrightarrow \exists x\ \neg P(x)    \label{inter2}\\
+     \forall x \ \neg P(x) & \Leftrightarrow \neg \exists x\ P(x)
+\label{inter3}\\
+\neg \forall x \ \neg P(x) & \Leftrightarrow \exists x\ P(x)
+\label{inter4}
+\end{align}
+
+In words, identity~\ref{inter2} says ``if it's not true for everything,
+then it must be false for something." Identity~\ref{inter3} says ``if it's
+false for everything, then there's nothing it's true for." And
+identity~\ref{inter4} says ``if it's not false for everything, then it must
+be true for something." All of these are eminently logical, I think you'll
+agree. They also imply that there are nearly always multiple correct ways
+to state something. In our apocalyptic vision of Missouri, for example, we
+stated ``$\neg \forall x$\ \textsc{HasGovernor}$(x)$," but we could just as
+well have stated ``$\exists x\ \neg$\textsc{HasGovernor}$(x)$," which
+amounts to the same thing.
+
+\subsection{Order matters}
+
+When you're facing an intimidating morass of $\forall$'s and $\exists$'s
+and $\vee$'s and $\Rightarrow$'s and God knows what else, it's easy to get
+lost in the sauce. But you have to be very careful to dissect the
+expression to find out what it means. Consider this one:
+\begin{align}
+\forall x \in \mathbb{R} \exists y \in \mathbb{R} \ x+1=y.
+\end{align}
+This statement is \textit{true}. It says that for every single real number
+(call it $x$), it's true that you can find some other number (call it $y$)
+that's one greater than it. If you generate some examples it's easy to see
+this is true. Suppose we have the real number $x=5$. Is there some other
+number $y$ that's equal to $x+1$? Of course, the number 6. What if
+$x=-32.4$? Is there a number $y$ that satisfies this equation? Of course,
+$y=-31.4$. Obviously no matter what number $x$ we choose, we can find the
+desired number $y$ just by adding one. Hence this statement is true
+\textit{for all} $x$, just like it says.
+
+What happens, though, if we innocently switch the order of the quantifiers?
+Let's try asserting this:
+\begin{align}
+\exists y \in \mathbb{R} \forall x \in \mathbb{R} \ x+1=y.
+\end{align}
+Is this also true? Look carefully. It says ``there exists some magic number
+$y$ that has the following amazing property: no matter what value of $x$
+you choose, this $y$ is one greater than $x$!" Obviously this is not true.
+There \textit{is} no such number $y$. If I choose $y=13$, that works great
+as long as I choose $x=12$, but for any other choice of $x$, it's dead in
+the water.
+
+The lesson learned here is that the order of quantifiers matters. You have
+to take each quantifier/variable pair in turn, and think to yourself,
+``okay, this statement is asserting that \textit{once I choose} the first
+variable, the rest of the expression is true for that choice."
+
+\subsection{The value of precision}
+
+This fluency with the basic syntax and meaning of predicate logic was our
+only goal in this chapter. There are all kinds of logical rules that can be
+applied to predicate logic statements in order to deduce further
+statements, and you'll learn about them when you study artificial
+intelligence later on. Most of them are formalized versions of common
+sense. ``If you know A is true, and you know A$\Rightarrow$B is true, then
+you can conclude B is true." Or ``if you know X$\wedge$Y is false, and then
+you discover that Y is true, you can then conclude that X is false."
+\textit{Etc.} The power to produce new truth from existing truth is the
+hallmark of AI systems, and why this stuff really matters.
+
+If you can imagine a program doing this sort of automated reasoning, it
+will become clear why the precision of something like predicate logic ---
+instead of the sloppiness of English --- becomes important. English is a
+beautiful and poetic language, but its ambiguity is notorious. For example,
+back in chapter~\ref{chap:relations} we used the phrase ``some employee
+belongs to every department" when describing relations. Now consider that
+English sentence. What does ``some employee belongs to every department"
+actually mean? Does it mean that there is some special employee who happens
+to hold membership in every department in the company? Or does it mean that
+no department is empty: all departments have at least \textit{one} person
+in them, for crying out loud? The English could mean either. In predicate
+logic, we're either asserting:
+\[
+\exists x\ \textsc{Employee}(x) \wedge \forall y\ \textsc{BelongsTo}(x,y)
+\]
+or
+\[
+\forall y\ \exists x\ \textsc{Employee}(x) \wedge \textsc{BelongsTo}(x,y)
+\]
+These are two very different things. A human being would realize that it's
+the second one the speaker means, drawing from a whole range of experience
+and common sense and context clues. But a 'bot has available none of these,
+and so it demands that the language clearly and unambiguously state exactly
+what's meant.
+
+English is rife with these ambiguities, especially involving pronouns.
+``After John hit George he ran away." What happened? Did John run away
+after striking George, fearing that George would retaliate? Or did George
+run away after getting hit, fearing additional abuse? It's unclear what
+``he" refers to, so we can't say from the sentence alone. 
+
+Here's a funny one I'll end with. Consider the sentence ``He made her
+duck." What is intended here? Did he reach out with his hand and forcefully
+push her head down out of the way of a screaming projectile? Or did he
+prepare a succulent dish of roasted fowl to celebrate her birthday? Oh, if
+the computer could only know.
+
+
+
+% common pitfalls
+%   forall x jedimaster(x) *and* jedi(x)
+%   thereexists x jedi(x) *implies* not jedimaster(x)
+%   forall x virginia(x) *xor* alabama(x)

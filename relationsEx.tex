@@ -1,0 +1,257 @@
+
+\section{Exercises}
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.4\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.5\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\item Let $A$ be the set \{~Chuck, Julie, Sam~\} and $S$ be the set
+\{~basketball, volleyball~\}. \\
+Is \{~(Julie, basketball), (Sam, basketball), (Julie, volleyball)~\} a
+relation between $A$ and $S$?
+&
+Yes it is, since it is a subset of $A \times S$.
+\\
+\hline
+\item Is the above relation an endorelation?
+&
+No, because an endorelation involves one set with itself, not two different
+sets (like $A$ and $S$ are.)
+\\
+\hline
+\item Is \{~(Chuck, basketball), (basketball, volleyball)~\} a
+relation between $A$ and $S$?
+&
+No, since the first element of one of the ordered pairs is not from the set
+$A$.
+\\
+\hline
+\item Is $\varnothing$ a relation between $A$ and $S$?
+&
+Yes it is, since it is a subset of $A \times S$.
+\\
+\hline
+\item How large could a relation between $A$ and $S$ be?
+&
+The maximum cardinality is 6, if all three athletes played all three
+sports. (I'm assuming that the meaning of the relation is ``\textsl{plays}"
+instead of ``\textsl{isAFanOf}" or ``\textsl{knowsTheRulesFor}" or something
+else. In any case, the maximum cardinality is 6.)
+\\
+\hline
+\item Let $T$ be the set \{~Spock, Kirk, McCoy, Scotty, Uhura~\}. Let
+$O$ be an endorelation on $T$, defined as follows: \{~(Kirk, Scotty),
+(Spock, Scotty), (Kirk, Spock), (Scotty, Spock)~\}. \\
+Is $T$ reflexive?
+&
+No, since it doesn't have any of the elements of $T$ appearing with
+themselves.
+\\
+\hline
+\item Is $T$ symmetric?
+&
+No, since it contains (Kirk, Scotty) but not (Scotty, Kirk).
+\\
+\hline
+\item Is $T$ antisymmetric?
+&
+No, since it contains (Spock, Scotty) and also (Scotty, Spock).
+\\
+\hline
+\item Is $T$ transitive?
+&
+Yes, since for every $(x,y)$ and $(y,z)$ present, the corresponding $(x,z)$
+is also present. (The only example that fits this is $x$=Kirk, $y$=Spock,
+$z$=Scotty, and the required ordered pair is indeed present.)
+\\
+\hline
+\item Let $H$ be an endorelation on $T$, defined as follows: \{~(Kirk, Kirk),
+(Spock, Spock), (Uhura, Scotty), (Scotty, Uhura), (Spock, McCoy), (McCoy,
+Spock), (Scotty, Scotty), (Uhura, Uhura)~\}. \\
+Is $H$ reflexive?
+&
+No, since it's missing (McCoy, McCoy).
+\\
+\hline
+\item Is $H$ symmetric?
+&
+Yes, since for every $(x,y)$ it contains, the corresponding $(y,x)$ is also
+present.
+\\
+\hline
+\item Is $H$ antisymmetric?
+&
+No, since it contains (Uhura, Scotty) and also (Scotty, Uhura).
+\\
+\hline
+\item Is $H$ transitive?
+&
+Yes, since there aren't any examples of $(x,y)$ and $(y,z)$ pairs both
+being present.
+\\
+\hline
+\item Let \textsl{outranks} be an endorelation on the set of all crew members of
+the Enterprise, where $(x,y) \in$ \textsl{outranks} if character $x$ has a
+higher Star Fleet rank than $y$. \\
+Is \textsl{outranks} reflexive?
+&
+No, since no officer outranks him/herself.
+\\
+\hline
+\item Is \textsl{outranks} symmetric?
+&
+No, since an officer cannot outrank an officer who in turn outranks
+him/her.
+\\
+\hline
+\item Is \textsl{outranks} antisymmetric?
+&
+Yes, since if one officer outranks a second, the second one \textit{cannot}
+also outrank the first.
+\\
+\hline
+\item Is \textsl{outranks} transitive?
+&
+Yes, since if one officer outranks a second, and that officer outranks a
+third, the first obviously also outranks the third.
+\\
+\hline
+\item Is \textsl{outranks} a partial order?
+&
+No, but close. It satisfies antisymmetry and transitivity, which are
+crucial. The only thing it doesn't satisfy is reflexivity, since none of
+the members appear with themselves. If we changed this relation to
+\textsl{ranksAtLeastAsHighAs}, then we could include these ``double" pairs
+and have ourselves a partial order.
+\\
+\hline
+\item Let \textsl{sameShirtColor} be an endorelation on the set of all crew
+members of the Enterprise, where $(x,y) \in$ \textsl{sameShirtColor} if
+character $x$ ordinarily wears the same shirt color as character $y$. \\ Is
+\textsl{sameShirtColor} reflexive?
+&
+Yes, since you can't but help wear the same shirt color as you're wearing.
+\\
+\hline
+\item Is \textsl{sameShirtColor} symmetric?
+&
+Yes, since if a crew member wears the same shirt color as another, then that
+second crew member also wears the same shirt color as the first. If Scotty
+and Uhura both wear red, then Uhura and Scotty both wear red, duh.
+\\
+\hline
+\item Is \textsl{sameShirtColor} antisymmetric?
+&
+No, for probably obvious reasons.
+\\
+\hline
+\item Is \textsl{sameShirtColor} transitive?
+&
+Yes. If Kirk and Sulu wear the same color (yellow), and Sulu and Chekov
+wear the same color (yellow), then Kirk and Chekov most certainly will
+wear the same color (yellow).
+\\
+\hline
+\item Above, we defined $A$ as the set \{~Chuck, Julie, Sam~\} and $S$ as the set
+\{~basketball, volleyball~\}. Then we defined the relation \{~(Julie,
+basketball), (Sam, basketball), (Julie, volleyball)~\}. \\
+Is this relation a function?
+&
+No, because it's missing Chuck entirely.
+\\
+\hline
+\item Suppose we added the ordered pair (Chuck, basketball) to it. Now is it a
+function?
+&
+No, because Julie appears twice, mapping to two different values.
+\\
+\hline
+\item Okay. Suppose we then remove (Julie, volleyball). We now have \{~(Julie,
+basketball), (Sam, basketball), (Chuck, basketball)~\}. Is \textit{this} a
+function?
+&
+Yes. Congratulations.
+\\
+\hline
+\item Let's call this function ``\textsl{faveSport}," which suggests that its
+meaning is to indicate which sport is each athlete's favorite. 
+What's the domain of faveSport?
+&
+\{~Julie, Chuck, Sam~\}.
+\\
+\hline
+\item What's the codomain of faveSport?
+&
+\{~basketball, volleyball~\}.
+\\
+\hline
+\item What's the range of faveSport?
+&
+\{~basketball~\}.
+\\
+\hline
+\item Is faveSport injective?
+&
+No, because Julie and Sam (and Chuck) all map to the same value
+(basketball). For a function to be injective, there must be no two domain
+elements that map to the same codomain element.
+\\
+\hline
+\item Is there any way to make it injective?
+&
+Not without altering the underlying sets. There are three athletes and two
+sports, so we can't help but map multiple athletes to the same sport.
+\\
+\hline
+\item Fine. Is faveSport surjective?
+&
+No, because no one maps to volleyball.
+\\
+\hline
+\item Is there any way to make it surjective?
+&
+Sure, for instance change Sam from basketball to volleyball. Now both of
+the codomain elements are ``reachable" by some domain element, so it's
+surjective.
+\\
+\hline
+\item Is faveSport now also bijective?
+&
+No, because it's still not injective.
+\\
+\hline
+\item How can we alter things so that it's bijective?
+&
+One way is to add a third sport --- say, kickboxing --- and move either
+Julie or Chuck over to kickboxing. If we have Julie map to kickboxing, Sam
+map to volleyball, and Chuck map to basketball, we have a bijection.
+\\
+\hline
+\item How do we normally write the fact that ``Julie maps to kickboxing"?
+&
+faveSport(Julie) = kickboxing.
+\\
+\hline
+\item What's another name for ``injective?"
+&
+one-to-one.
+\\
+\hline
+\item What's another name for ``surjective?"
+&
+onto.
+\\
+\hline
+\item What's another name for ``range?"
+&
+image.
+\\
+\hline
+
+
+\end{longtable}
+\end{enumerate}
+\end{small}
