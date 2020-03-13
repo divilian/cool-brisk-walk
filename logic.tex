@@ -347,8 +347,9 @@ A & B & C & $\neg$B \\
 \end{tabular}
 \end{center}
 \end{nobreak}
-Now we can compute A $\wedge \neg$B, a component of the expression:
+\pagebreak
 \begin{nobreak}
+Now we can compute A $\wedge \neg$B, a component of the expression:
 \begin{center}
 \begin{tabular}{c c c|c c}
 A & B & C & $\neg$B & A$\wedge \neg$B\\
@@ -403,6 +404,7 @@ $\neg$A \\
 \end{center}
 \end{nobreak}
 and we can finally obtain our answer:
+\footnotesize
 \begin{nobreak}
 \begin{center}
 \begin{tabular}{c c c|c c c c c}
@@ -419,6 +421,7 @@ A & B & C & $\neg$B & A$\wedge \neg$B & (C$\oplus$(A$\wedge \neg$B)) & $\neg$A &
 \end{tabular}
 \end{center}
 \end{nobreak}
+\normalsize
 \index{implies (logical operator)}
 That last step is the hardest one. We look at the third output column
 (C$\oplus$(A$\wedge \neg$B) and the fourth ($\neg$A) and mark down a 1 for
@@ -439,15 +442,19 @@ know under what circumstances the expression $\neg$Z $\wedge$ (X
 $\Leftrightarrow$ Y) $\wedge$ (X $\oplus$ Z) $\Rightarrow$ (X $\wedge$
 $\neg$ Z) evaluates to true. When we follow the above procedure, it yields
 the following truth table:
-\footnotesize
 \index{truth tables}
 \begin{nobreak}
 \begin{center}
 \begin{tabular}{c c c|c c c c c c c}
+\footnotesize
 X & Y & Z & $\neg$Z & X$\Leftrightarrow$Y &
 $\neg$Z$\wedge$(X$\Leftrightarrow$Y) & X$\oplus$Z &
-$\neg$Z$\wedge$(X$\Leftrightarrow$Y)$\wedge$(X$\oplus$Z) & (X$\wedge\neg$Z) & 
-answer\footnotemark \\
+$A^\textrm{1}$ &
+(X$\wedge\neg$Z) &
+$B$\footnote{Here, ``$A$'' stands for
+$\neg$Z$\wedge$(X$\Leftrightarrow$Y)$\wedge$(X$\oplus$Z) 
+and ``$B$'' is
+``$\neg$Z$\wedge$(X$\Leftrightarrow$Y)$\wedge$(X$\oplus$Y)$\Rightarrow$(X$\wedge\neg$Z),'' which were too long to fit in the table heading.} \\
 \hline
 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & \textbf{1} \\
 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & \textbf{1} \\
@@ -461,9 +468,6 @@ answer\footnotemark \\
 \end{center}
 \end{nobreak}
 \normalsize
-\footnotetext{``answer" means
-``$\neg$Z$\wedge$(X$\Leftrightarrow$Y)$\wedge$(X$\oplus$Y)$\Rightarrow$(X$\wedge\neg$Z),"
-which was too long to fit in the table heading.}
 
 (If you're looking for some practice, cranking through this example on your
 own and then comparing your answers to the above truth table isn't a bad
@@ -497,6 +501,7 @@ states that either a proposition or its negative will always be true.
 (There is no third option.)
 
 \index{De Morgan's laws}
+\scriptsize
 \begin{nobreak}
 \begin{center}
 \begin{tabular}{c c|c c c c c c c}
@@ -510,9 +515,11 @@ X & Y & X$\vee$Y & $\neg$(X$\vee$Y) & $\neg$X & $\neg$Y & $\neg$X$\wedge\neg$Y
 \end{tabular}
 \end{center}
 \end{nobreak}
+\normalsize
 This is one of \textbf{De Morgan's Laws}, which we've seen previously with
 regards to sets (p.~\pageref{demorganslaws}). Here is the other:
 \index{De Morgan's laws}
+\scriptsize
 \begin{nobreak}
 \begin{center}
 \begin{tabular}{c c|c c c c c c c}
@@ -526,6 +533,7 @@ X & Y & X$\wedge$Y & $\neg$(X$\wedge$Y) & $\neg$X & $\neg$Y & $\neg$X$\vee\neg$Y
 \end{tabular}
 \end{center}
 \end{nobreak}
+\normalsize
 \index{negation}
 \index{disjunction}
 \index{conjunction}
@@ -542,7 +550,8 @@ One last identity is this one:
 \begin{tabular}{c c|c c c c c c c}
 X & Y & Z & Y$\vee$Z & X$\wedge$(Y$\vee$Z) & X$\wedge$Y & X$\wedge$Z & 
 (X$\wedge$Y)$\vee$(X$\wedge$Z) &
-X$\wedge$(Y$\vee$Z)$\Leftrightarrow$(X$\wedge$Y)$\vee$(X$\wedge$Z) \\
+$A$\footnote{Here, ``$A$'' is
+X$\wedge$(Y$\vee$Z)$\Leftrightarrow$(X$\wedge$Y)$\vee$(X$\wedge$Z).} \\
 \hline
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & \textbf{1} \\
 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & \textbf{1} \\
@@ -666,12 +675,11 @@ logic," and can get quite messy.}
 \index{predicates}
 You may recall the word ``predicate" from your middle school grammar class.
 Every sentence, remember, has a subject and a predicate. In ``Billy jumps,"
-``Billy" is the subject, and ``jumps" the predicate. In ``The lonely boy
-ate spaghetti with gusto," we have ``the lonely boy" as the subject and
-``ate spaghetti with gusto" as the predicate. Basically, a predicate is
-anything that can describe or affirm something about a subject, which is
-exactly what we're doing here. Imagine asserting ``\textsc{Jumps}(Billy)"
-and ``\textsc{AteSpaghettiWithGusto}(lonely boy)."
+``Billy" is the subject, and ``jumps" the predicate. In ``The lonely boy ate
+spaghetti with gusto," we have ``the lonely boy" as the subject and ``ate
+spaghetti with gusto" as the predicate. Basically, a predicate is anything that
+can describe or affirm something about a subject. Imagine asserting
+``\textsc{Jumps}(Billy)" and ``\textsc{AteSpaghettiWithGusto}(lonely boy)."
 
 A predicate can have more than one input. Suppose we define the predicate
 \textsc{IsFanOf} as follows:
@@ -793,7 +801,7 @@ similar happens for Lady Gaga:
 So these two cases both result in true. But perhaps surprisingly, we also
 get true for oatmeal:
 \begin{align*}
-\textsc{Human}(\text{bowl of oatmeal}) & \Rightarrow \textsc{Male}(\text{bowl of oatmeal}) \oplus \textsc{Female}(\text{bowl of oatmeal}) \\
+\textsc{Human}(\text{oatmeal}) & \Rightarrow \textsc{Male}(\text{oatmeal}) \oplus \textsc{Female}(\text{oatmeal}) \\
 \text{false} & \Rightarrow \text{false} \oplus \text{false} \\
 \text{false} & \Rightarrow \text{false} \\
 \text{true} & \ \checkmark

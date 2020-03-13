@@ -1,4 +1,4 @@
-\documentclass[11pt]{book}
+\documentclass[11pt]{memoir}
 \usepackage{array}           % For double-column exercises.
 \usepackage{longtable}       % For double-column exercises.
 \usepackage[normalem]{ulem}  % For strikethrough.
@@ -8,29 +8,44 @@
 \usepackage{multicol}       
 \usepackage{fancybox}       
 \usepackage{makeidx}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
 \usepackage[hidelinks]{hyperref}
 %\usepackage{enumerate}       
+
+\setstocksize{23.389cm}{15.593cm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settrims{0pt}{0pt}
+
+\setlxvchars
+\settypeblocksize{*}{\lxvchars}{1.618}
+
+\setlrmargins{*}{*}{1.618}
+\setulmargins{90pt}{*}{*}
+\setheaderspaces{*}{*}{1.618}
+
+\checkandfixthelayout
 
 \makeindex 
 
 \newenvironment{custommargins}[2]%
   {\addtolength{\leftskip}{#1}\addtolength{\rightskip}{#2}}{\par}
 
-% Set left margin - The default is 1 inch, so the following
-% command sets a 2-inch left margin.
-\setlength{\oddsidemargin}{1in}
-\setlength{\evensidemargin}{0in}
-% Set width of the text - What is left will be the right margin.
-% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
-\setlength{\textwidth}{5.5in}
-
-% Set top margin - The default is 1 inch, so the following
-% command sets a 0.75-inch top margin.
-\setlength{\topmargin}{.75in}
-
-% Set height of the text - What is left will be the bottom margin.
-% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
-\setlength{\textheight}{7.25in}
+%% Set left margin - The default is 1 inch, so the following
+%% command sets a 2-inch left margin.
+%\setlength{\oddsidemargin}{1in}
+%\setlength{\evensidemargin}{0in}
+%% Set width of the text - What is left will be the right margin.
+%% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+%\setlength{\textwidth}{5.5in}
+%
+%% Set top margin - The default is 1 inch, so the following
+%% command sets a 0.75-inch top margin.
+%\setlength{\topmargin}{.75in}
+%
+%% Set height of the text - What is left will be the bottom margin.
+%% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+%\setlength{\textheight}{7.25in}
 \usepackage{amsmath,amsthm,amsfonts,amssymb,latexsym}
 
 \setlength{\parindent}{0pt}
@@ -41,7 +56,7 @@
 \begin{document}
 
 \title{A Cool Brisk Walk\\Through Discrete Mathematics\\{\small version
-1.3}}
+1.4}}
 \author{Stephen Davies, Ph.D.\\Computer Science Department\\University of Mary Washington}
 \date{}
 \maketitle
