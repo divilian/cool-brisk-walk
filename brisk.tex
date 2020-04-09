@@ -13,16 +13,28 @@
 \usepackage[hidelinks]{hyperref}
 %\usepackage{enumerate}       
 
-\setstocksize{23.389cm}{15.593cm}
-\settrimmedsize{\stockheight}{\stockwidth}{*}
-\settrims{0pt}{0pt}
+% Lulu.com
+%\setstocksize{23.389cm}{15.593cm}
+%\settrimmedsize{\stockheight}{\stockwidth}{*}
+%\settrims{0pt}{0pt}
+
+% Blurb.com
+\setstocksize{9.25in}{6.125in}
+\settrimmedsize{9in}{6in}{*}
+\settrims{.125in}{.125in}
 
 \setlxvchars
 \settypeblocksize{*}{\lxvchars}{1.618}
 
-\setlrmargins{*}{*}{1.618}
-\setulmargins{90pt}{*}{*}
-\setheaderspaces{*}{*}{1.618}
+\setlrmargins{*}{*}{.618}
+
+% Lulu.com
+%\setulmargins{110pt}{*}{*}
+
+% Blurb.com
+\setulmargins{75pt}{*}{*}
+\setheaderspaces{*}{*}{*}
+
 
 \checkandfixthelayout
 
@@ -69,6 +81,13 @@
 \renewcommand{\contentsname}{Contents at a glance}
 \setcounter{tocdepth}{0}
 \tableofcontents
+
+\vspace{.6in}
+\begin{center}
+\small
+Also be sure to check out the forever-free-and-open-source instructional videos
+that accompany this series, at \url{www.allthemath.org}!
+\end{center}
 
 \include{preface}
 
