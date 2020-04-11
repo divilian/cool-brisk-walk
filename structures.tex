@@ -518,20 +518,21 @@ loops in the process. Here it is:
 
 \index{BFT (breadth-first traversal)}
 \vspace{.1in}
-\begin{samepage}
+\begin{framed}
 \textbf{Breadth-first traversal (BFT)}
-\begin{enumerate}
+\begin{compactenum}
+\itemsep.1em
 \item Choose a starting node.
 \item Mark it and enqueue it on an empty queue.
 \item While the queue is not empty, do these steps:
-    \begin{enumerate}
+    \begin{compactenum}
     \item Dequeue the front node of the queue.
     \item Visit it.
     \item Mark and enqueue all of its \textit{unmarked} adjacent nodes (in
 any order).
-    \end{enumerate}
-\end{enumerate}
-\end{samepage}
+    \end{compactenum}
+\end{compactenum}
+\end{framed}
 \vspace{.2in}
 
 \index{Facebook}
@@ -660,18 +661,20 @@ again. All you do is replace ``queue" with ``stack":
 \index{DFT (depth-first traversal)}
 \vspace{.1in}
 \begin{samepage}
+\begin{framed}
 \textbf{Depth-first traversal (DFT)}
-\begin{enumerate}
+\begin{compactenum}
 \item Choose a starting node.
 \item Mark it and push it on an empty stack.
 \item While the stack is not empty, do these steps:
-    \begin{enumerate}
+    \begin{compactenum}
     \item Pop the top node off the stack.
     \item Visit it.
     \item Mark and push all of its \textit{unmarked} adjacent nodes (in
 any order).
-    \end{enumerate}
-\end{enumerate}
+    \end{compactenum}
+\end{compactenum}
+\end{framed}
 \end{samepage}
 \vspace{.2in}
 
@@ -769,18 +772,19 @@ Here's the algorithm in full:
 \index{current node}
 \vspace{.1in}
 \begin{samepage}
+\begin{framed}
 \textbf{Dijkstra's shortest-path algorithm}
-\begin{enumerate}
+\begin{compactenum}
 \item Choose a starting node and an ending node.
 \item Mark the tentative distance for the starting nodes as 0, and all
 other nodes as $\infty$.
 \item While there are still unvisited nodes, do these steps:
-    \begin{enumerate}
+    \begin{compactenum}
     \item \label{choose} Identify the \textit{un}visited node with the smallest tentative
 distance. (If this is $\infty$, then we're done. All other nodes are
 unreachable.) Call this node the ``current node."
     \item For each unvisited neighbor of the current node, do these steps:
-        \begin{enumerate}
+        \begin{compactenum}
         \item Compute the sum of the current node's tentative distance and
 the distance from the current node to its neighbor.
         \item Compare this total to the neighbor's current tentative
@@ -789,9 +793,10 @@ tentative distance with this new value, and mark an arrow on the path from
 the current node to the neighbor (erasing any other arrow to the neighbor.)
         \item Mark the current node as visited. (Its distance and best path
 are now fixed.)
-        \end{enumerate}
-    \end{enumerate}
-\end{enumerate}
+        \end{compactenum}
+    \end{compactenum}
+\end{compactenum}
+\end{framed}
 \end{samepage}
 \vspace{.2in}
 
@@ -922,16 +927,18 @@ you do:
 
 \vspace{.1in}
 \begin{samepage}
+\begin{framed}
 \textbf{Prim's minimal connecting edge set algorithm}
-\begin{enumerate}
+\begin{compactenum}
 \item Choose a node, any node.
 \item While not all the nodes are connected, do these steps:
-    \begin{enumerate}
+    \begin{compactenum}
     \item \label{greedystep} Identify the node closest to the 
 already-connected nodes, and connect it to those nodes via the shortest
 edge.
-    \end{enumerate}
-\end{enumerate}
+    \end{compactenum}
+\end{compactenum}
+\end{framed}
 \end{samepage}
 
 \index{greedy algorithm}
@@ -1045,12 +1052,12 @@ in some sense, a free tree doesn't contain anything ``extra."
 
 If you have a free tree, the following interesting facts are true:
 
-\begin{enumerate}
+\begin{compactenum}
 \item There's exactly one path between any two nodes. (Check it!)
 \item If you remove any edge, the graph becomes disconnected. (Try it!)
 \item If you add any new edge, you end up adding a cycle. (Try it!)
 \item \label{onelessedge} If there are $n$ nodes, there are $n-1$ edges. (Think about it!)
-\end{enumerate}
+\end{compactenum}
 
 So basically, if your goal is connecting all the nodes, and you have a free
 tree, you're all set. Adding anything is redundant, and taking away
@@ -1191,9 +1198,9 @@ E's ancestors are C, B, and A. Note that F is \textit{not} C's ancestor,
 even though it's above it on the diagram: there's no connection from C to
 F, except back through the root (which doesn't count).
 
-\index{descendent (of a node)}
-\item[descendent.] Your children, grandchildren, great-grandchildren,
-\textit{etc.}, all the way the leaves. B's descendents are C, D and E,
+\index{descendant (of a node)}
+\item[descendant.] Your children, grandchildren, great-grandchildren,
+\textit{etc.}, all the way the leaves. B's descendants are C, D and E,
 while A's are F, B, C, D, and E. 
 
 \index{leaves}
@@ -1233,7 +1240,7 @@ might call them ``cousins" to continue the family analogy.)
 expressive power is their \textbf{recursive} nature. This means that a tree
 is made up of \textit{other (smaller) trees.} Consider our example. It is a
 tree with a root of A. But the two children of A are each trees in their
-own right! F itself is a tree with only one node. B and its descendents
+own right! F itself is a tree with only one node. B and its descendants
 make another tree with four nodes. We consider these two trees to be
 subtrees of the original tree. The notion of ``root" shifts somewhat as we
 consider subtrees --- A is the root of the original tree, but B is the root
@@ -1278,14 +1285,16 @@ and all three consider each of the root's children as subtrees. The
 difference is in the order of visitation.
 
 \index{pre-order traversal}
-To traverse a tree \textbf{pre-order}, we:
 
-\begin{enumerate}
+\begin{framed}
+To traverse a tree \textbf{pre-order}, we:
+\begin{compactenum}
 \item Visit the root.
-\item Treat the left child and all its descendents as a subtree, and
+\item Treat the left child and all its descendants as a subtree, and
 traverse it in its entirety.
 \item Do the same with the right child.
-\end{enumerate}
+\end{compactenum}
+\end{framed}
 
 It's tricky because you have to remember that each time you ``treat a child
 as a subtree" you do \textit{the whole traversal process} on that subtree.
@@ -1321,14 +1330,16 @@ for a visual.)
 \end{figure}
 
 \index{post-order traversal}
-To traverse a tree \textbf{post-order}, we:
 
-\begin{enumerate}
-\item Treat the left child and all its descendents as a subtree, and
+\begin{framed}
+To traverse a tree \textbf{post-order}, we:
+\begin{compactenum}
+\item Treat the left child and all its descendants as a subtree, and
 traverse it in its entirety.
 \item Do the same with the right child.
 \item Visit the root.
-\end{enumerate}
+\end{compactenum}
+\end{framed}
 
 It's the same as pre-order, except that we visit the root after the
 children instead of before. Still, despite its similarity, this has always
@@ -1358,14 +1369,16 @@ up.
 \end{figure}
 
 \index{in-order traversal}
-Finally, to traverse a tree \textbf{in-order}, we:
 
-\begin{enumerate}
-\item \label{inorder:left} Treat the left child and all its descendents as
+\begin{framed}
+Finally, to traverse a tree \textbf{in-order}, we:
+\begin{compactenum}
+\item \label{inorder:left} Treat the left child and all its descendants as
 a subtree, and traverse it in its entirety.
 \item Visit the root.
 \item Traverse the right subtree in its entirety.
-\end{enumerate}
+\end{compactenum}
+\end{framed}
 
 So instead of visiting the root first (pre-order) or last (post-order) we
 treat it in between our left and right children. This might seem to be a
@@ -1576,7 +1589,7 @@ inclincation, when glancing at Figure~\ref{falsebst}, below, is to judge it
 a BST. It is \textit{not} a binary search tree, however! Jessica is to the
 left of Mitch, as she should be, and Nancy is to the right of Jessica, as
 she should be. It seems to check out. But the problem is that Nancy is a
-descendent of Mitch's \textit{left} subtree, whereas she must properly be
+descendant of Mitch's \textit{left} subtree, whereas she must properly be
 placed somewhere in his \textit{right} subtree. And yes, this matters. So
 be sure to check your BST's all the way up and down.
 
@@ -1718,13 +1731,13 @@ incorrectly.}
 \end{figure}
 
 One correct way (there are others) to do a node removal is to replace the
-node with \textit{the left-most descendent of its right subtree}. (Or,
-equivalently, the right-most descendent of its left subtree).
+node with \textit{the left-most descendant of its right subtree}. (Or,
+equivalently, the right-most descendant of its left subtree).
 Figure~\ref{bstremoveright} shows the result after removing Jessica. We
 replaced her with Jim, \textit{not} because it's okay to blindly promote
-the right child, but because \textit{Jim had no left descendents.} If he
+the right child, but because \textit{Jim had no left descendants.} If he
 had, promoting him would have been just as wrong as promoting Ben. Instead,
-we would have promoted \textit{Jim's left-most descendent.}
+we would have promoted \textit{Jim's left-most descendant.}
 
 \begin{figure}[ht]
 \centering
@@ -1736,7 +1749,7 @@ we would have promoted \textit{Jim's left-most descendent.}
 As another example, let's go whole-hog and remove the root node, Mitch. The
 result is as shown in Figure~\ref{bstremoveright2}. It's rags-to-riches for
 Molly: she got promoted from a leaf all the way to the top. Why Molly?
-Because she was the left-most descendent of Mitch's right subtree.
+Because she was the left-most descendant of Mitch's right subtree.
 
 \begin{figure}[ht]
 \centering
