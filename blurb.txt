@@ -1,0 +1,14 @@
+A Cool Brisk Walk Through Discrete Mathematics - and its companion site "allthemath.org" - are completely-and-forever-free-and-open-source educational materials dedicated to the mathematics that budding computer science practitioners actually need to know. They feature the fun and addictive teaching of award-winning lecturer Dr. Stephen Davies of the University of Mary Washington in Fredericksburg, Virginia!
+
+Version 1.4 (no version number on cover): ISBN 171467584X
+
+Blurb.com:
+----------
+https://www.blurb.com/b/10041403
+Primary category: Computers & Internet
+(No secondary categories)
+Keywords: discrete mathematics, computer science
+
+Amazon.com:
+-----------
+Computer Science, Discrete Mathematics
