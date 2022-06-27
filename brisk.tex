@@ -1,3 +1,18 @@
+% To compile:
+%   pdflatex brisk.tex
+%   makeindex brisk.idx
+%   pdflatex brisk.tex
+%
+% The content and cover files, explained:
+% - cover.xcf: Gimp file of full cover (front/back/spine)
+% - cover.pdf: full cover (front/back/spine)
+% - brisk_cover.xcf DOES NOT EXIST (probably should)
+% - brisk_cover.pdf just front
+% - blank.pdf a blank PDF page
+% - brisk.pdf: content only, entire book
+% - brisk_wcover.pdf: front cover and content, for electronic posting.
+%   To make this:
+%   $ pdftk brisk_cover.pdf blank.pdf brisk.pdf output brisk_wcover.pdf
 \documentclass[11pt]{memoir}
 \usepackage[monochrome]{color}
 \usepackage{paralist}
