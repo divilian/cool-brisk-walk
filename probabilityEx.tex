@@ -3,14 +3,16 @@
 
 \begin{small}
 \begin{enumerate}
-\newcolumntype{Q}{>{\arraybackslash}m{.5\textwidth}}
-\newcolumntype{A}{>{\arraybackslash}m{.4\textwidth}}
+\newcolumntype{Q}{>{\arraybackslash}m{.45\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.5\textwidth}}
 %\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
 \begin{longtable}{Q || A}
 \hline
+\vspace{-.2in}
 \item At a swim meet, the competitors in the 100-m freestyle are Ben, Chad,
 Grover, and Tim. These four swimmers make up our sample space $\Omega$ for
 the winner of this heat. \\
+\\
 Is Chad $\in \Omega$?
 &
 Yes.
@@ -68,9 +70,84 @@ Now suppose Ben, Chad, and Grover are UMW athletes, Tim is from Marymount,
 Ben and Tim are juniors, and Chad and Grover are sophomores. We'll
 define $U$=\{Ben,Chad,Grover\}, $M$=\{Tim\}, $J$=\{Ben,Tim\}, and
 $S$=\{Chad,Grover\}. \\
-What's Pr($U$)?
+\\
+What's Pr($U$)? \label{pru}
 &
 .7.
+\\
+\hline
+\item What's Pr($J$)? \label{prj}
+&
+.4.
+\\
+\hline
+\item What's Pr($\overline{U}$)? \label{prnotu}
+&
+.3. (1 - Pr($U$), of course.)
+\\
+\hline
+\item What's Pr($J \cup S$)?
+&
+Exactly 1. All of the outcomes are represented in the two sets $J$ and $S$.
+(Put another way, all competitors are juniors or seniors.)
+\\
+\hline
+\item What's Pr($J \cap S$)?
+&
+Zero. Sets $J$ and $S$ have no elements in common, therefore their intersection
+is a set with no outcomes, and the probability of a non-existent outcome
+happening is 0. (Put another way, nobody is both a junior and a senior.)
+\\
+\hline
+\item What's the probability of a UMW junior winning the heat?
+&
+This is Pr($U \cap J$), which is the probability that the winner is a junior
+\textit{and} a UMW student. Since $U \cap J =$ \{ Ben \}, the answer is .1.
+\\
+\hline
+\item What's the probability that the winner is from UMW or a junior (or both)?
+&
+This is Pr($U \cup J$), which is the probability that the winner is a junior
+\textit{or} a UMW student (or both). This calls for computing Pr($U$) plus
+Pr($J$), but don't forget to then subtract Pr($U \cap J$) so we don't
+double-count Ben! The correct answer is .7 + .4 - .1, which is equal to
+\textbf{1}. If this surprises you, look again at the data and realize that
+\textit{every} swimmer is either a UMW student (Chad and Grover),
+a junior (Tim), or both (Ben).
+\\
+\hline
+\item What's Pr($J|U$)?
+&
+By the definition of conditional probability, $\textrm{Pr}(J|U) =
+\frac{\textrm{Pr}(J \cap U)}{\textrm{Pr}(U)}$ or $\frac{.1}{.7} = \frac{1}{7}
+\approx \textbf{.143}.$ This is quite a bit lower than the .4 we computed for Pr($J$) in
+item \ref{prj}. So if you knew nothing about the winner other than the
+swimmers' baseline probabilities, you'd estimate a 40\% chance of a junior
+winning...but if you learned the winner was a UMW student, your estimate of a
+junior winner would drop down to nearly 14\%.
+\\
+\hline
+\item What's Pr($\overline{U}|J$)?
+&
+$\textrm{Pr}(\overline{U}|J) = \frac{\textrm{Pr}(\overline{U} \cap
+J)}{\textrm{Pr}(J)}$ or $\frac{.3}{.4} = \frac{3}{4} = \textbf{.75}$, way higher than
+the .3 from item \ref{prnotu}. Learning that the swimmer is a junior makes the
+likelihood of a non-UMW winner leap sky high.\\
+\\
+\hline
+
+\item Suppose 75\% of Twitter users vote, whereas only about half of people in
+general vote. Now say that about one out of every three people are on Twitter.
+If you see someone emerge from a voting booth, what's the probability
+they have a Twitter account?
+
+&
+The relevant probabilities here are Pr(vote$|$Twitter) = .75, Pr(vote) = .5,
+and Pr(Twitter) = $\frac{1}{3}$. By Bayes' Theorem, Pr(Twitter$|$vote) =
+$\frac{\textrm{Pr(vote}|\textrm{Twitter)}\cdot\textrm{Pr(Twitter)}}{\textrm{Pr(vote)}} =
+\frac{.75 \cdot .333}{.5} = \textbf{.5}.$ So although only a third of people tweet,
+the chances are 50-50 that someone tweets once you see them coming out of a
+voting booth.
 \\
 \hline
 \end{longtable}
