@@ -1,0 +1,94 @@
+
+\section{Exercises}
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.45\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.5\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\vspace{-.2in}
+\item Inside a dusty chest marked ``Halloween costumes'' in the family attic,
+there are four different outfits (a wizard's cape, army fatigues, and two
+others), five different headgears (a batman helmet, a headband, a tiara,
+\textit{etc.}), and nine different accessories (a wand, a lightsaber, a pipe,
+and many others). If a child were to choose a costume by selecting one outfit,
+one headgear, and one accessory, how many costume choices would he/she have?
+&
+$4 \times 5 \times 9 = 180$.\\
+\hline
+\item What if the child were permitted to skip one or more of the items (for
+instance, choosing a costume with an outfit and accessory, but no headgear)?
+&
+$5 \times 6 \times 10 = 300$, since now ``no choice at all'' is effectively
+another choice for each of the categories.\footnote{Note, by the way, that
+this approach does \textit{not} work for situations like the license plate
+example on p.\pageref{license plates}. Namely, you can't say ``if a license
+plate can have fewer than 7 characters, we can just add `no character at this
+position' as one of the options for that position,'' and calculate $37^7 =$
+94,931,877,133 possible plates. That number is too high. Why? (Hint: for some
+of those choices, you can get the same license plate in more than one way. Hint
+2: if we choose 'A' for the first license plate character, `no character' for
+the second, followed by 'NTMAN' we get the license plate 'ANTMAN'. But what other
+choices could we have made, that would also have resulted in 'ANTMAN'?
+\index{license plates}} Kind of amazing how much that increases the total!\\
+\hline
+\item Go back to when the child did have to choose something from each
+category, but now say they can have \textit{any} number of accessories (so they
+could have the wizard's cape, a batman helmet, plus a lightsaber, pipe, and
+scepter). Now how many costumes are there?
+&
+This is $4 \times 5 \times 2^9$, or a whopping 10,240 for those of you keeping
+score. The 9 changed to a $2^9$ because now for \textit{each} accessory, a
+costume might include it, or exclude it. That's two independent choices for
+each accessory.\\ \hline \item Okay, that's overkill. A kid only has two hands,
+after all, so handling nine accessories would be a dextrous challenge. Let's
+say instead that a child can choose \textit{up to three} accessories (but must
+have at least one). Now how many costume choices are there?
+&
+Now it's $4 \times 5 \times (\binom{9}{1} + \binom{9}{2} + \binom{9}{3})$,
+which is equal to $4 \times 5 \times (9 + 36 + 84)$, or 2,580 possible costumes.\\
+\hline
+\item When it's finally time to go trick-or-treating, we join up with our
+next-door neighbors and split up the families into somewhat haphazard groups.
+There are eleven total children, and six adults. Now let's say each group must
+have between 3 and 5 members, and must have at least one adult (to stay safe)
+and at least one kid (otherwise what's the point?) How many different groups
+are possible?
+&
+\index{complement, total (of sets)} Ignoring the at-least-one-child-and-adult
+constraint for the moment, the total number of groups would seem to be
+$\binom{17}{3} + \binom{17}{4} + \binom{17}{5} = 680 + 2380 + 6188 = 9,248$
+possible groups. But of course this is an overcount, since it includes groups
+with no children and groups with no adults. We'll use the trick from
+p.~\pageref{one minus trick} to subtract those out. How many size-3-to-5 groups
+with no adults (all kids) are there? $\binom{11}{3} + \binom{11}{4} +
+\binom{11}{5} = 957$. And how many size-3-to-5 groups with no kids (all
+adults)? $\binom{6}{3} + \binom{6}{4} + \binom{6}{5} = 41$. Therefore, by the
+p.~\pageref{one minus trick} trick, the total number of legal groups is $9248 -
+957 - 41 = 8,250$. Final answer.
+\\
+\hline
+\vspace{-.2in}
+\item To encourage rivalry and gluttony, we're going to give a special
+certificate to the child who collects the most candy at the end of the night.
+And while we're at it, we'll give 2nd-place and 3rd-place certificates as well.
+How many different ways could our 1st-2nd-3rd contest turn out?
+&
+This is a partial permutation: there are eleven possible winners, and ten
+possible runners-up for each possible winner, and nine possible 3rd-placers for
+each of those top-twos. The answer is therefore $11^{\underline{3}}$, or 990.
+Wow! I wouldn't have guessed that high.\\
+\hline
+\vspace{-.2in}
+\item Finally, what if we want \textit{every} kid to get a certificate with
+their name and place-of-finish on it. How many possibilities? (Assume no ties.)
+&
+This is now a full-blown permutation: $11!$. It comes to 39,916,800 different
+orders-of-finish, believe it or not. I told you: this counting stuff can
+explode fast.\\
+\hline
+\end{longtable}
+\end{enumerate}
+\end{small}
