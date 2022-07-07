@@ -348,7 +348,7 @@ evenly, leaving no remainder at all. 16 mod 3 again gives us 1, just like
 1, as will 22 mod 3 and 25 mod 3. These numbers that give the same
 remainder are said to be ``\textbf{congruent} mod 3." The numbers 2, 5, 8,
 11, 14, \textit{etc.} are also all congruent (to each other) mod 3, since
-they all give a remainder of 2.
+they all give remainder 2.
 
 Another observation is that the value of $n$ mod $k$ always gives a value
 between 0 and $k-1$. We may not know at a glance what 407,332,117 mod 3 is,
@@ -383,6 +383,7 @@ Here's how you do it:
 \index{floor operator ($\lfloor \ \rfloor$)}
 \index{modulo operator (mod)}
 \vspace{.1in}
+\begin{framed}
 \begin{samepage}
 \textbf{Express a numeric value in a base}
 \label{convertalgorithm}
@@ -397,6 +398,7 @@ already written down, and return to step~\ref{modstep}.
     \end{enumerate}
 \end{enumerate}
 \end{samepage}
+\end{framed}
 \vspace{.2in}
 
 As an example, let's go backwards to the hex number 72E3 as in our example
@@ -744,6 +746,7 @@ $\texttt{00111110}_2$
 After you do this a while, you get to the point where you can instantly
 recognize which hex digit goes with which nibble value. Until then, though,
 here's a handy table:
+\label{nibbletable}
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline

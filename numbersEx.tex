@@ -104,17 +104,18 @@ Of course not. Don't waste my time.\\
 &
 Yes. The number 617,418 is exactly 6 less than 617,424. Let's say there are $k$
 stones left over after removing groups of three from 617,418. ($k$ must be 0,
-1, or 2, of course.) Now if we did the same remove-groups-of-three thing
-starting with 617,424, we'll have two more groups of three than we did before,
-but then also have exactly $k$ stones left over.\\
+1, or 2, of course.) Now if we did the same remove-groups-of-three thing but
+starting with 617,424 instead, we'll have two more groups of three than we did
+before, but then also have exactly $k$ stones left over.\\
 \hline
 \item Are the numbers 617,418 and 617,424 congruent mod 2?
 &
 Yes. The number 617,418 is exactly 6 less than 617,424. If there are $k$ stones
 left over after removing pairs of stones from 617,418, we'd get three
-additional pairs if we instead started with 617,424, but then also have exactly
+additional pairs if we had instead started with 617,424, but then also have exactly
 $k$ stones left over.\\
 \hline
+\vspace{-.2in}
 \item Are the numbers 617,418 and 617,424 congruent mod 5?
 &
 No. Five doesn't go evenly into six.\\
@@ -123,8 +124,96 @@ No. Five doesn't go evenly into six.\\
 &
 Yes. The number 617,418 is exactly 6 less than 617,424. If there are $k$ stones
 left over after removing groups of six from 617,418, we'd get one
-additional group if we instead started with 617,424, and then have exactly
+additional group if we had instead started with 617,424, and then have exactly
 $k$ stones left over.\\
+\hline
+\vspace{-.2in}
+\item What's $1_{16} + 2_{16}$?
+&
+$3_{16}$.\\
+\hline
+\vspace{-.2in}
+\item What's $1_{16} + 9_{16}$?
+&
+A$_{16}$.\\
+\hline
+\vspace{-.2in}
+\item What's $1_{16} + \textrm{E}_{16}$?
+&
+F$_{16}$.\\
+\hline
+\vspace{-.2in}
+\item \label{carryexample} What's $1_{16} + \textrm{F}_{16}$?
+&
+10$_{16}$. This is the first time we've had to ``carry.''\\
+\hline
+\vspace{-.2in}
+\item What's $11_{16} + 22_{16}$?
+&
+$33_{16}$.\\
+\hline
+\vspace{-.2in}
+\item What's $11_{16} + 99_{16}$?
+&
+AA$_{16}$.\\
+\hline
+\vspace{-.2in}
+\item What's $11_{16} + \textrm{EE}_{16}$?
+&
+FF$_{16}$.\\
+\hline
+\vspace{-.2in}
+\item What's $11_{16} + \textrm{EF}_{16}$?
+&
+100$_{16}$. (As in exercise~\ref{carryexample}, we must carry.)\\
+\hline
+\vspace{-.2in}
+\item What's the binary number $1011001110101010_2$ in hexadecimal? Or is that
+too hard a question to eyeball?
+&
+Naw, it's easy. By inspection, it's B3AA$_{16}$, since each of the four 4-bit
+nibbles goes one-for-one with a hex digit. (You can look up nibble values on
+p.~\pageref{nibbletable} if you want, but again it's definitely worth
+memorizing.)\\
+\hline
+\vspace{-.2in}
+\item What's the binary number $1011001110101010_2$ in decimal? Or is that
+too hard a question to eyeball?
+&
+Ugh. Ain't nobody got time for that.\\
+\hline
+\vspace{-.2in}
+\item What's the hex number F4CE$_{16}$ in decimal? Or is that
+too hard a question to eyeball?
+&
+Too hard.\\
+\hline
+\vspace{-.2in}
+\item What's the hex number F4CE$_{16}$ in binary? Or is that
+too hard a question to eyeball?
+&
+Simple: $1111001011001110_{2}$. Read it right off the chart
+(p.~\pageref{nibbletable}).\\
+\hline
+\item If I told you that the bit pattern \texttt{1010} was meant to represent an
+unsigned number, what value would it represent?
+&
+Ten. ($8 + 2 = 10$).\\
+\hline
+\item If I told you that the bit pattern \texttt{1010} was meant to represent a
+sign-magnitude number, what value would it represent?
+&
+Negative two. The left-most bit is 1, so it's negative; and the remaining bits
+are \texttt{010}, which when interpreted in binary are the number 2.\\
+\hline
+\item If I told you that the bit pattern \texttt{1010} was meant to represent a
+two's-complement number, what value would it represent?
+&
+Negative six. The left-most bit is 1, so it's negative. This means in order to
+figure out the value, we have to flip all the bits and add one. Flipping them
+yields \texttt{0101}, and adding one to that gives \texttt{0110} (we had to do
+one carry). Since the binary number \texttt{0110} is positive six, that must
+mean that what we started with -- \texttt{1010} -- must be negative six.\\
 \hline
 \end{longtable}
 \end{enumerate}
