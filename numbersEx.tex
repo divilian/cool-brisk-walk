@@ -1,0 +1,131 @@
+
+\section{Exercises}
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.45\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.5\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\vspace{-.3in}
+\item If I told you that the decimal number (\textit{i.e.}, base-10 number)
+2022 was equal to $13621_6$, would you call me a liar without even having to
+think too hard?
+&
+Yes, you should. A number in base-6 can't have any digits in it other than 0
+through 5, and the ``number'' I tried to give you had a 6 in it.\\
+\hline
+\vspace{-.2in}
+\item If I told you that the decimal number 2022 was
+equal to $1413_6$, would you call me a liar without even having to think too
+hard?
+&
+Yes, you should. Think about it: in base 6, each digit's place value (except
+the one's place) is worth \textit{less} than it is in base 10. Instead of a
+ten's place, hundred's place, and thousand's place, we have a woosy six's
+place, thirty-six's place, and two-hundred-and-sixteen's place. So there's no
+way that a number whose base-6 digits are 1, 4, 1, and 3 would be as large as a
+number whose base-\textsl{10} digits are 2, something, something, and
+something. Put another way, if the base is smaller, the number itself has to
+``look bigger'' to have a chance of evening that out.\\
+\hline
+\vspace{-.2in}
+\item If I told you that the decimal number 2022 was
+equal to 8FA$8_{16}$, would you call me a liar without even having to think too
+hard?
+&
+Yes, you should, because of the mirror reflection of the above logic.
+Every digit of a hexadecimal number (again, except the one's place) is worth
+\textit{more} than it is in base 10. So a four-digit hex number beginning with
+an 8 is going to be way bigger than a wimpy four-digit decimal number beginning
+with 2.\\
+\hline
+\vspace{-.2in}
+\item If I told you that the decimal number 2022 was
+equal to 1231$0_{6}$, would you call me a liar without even having to think too
+hard?
+&
+No, you shouldn't, because you do have to think hard for this one. As it
+happens, I \textit{am} a liar (the true answer is 1321$0_6$), but there's no
+easy way to know that at a glance.\\
+\hline
+\vspace{-.2in}
+\item If I told you that the decimal number 2022 was
+equal to 7E$6_{16}$, would you call me a liar without even having to think too
+hard?
+&
+No, you shouldn't, because you do have to think hard for this one. (And in
+fact, it's correct! Work it out.)\\
+\hline
+\vspace{-.2in}
+\item If I told you that 98,243,917,215 mod 7 was equal to 1, would you call me
+a liar without even having to think too hard?
+&
+No, you shouldn't. It turns out that the answer is 3, not 1, but how would you
+know that without working hard for it?\\
+\hline
+\vspace{-.2in}
+\item If I told you that 273,111,999,214 mod 6 was equal to 6, would you call me
+a liar without even having to think too hard?
+&
+Yes, you should. Any number mod 6 will be in the range 0 through 5, never 6 or
+above. (Think in terms of repeatedly taking out groups of six from the big
+number. The mod is the number of stones you have left when there are no more
+whole groups of six to take. If towards the end of this process there are six
+stones left, that's not a remainder, because you can get another whole
+group!)\\
+\hline
+\vspace{-.2in}
+\item Are the numbers 18 and 25 equal?
+&
+Of course not. Don't waste my time.\\
+\hline
+\item Are the numbers 18 and 25 congruent mod 7?
+&
+Yes. If we take groups of 7 out of 18 stones, we'll get two such groups (a
+total of 14 stones) and have 4 left over. And then, if we do that same with 25
+stones, we'll get three such groups (a total of 21 stones) and again have 4
+left over. So they're not congruent mod 7.\\
+\hline
+\item Are the numbers 18 and 25 congruent mod 6?
+&
+No. If we take groups of \textit{6} out of 18 stones, we'll get three such
+groups with nothing left over. But if we start with 25 stones, we'll take out 4
+such groups (for a total of 24 stones) and have one left over. So they're not
+congruent mod 6.\\
+\hline
+\vspace{-.2in}
+\item Are the numbers 617,418 and 617,424 equal?
+&
+Of course not. Don't waste my time.\\
+\hline
+\item Are the numbers 617,418 and 617,424 congruent mod 3?
+&
+Yes. The number 617,418 is exactly 6 less than 617,424. Let's say there are $k$
+stones left over after removing groups of three from 617,418. ($k$ must be 0,
+1, or 2, of course.) Now if we did the same remove-groups-of-three thing
+starting with 617,424, we'll have two more groups of three than we did before,
+but then also have exactly $k$ stones left over.\\
+\hline
+\item Are the numbers 617,418 and 617,424 congruent mod 2?
+&
+Yes. The number 617,418 is exactly 6 less than 617,424. If there are $k$ stones
+left over after removing pairs of stones from 617,418, we'd get three
+additional pairs if we instead started with 617,424, but then also have exactly
+$k$ stones left over.\\
+\hline
+\item Are the numbers 617,418 and 617,424 congruent mod 5?
+&
+No. Five doesn't go evenly into six.\\
+\hline
+\item Are the numbers 617,418 and 617,424 congruent mod 6?
+&
+Yes. The number 617,418 is exactly 6 less than 617,424. If there are $k$ stones
+left over after removing groups of six from 617,418, we'd get one
+additional group if we instead started with 617,424, and then have exactly
+$k$ stones left over.\\
+\hline
+\end{longtable}
+\end{enumerate}
+\end{small}
