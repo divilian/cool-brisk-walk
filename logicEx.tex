@@ -1,0 +1,211 @@
+
+\section{Exercises}
+
+\begin{small}
+\begin{enumerate}
+\newcolumntype{Q}{>{\arraybackslash}m{.45\textwidth}}
+\newcolumntype{A}{>{\arraybackslash}m{.5\textwidth}}
+%\begin{longtable}{m{0.3\textwidth} || m{0.6\textwidth}}
+\begin{longtable}{Q || A}
+\hline
+\vspace{-.1in}
+
+Let $B$ be the proposition that Joe Biden was elected president in 2020, $C$ be
+the proposition that Covid-19 was completely eradicated from the earth in 2021,
+and $R$ be the proposition that \textit{Roe v.~Wade} was overturned in 2022.
+\item What's $B \vee C$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $B \wedge C$?
+&
+False.\\
+\hline
+\vspace{-.15in}
+\item What's $B \wedge R$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $B \wedge \neg R$?
+&
+False.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg C \vee \neg R$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg (C \vee \neg R)$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg (\neg C \vee R)$?
+&
+False.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg C \vee B$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg C \oplus B$?
+&
+False.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg C \oplus \neg B$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg \neg \neg \neg B$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg \neg \neg \neg \neg B$?
+&
+False.\\
+\hline
+\vspace{-.15in}
+\item What's $\neg \neg \neg \neg \neg C$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $B \vee C \vee R$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $B \wedge C \wedge R$?
+&
+False.\\
+\hline
+\vspace{-.15in}
+\item What's $B \wedge \neg C \wedge R$?
+&
+True.\\
+\hline
+\vspace{-.15in}
+\item What's $B \Rightarrow R$?
+&
+True. (Even though there is plainly no causality there.)\\
+\hline
+\vspace{-.15in}
+\item What's $R \Rightarrow B$?
+&
+True. (Ditto.)\\
+\hline
+\vspace{-.15in}
+\item What's $B \Rightarrow C$?
+&
+False. (The premise is true, so the conclusion must also be true for this
+sentence to be true.)\\
+\hline
+\vspace{-.15in}
+\item What's $C \Rightarrow B$?
+&
+\textbf{True}. (The premise is false, so all bets are off and the sentence is true.)\\
+\hline
+\vspace{-.15in}
+\item What's $C \Rightarrow \neg R$?
+&
+\textbf{True}. (The premise is false, so all bets are off and the sentence is true.)\\
+\hline
+\vspace{-.15in}
+\item What's $C \Leftrightarrow B$?
+&
+False. (The truth values of the left and right sides are not the same.)\\
+\hline
+\vspace{-.15in}
+\item What's $C \Leftrightarrow \neg B$?
+&
+True. (The truth values of the left and right sides \textit{are} the same.)\\
+\hline
+\item \label{assertion} I make this assertion:
+
+\begin{center}
+``$X \wedge \neg Y \wedge \neg(Z \Rightarrow Q)$.''
+\end{center}
+
+And since I'm the professor, you can assume I'm correct about this. From
+this information alone, can you determine a unique set of values for the four
+variables? Or is there more than one possibility for them?
+&
+There is actually only one solution. Here's one way to tell. We know that $X$
+must be true, since it's being ``and-ed'' in to another expression. We know
+that $Y$ must be false, since its \textit{opposite} is similarly being
+``and-ed'' in. Finally, we also know that $Z$ must be true and $Q$ must be
+false, since the only way an implication ($\Rightarrow$) can be false is if its
+premise is true and its conclusion is false. And the implication here
+\textit{must} be false if the professor is telling the truth, because its
+\textit{opposite} is being ``and-ed'' in to the three other things. So the one
+and only answer is: $X=1, Y=0, Z=1, Q=0$.
+
+\smallskip
+(You can figure this all out with truth tables too, of course, and for most
+examples you would. I just wanted to make an exercise that you could figure out
+in your head without pencil and paper.)\\
+\hline
+\item What if I get rid of $Q$ and replace it with $X$, thus making my
+assertion:
+
+\begin{center}
+``$X \wedge \neg Y \wedge \neg(Z \Rightarrow X)$.''
+\end{center}
+
+Now what is/are
+the solutions?
+&
+Now it's impossible, and if you study the previous item, you'll see why. The
+only way that item \ref{assertion} could be true was if the conclusion of the
+implication (namely, $Q$) was false. But $X$ had to be true. So whether $X$ is
+true or false in this new assertion, something will go haywire: either it'll be
+true and the third and-ed thing will be false, or else it'll be false and the
+first and-ed thing will be false. There's no way the professor could be telling
+the truth here.\\
+\hline
+\medskip
+
+At the time of this writing, all professors are human, and that's what
+I'll be assuming in these exercises.
+\smallskip
+\item True or false: $\forall x\ \textsc{Professor}(x)$.
+&
+False. This says ``everyone and everything is a professor,'' which is clearly
+not true. (Consider what you ate for lunch as a counterexample.)\\
+\hline
+\item True or false: $\forall x\ \textsc{Human}(x)$.
+&
+False. This says ``everyone and everything is human,'' which is clearly
+not true. (Consider the book in front of you as a counterexample.)\\
+\hline
+\item True or false: $\neg \forall x\ \textsc{Human}(x)$.
+&
+True. This says ``it's \textit{not} the case that everyone and everything is
+human.''\\
+\hline
+\item \label{nothingishuman} True or false: $\forall x\ \neg \textsc{Human}(x)$.
+&
+False. This says ``nothing is human,'' which is clearly not true. (Consider
+yourself as a counterexample.) \\
+\hline
+\item True or false: $\exists x\ \neg \textsc{Human}(x)$.
+&
+True. This says ``there's at least one thing in the universe which is not
+human.''\\
+\hline
+\item True or false: $\neg \exists x\ \textsc{Human}(x)$.
+&
+False. This says ``nothing is human,'' just like item~\ref{nothingishuman}
+did.\\
+\hline
+\end{longtable}
+\end{enumerate}
+\end{small}
