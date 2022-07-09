@@ -138,6 +138,7 @@ And since I'm the professor, you can assume I'm correct about this. From
 this information alone, can you determine a unique set of values for the four
 variables? Or is there more than one possibility for them?
 &
+\scriptsize
 There is actually only one solution. Here's one way to tell. We know that $X$
 must be true, since it's being ``and-ed'' in to another expression. We know
 that $Y$ must be false, since its \textit{opposite} is similarly being
@@ -146,12 +147,8 @@ false, since the only way an implication ($\Rightarrow$) can be false is if its
 premise is true and its conclusion is false. And the implication here
 \textit{must} be false if the professor is telling the truth, because its
 \textit{opposite} is being ``and-ed'' in to the three other things. So the one
-and only answer is: $X=1, Y=0, Z=1, Q=0$.
-
-\smallskip
-(You can figure this all out with truth tables too, of course, and for most
-examples you would. I just wanted to make an exercise that you could figure out
-in your head without pencil and paper.)\\
+and only answer is: $X=1, Y=0, Z=1, Q=0$. (You can figure this all out with truth tables too, of course, and for most examples you would. I just wanted to make an exercise that you could figure out in your head without pencil and paper.)
+\\
 \hline
 \item What if I get rid of $Q$ and replace it with $X$, thus making my
 assertion:
@@ -163,13 +160,15 @@ assertion:
 Now what is/are
 the solutions?
 &
+\scriptsize
 Now it's impossible, and if you study the previous item, you'll see why. The
 only way that item \ref{assertion} could be true was if the conclusion of the
 implication (namely, $Q$) was false. But $X$ had to be true. So whether $X$ is
 true or false in this new assertion, something will go haywire: either it'll be
 true and the third and-ed thing will be false, or else it'll be false and the
 first and-ed thing will be false. There's no way the professor could be telling
-the truth here.\\
+the truth here.
+\\
 \hline
 \medskip
 
@@ -189,7 +188,7 @@ not true. (Consider the book in front of you as a counterexample.)\\
 \item True or false: $\neg \forall x\ \textsc{Human}(x)$.
 &
 True. This says ``it's \textit{not} the case that everyone and everything is
-human.''\\
+human.'' And that certainly is not the case.\\
 \hline
 \item \label{nothingishuman} True or false: $\forall x\ \neg \textsc{Human}(x)$.
 &
@@ -199,12 +198,57 @@ yourself as a counterexample.) \\
 \item True or false: $\exists x\ \neg \textsc{Human}(x)$.
 &
 True. This says ``there's at least one thing in the universe which is not
-human.''\\
+human.'' (Consider your lunch.)\\
 \hline
 \item True or false: $\neg \exists x\ \textsc{Human}(x)$.
 &
 False. This says ``nothing is human,'' just like item~\ref{nothingishuman}
 did.\\
+\hline
+\item True or false: $\forall x\ \textsc{Human}(x) \wedge \textsc{Professor}(x)$.
+&
+\footnotesize
+Not even close. This says ``everything in the universe is a human
+professor.'' (Even though I would exist in such a world, what a sad, limited
+place it would be.)\\
+\hline
+\item \footnotesize True or false: $\forall x\ \textsc{Human}(x) \Rightarrow \textsc{Professor}(x)$.
+&
+\footnotesize
+False. This says ``every person is a professor.'' (Consider LeBron James.) Keep
+in mind: ``$\forall$'' and ``$\wedge$'' don't really play well together.\\
+\hline
+\item \footnotesize True or false: $\exists x\ \textsc{Professor}(x) \Rightarrow
+\textsc{Human}(x)$.
+&
+\footnotesize
+This is technically true, but for a stupid reason, and whoever wrote it almost
+certainly didn't intend what they wrote. It says, ``there's at least one thing
+in the universe which either (a) isn't a professor, or (b) if it \textit{is} a
+professor, is also human.'' Keep in mind: ``$\exists$'' and ``$\Rightarrow$''
+don't really play well together. To drill this lesson home, realize that you
+could substitute almost \textit{any} predicates for \textsc{Professor}() and
+\textsc{Human}() in that statement and it would still be true. (Try swapping
+out \textsc{Professor}() for \textsc{Condiment}() and \textsc{Human}() for
+\textsc{AstrologicalSign}(). Now try $x$=EuropeanUnion and voila! the statement
+is true. The EU is not a condiment, nor is it an astrological sign, so both
+sides of the implication are false, and never forget: false $\Rightarrow$ false
+= \textbf{true}.)\\
+\hline
+\item \label{trueatlast} \footnotesize True or false: $\forall x\ \textsc{Professor}(x) \Rightarrow
+\textsc{Human}(x)$.
+&
+\footnotesize
+True at last! This is what we were trying to say all along. Every professor is a
+person.\\
+\hline
+\item \scriptsize True or false: $\neg \exists x\ \textsc{Professor}(x)
+\Rightarrow \neg \textsc{Human}(x)$.
+&
+\footnotesize
+True! This is an equivalent statement to item \ref{trueatlast}. There's nothing
+in the universe that is a professor yet not a human. (At least, at the time of
+this writing.)\\
 \hline
 \end{longtable}
 \end{enumerate}
