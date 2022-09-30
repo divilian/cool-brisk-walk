@@ -43,7 +43,7 @@ We normally use capital letters (what else?) to denote propositions, like:
 
 \quad\quad Let A be the proposition that UMW is in Virginia.
 
-\quad\quad Let B be the proposition that the Queen of England is male.
+\quad\quad Let B be the proposition that the King of England is female.
 
 \quad\quad Let C be the proposition that dogs are carnivores.
 
@@ -84,7 +84,7 @@ be used to join propositions and produce another proposition. The
 expression ``34 + 59" produces the number 93. The expression
 ``\{X,Y\}$\cup$\{Y,Z\}" produces the set \{X,Y,Z\}. And the expression
 ``A~$\wedge$~B" produces the value \textsl{false}, since although UMW is
-located in Virginia, the Queen is female.
+located in Virginia, the King is not female.
 
 Let's run through the six operators, some of which are intuitive and some
 of which are not:
@@ -111,7 +111,7 @@ chosen symbols which reinforce this connection.
 \index{union (of sets)}
 \item[$\vee$ (``or")] The proposition X$\vee$Y is true when either X or Y
 (or both) are true propositions. ``B$\vee$C" represents the proposition
-``The Queen of England is male \textit{or} dogs are carnivores," which has
+``The King of England is female \textit{or} dogs are carnivores," which has
 a truth value of \textsl{true} since the second component is true. This
 operation is sometimes called a \textbf{disjunction}. The
 $\vee$ looks somewhat like the ``$\cup$" sign for set union, since an
@@ -159,14 +159,14 @@ X$\Rightarrow$Y is true \textit{whenever either X is false or Y is true
 (or both).} For example, A$\Rightarrow$C is a true proposition, believe
 it or not. In English, it says ``UMW being in Virginia implies that dogs
 are carnivores." The proposition B$\Rightarrow$A is also true: ``The
-Queen of England being male implies that UMW is in Virginia." What possible
+King of England being female implies that UMW is in Virginia." What possible
 sense can we make out of these nonsensical claims?
 
 The key to understanding it, for me at least, is twofold. First, remember
 that to a computer (or a logic system), there is no \textit{meaning} to the
 propositions: they're simply atomic building blocks, each of which is true
 or false. So the fact that to a human, the content of the propositions
-might have nothing to do with each other --- English Queens and dogs --- is
+might have nothing to do with each other --- English Kings and dogs --- is
 irrelevant to a computer: it just thinks indifferently in terms of ``X" and
 ``Y," and has no idea what real-world entities any of this refers to.
 Second, think in terms of ruling out counterexamples. When I assert
@@ -209,18 +209,18 @@ These operators, which each produce another proposition (called a
 be combined to form complex expressions. For instance:
 
 \begin{itemize}
-\item $\neg$B is the proposition that the Queen of England is not male.
+\item $\neg$B is the proposition that the King of England is not female.
 (This is true.)
-\item A $\wedge$ $\neg$B is the proposition that UMW is in Virginia and the
-Queen of England is not male. (This is also true.)
+\item A $\wedge$ $\neg$B is the proposition that UMW is in Virginia and also
+the King of England is not female. (This is also true.)
 \item C $\oplus$ (A $\wedge$ $\neg$ B) is the proposition that \textit{either}
-dogs are carnivores \textit{or} UMW is in Virginia and the Queen of England
-is not male. (This is false, because both halves of the xor are true.)
+dogs are carnivores \textit{or} UMW is in Virginia and the King of England
+is not female. (This is false, because both halves of the xor are true.)
 \item (C $\oplus$ (A $\wedge \neg$ B)) $\Rightarrow$ $\neg$A is the
 proposition that if \textit{either} dogs are carnivores \textit{or} UMW
-resides in Virginia and the Queen of England is not male, then UMW must not
+resides in Virginia and the King of England is not female, then UMW must not
 reside in Virginia. (This is true, since dogs are carnivores \textit{and}
-UMW resides in Virginia and the Queen of England is not male, so the
+UMW resides in Virginia and the King of England is not female, so the
 left-hand side of the $\Rightarrow$ is false, which means that the entire
 expression is true regardless of the truth value of the right-hand side
 (which is also false, since UMW doesn't \textit{not} reside in Virginia.)
@@ -429,7 +429,7 @@ table for the ``$\Rightarrow$" operator if you have doubts about this.) The
 final result is that our complex expression is true for all possible values
 of A, B, and C, except when they have the values 1, 0, and 0, or else 1, 1,
 and 1, respectively. In our original example, we know that UMW \textit{is}
-in Virginia, the Queen is \textit{not} male, and dogs \textit{are}
+in Virginia, the King is \textit{not} female, and dogs \textit{are}
 carnivores, so our input values are 1, 0, and 1 for A, B, and C. Therefore,
 for those inputs, this expression is true.
 
@@ -703,9 +703,9 @@ $y$.
 
 The following statements are then true:
 \begin{center}
-\textsc{TraveledToByModeInYear}(Stephen, Richmond, car, 2007) 
+\textsc{TraveledToByModeInYear}(Stephen, Richmond, car, 2017) 
 
-\textsc{TraveledToByModeInYear}(Rachel, Austria, plane, 2010) 
+\textsc{TraveledToByModeInYear}(Rachel, Germany, plane, 2014) 
 
 $\neg$\textsc{TraveledToByModeInYear}(Johnny, Mars, spaceship, 1776) 
 \end{center}
@@ -767,21 +767,23 @@ where $S$ is the set of all fifty states in the U.S.
 We can use a quantifier for any complex expression, not just a simple
 predicate. For instance, if $H$ is the set of all humans, then:
 \[
-\forall h\in H\ \textsc{Male}(h) \oplus \textsc{Female}(h)
+\forall h\in H\ \textsc{Adult}(h) \oplus \textsc{Child}(h)
 \]
-states that every human is either male or female, but not both. Another
+states that every human is either an adult or a child, but not both. (Imagine
+drawing an arbitrary line at a person's 18th birthday.) Another
 (more common) way to write this is to dispense with sets and define another
 predicate \textsc{Human}. Then we can say:
 \[
-\forall h\ \textsc{Human}(h) \Rightarrow \textsc{Male}(h) \oplus
-\textsc{Female}(h).
+\forall h\ \textsc{Human}(h) \Rightarrow \textsc{Adult}(h) \oplus
+\textsc{Child}(h).
 \]
 Think this through carefully. We're now asserting that this expression is
-true for \textit{all} objects, whether they be Brad Pitt, Lady Gaga, or a
+true for \textit{all} objects, whether they be Duchess Kate Middleton, little
+Prince Louis, or a
 bowl of oatmeal. To see that it's true for all three, let $h$ first be
-equal to Brad Pitt. We substitute Brad Pitt for $h$ and get:
+equal to Kate Middleton. We substitute Kate for $h$ and get:
 \begin{align*}
-\textsc{Human}(\text{Brad Pitt}) & \Rightarrow \textsc{Male}(\text{Brad Pitt}) \oplus \textsc{Female}(\text{Brad Pitt}) \\
+\textsc{Human}(\text{Kate}) & \Rightarrow \textsc{Adult}(\text{Kate}) \oplus \textsc{Child}(\text{Kate}) \\
 \text{true} & \Rightarrow \text{true} \oplus \text{false} \\
 \text{true} & \Rightarrow \text{true} \\
 \text{true} & \ \checkmark
@@ -790,9 +792,9 @@ equal to Brad Pitt. We substitute Brad Pitt for $h$ and get:
 Remember that ``implies" ($\Rightarrow$) is true as long as the premise
 (left-hand side) is false and/or the conclusion (right-hand side) is true.
 In this case, they're both true, so we have a true end result. Something
-similar happens for Lady Gaga:
+similar happens for Prince Louis:
 \begin{align*}
-\textsc{Human}(\text{Lady Gaga}) & \Rightarrow \textsc{Male}(\text{Lady Gaga}) \oplus \textsc{Female}(\text{Lady Gaga}) \\
+\textsc{Human}(\text{Louis}) & \Rightarrow \textsc{Adult}(\text{Louis}) \oplus \textsc{Child}(\text{Louis}) \\
 \text{true} & \Rightarrow \text{false} \oplus \text{true} \\
 \text{true} & \Rightarrow \text{true} \\
 \text{true} & \ \checkmark
@@ -800,14 +802,15 @@ similar happens for Lady Gaga:
 So these two cases both result in true. But perhaps surprisingly, we also
 get true for oatmeal:
 \begin{align*}
-\textsc{Human}(\text{oatmeal}) & \Rightarrow \textsc{Male}(\text{oatmeal}) \oplus \textsc{Female}(\text{oatmeal}) \\
+\textsc{Human}(\text{oatmeal}) & \Rightarrow \textsc{Adult}(\text{oatmeal})
+\oplus \textsc{Child}(\text{oatmeal}) \\
 \text{false} & \Rightarrow \text{false} \oplus \text{false} \\
 \text{false} & \Rightarrow \text{false} \\
 \text{true} & \ \checkmark
 \end{align*}
 Whoa, how did \textit{true} pop out of that? Simply because the premise was
 false, and so all bets were off. We effectively said ``\textit{if} a bowl
-of oatmeal is human, \textit{then} it will either be male or female. But
+of oatmeal is human, \textit{then} it will either be an adult or a child. But
 it's not, so never mind." Put another way, the bowl of oatmeal did
 \textit{not} turn out to be a counterexample, and so we're confident
 claiming that this expression is true ``for \textit{all} h": $\forall$h.
@@ -842,7 +845,7 @@ United States at the same time."
 \index{universal quantifier ($\forall$)}
 \index{existential quantifier ($\exists$)}
 It's common practice to negate quantifiers, both universal and existential. 
-As of 2012, the following statement is still true:
+As of 2022, the following statement is still true:
 \[
 \neg \exists p\ \textsc{President}(p) \wedge \textsc{Female}(p).
 \]

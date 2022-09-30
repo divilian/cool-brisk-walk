@@ -893,20 +893,24 @@ To say that Pr($A|B$) is the same as Pr($A$) is an aggressive statement,
 outside the norm, and we shouldn't assume it without strong evidence.
 
 \index{mutually exclusive}
-One more point on the topic of independence: please don't make the mistake
-that \textit{mutually exclusive} events are \textit{independent}! This is
-by no means the case, and in fact, the opposite is true. If two events are
+
+\subsubsection{Whoops!}
+
+One last point on the topic of independence: please don't make the mistake of
+thinking that \textit{mutually exclusive} events are \textit{independent}! This
+is by no means the case, and in fact, the opposite is true. If two events are
 mutually exclusive, they are extremely \textit{de}pendent on each other!
-Consider the most trivial case: I choose a random person on campus, and
-define $M$ as the event that they're male, and $F$ as the event that
-they're female. Clearly these events are mutually exclusive. But are they
+
+Consider the most trivial case: I choose a random person on campus, and define
+$I$ as the event that they're an in-state student, and $O$ as the event that
+they're out-of-state. Clearly these events are mutually exclusive. But are they
 \textit{independent}? Of course not! Think about it: if I told you a person was
-male, would that tell you anything about whether they were female? Duh. In
-a mutual exclusive case like this, event $M$ completely rules out $F$ (and
-vice versa), which means that although Pr($M$) might be .435, Pr($M|F$) is
-a big fat zero. Pr($A|B$) is most certainly not going to be equal to
-Pr($A$) if the two events are mutually exclusive, because learning about
-one event tells you \textit{everything} about the other.
+in-state, would that tell you anything about whether they were out-of-state?
+Duh. In a mutual exclusive case like this, event $I$ completely rules out $O$
+(and vice versa), which means that although Pr($I$) might be .635, Pr($I|O$) is
+a big fat zero. More generally, Pr($A|B$) is most certainly not going to be
+equal to Pr($A$) if the two events are mutually exclusive, because learning
+about one event tells you \textit{everything} about the other.
 
 
 % \subsection{Conditional probability in action: predicting the future}

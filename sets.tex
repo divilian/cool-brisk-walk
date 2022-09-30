@@ -110,7 +110,7 @@ another body of mathematics called (I kid you not) ``fuzzy set theory."
 \index{sets, fuzzy} Fuzzy sets change this membership assumption: items can
 indeed be ``partially in" a set. One could declare, for instance, that
 Dad is ``10\% female," which means he's only 10\% in the $F$ set. That
-might not make much sense for gender, but you can imagine that if we
+might or might not make sense for gender, but you can imagine that if we
 defined a set $T$ of ``the tall people," such a notion might be useful. At
 any rate, this example illustrates a larger principle which is important to
 understand: in math, things are the way they are simply because we've
@@ -867,24 +867,32 @@ set is.
 You might wonder why partitions are an important concept. The answer is
 that they come up quite a bit, and when they do, we can make some important
 simplifications. Take $S$, the set of all students at UMW. We can partition
-it in several different ways. If we divide $S$ into the set of males and
-the set of females, we have a partition: every student is either male or
-female, and no student is both. If we divide them into freshmen,
-sophomores, juniors, and seniors, we again have a partition. But dividing
-them into computer science majors and English majors does \textit{not} give
-us a partition. For one thing, not everyone is majoring in one of those two
-subjects. For another, some students might be double-majoring in both.
-Hence this group of subsets is neither mutually exclusive nor collectively
-exhaustive.
+it in several different ways. If we divide $S$ into the set of freshmen,
+sophomores, juniors, and seniors, we have a partition: every student is one of
+those grade levels, and no student is more than one.\footnote{Apologies to
+fifth-year (or sixth-year, or...) ``super seniors.''} If we group them into
+in-state and out-of-state students, we again have a partition. And if we divide
+them into those who live on-campus and those who live off, we again have a
+partition.
+
+Note that dividing $S$ into computer science majors and English majors does
+\textit{not} give us a partition. For one thing, not everyone is majoring in
+one of those two subjects. For another, some students might be double-majoring
+in both. Hence this group of subsets is neither mutually exclusive nor
+collectively exhaustive. It's interesting to think about gender and partitions:
+when I grew up, I was taught that males and females were a partition of the
+human race. But now I've come to realize that there are non-binary persons who
+do not identify with either of those genders, and so it's not a partition after
+all.
 
 \index{cardinality (of sets)}
-Question: is the number of students $|S|$  equal to the
-number of male students plus the number of female students? Obviously yes.
-But why? The answer: because the males and the females form a partition. If
-we added up the number of freshmen, sophomores, juniors, and seniors, we
-would also get $|S|$. But adding up the number of computer science majors
-and English majors would almost certainly \textit{not} be equal to $|S|$,
-because some students would be double-counted and others counted not at
-all. This is an example of the kind of beautiful simplicity that partitions
-provide.
+
+Question: is the number of students $|S|$  equal to the number of off-campus
+students plus the number of on-campus students? Obviously yes. But why? The
+answer: because the off-campus and on-campus students form a partition. If we
+added up the number of freshmen, sophomores, juniors, and seniors, we would
+also get $|S|$. But adding up the number of computer science majors and English
+majors would almost certainly \textit{not} be equal to $|S|$, because some
+students would be double-counted and others counted not at all. This is an
+example of the kind of beautiful simplicity that partitions provide.
 
