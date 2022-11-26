@@ -591,8 +591,8 @@ then repeat the process.
 \caption{The stages of breadth-first traversal. Marked nodes are grey, and
 visited nodes are black. The order of visitation is: G, C, I, A, E, J, K,
 F, B.}
-\end{custommargins}
 \label{BFT}
+\end{custommargins}
 \end{figure}
 
 \afterpage{\clearpage}
@@ -776,7 +776,7 @@ Here's the algorithm in full:
 \textbf{Dijkstra's shortest-path algorithm}
 \begin{compactenum}
 \item Choose a starting node and an ending node.
-\item Mark the tentative distance for the starting nodes as 0, and all
+\item Mark the tentative distance for the starting node as 0, and all
 other nodes as $\infty$.
 \item While there are still unvisited nodes, do these steps:
     \begin{compactenum}
@@ -807,7 +807,7 @@ each node with a diamond containing the tentative shortest distance to it
 from Bordeaux. This is 0 for Bordeaux itself (since it's 0 kilometers away
 from itself, duh), and infinity for all the others, since we haven't
 explored anything yet, and we want to start off as pessimistic as possible.
-We'll update this distances to lower values as we find paths to them.
+We'll update these distances to lower values as we find paths to them.
 
 We start with Bordeaux as the ``current node," marked in grey. In frame 2,
 we update the best-possible-path and the distance-of-that-path for each of
@@ -1203,7 +1203,7 @@ F, except back through the root (which doesn't count).
 
 \index{descendant (of a node)}
 \item[descendant.] Your children, grandchildren, great-grandchildren,
-\textit{etc.}, all the way the leaves. B's descendants are C, D and E,
+\textit{etc.}, all the way to the leaves. B's descendants are C, D and E,
 while A's are F, B, C, D, and E. 
 
 \index{leaves}
@@ -1460,7 +1460,7 @@ can't be full, since it inevitably will have a root with only one child.
 \item [complete binary tree.] A complete binary tree is one in which every
 level has all possible nodes present, except perhaps for the deepest level,
 which is filled all the way from the left. Figure~\ref{fullbinarytree} is
-not full, but it would be if we fixed it up as in
+not complete, but it would be if we fixed it up as in
 Figure~\ref{completebinarytree}.
 
 \begin{figure}[ht]
