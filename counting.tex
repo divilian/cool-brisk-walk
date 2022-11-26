@@ -483,6 +483,7 @@ turns out to be:
 \times 37 \times 36 = \text{11,576,551,623,436,800 finishes}.
 \]
 }
+
 Each of the finishes is called a \textbf{partial permutation}. It's a
 permutation of $k$ items chosen from $n$ total, and is denoted $p_{n,k}$.
 The number of such permutations works out to
@@ -499,8 +500,9 @@ only wanted to carry out the multiplication to 36 (not 35), and 36 is
 This can be expressed more compactly in a few different ways. First,
 we can use factorials to represent it:
 \begin{align*}
-n \times (n-1) \times (n-2) \times \cdots \times (n-k+1) &= \\
-\dfrac{n \times (n-1) \times (n-2) \times \cdots \times 1}{(n-k) \times (n-k-1) \times (n-k-2) \times \cdots \times 1} &= \dfrac{n!}{(n-k)!}.
+& n \times (n-1) \times (n-2) \times \cdots \times (n-k+1) \\
+&= \dfrac{n \times (n-1) \times (n-2) \times \cdots \times 1}{(n-k) \times (n-k-1) \times (n-k-2) \times \cdots \times 1} \\
+&= \dfrac{n!}{(n-k)!}
 \end{align*}
 \index{product operator ($\Pi$)}
 Also, we could use our compact product notation:
@@ -509,6 +511,7 @@ n \times (n-1) \times (n-2) \times \cdots \times (n-k+1) &=
 \prod_{i=0}^{k-1}{(n-i)}.
 \end{align*}
 \index{$n$-to-the-$k$-falling operator}
+
 Finally, as with (non-partial) permutations, this comes up so much that
 the professionals have invented a special notation for it. It looks like a
 power, but has an underline under the exponent:
@@ -517,6 +520,7 @@ n \times (n-1) \times (n-2) \times \cdots \times (n-k+1) &=
 n^{\underline{k}}.
 \end{align*}
 \index{Knuth, Donald}
+
 This is pronounced ``$n$-to-the-$k$-falling," and was invented by one of
 the most brilliant computer scientists in history, Donald Knuth.
 
@@ -651,6 +655,7 @@ combinations of $k$ things taken from a total of $n$ things we have:
 \dfrac{n^{\underline{k}}}{k!} = \dfrac{n!}{(n-k)!k!}\ \text{combinations}.
 \]
 \index{$n$-choose-$k$ notation}
+
 This pattern, too, comes up so often that mathematicians have invented
 (yet) another special notation for it. It looks a bit strange at first,
 almost like a fraction without a horizontal bar:
@@ -691,15 +696,15 @@ x+y.
 The coefficients for this binomial are of course 1 and 1, since ``$x$"
 really means ``$1\cdot x$." Now if we multiply this by itself, we get:
 \begin{align*}
-(x+y)\cdot(x+y) = x^2 + 2xy + y^2.
+(x+y)\cdot(x+y) = x^2 + 2xy + y^2,
 \end{align*}
-The coefficients of the terms being 1, 2, and 1. We do it again:
+the coefficients of the terms being 1, 2, and 1. We do it again:
 \begin{align*}
-(x^2+2xy+y^2)\cdot(x+y) = x^3 + 3x^2y + 3xy^2 + y^3.
+(x^2+2xy+y^2)\cdot(x+y) = x^3 + 3x^2y + 3xy^2 + y^3
 \end{align*}
 to get 1, 3, 3, and 1, and do it again:
 \begin{align*}
-(x^3+3x^2y+3xy^2+y^3)\cdot(x+y) = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4.
+(x^3+3x^2y+3xy^2+y^3)\cdot(x+y) = x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4
 \end{align*}
 \index{Pascal's triangle}
 to get 1, 4, 6, 4, and 1. At this point you might be having flashbacks to
