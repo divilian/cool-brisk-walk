@@ -137,7 +137,7 @@ way to flex your muscles as you announce that you're done.)
 
 Not all proofs are performed in formal logic like this; some use algebra,
 set theory, or just plain English. But the idea is the same: start with
-what you know, procede to derive new knowledge using only legal operations,
+what you know, proceed to derive new knowledge using only legal operations,
 and end with your conclusion.
 
 \index{axioms}
@@ -344,11 +344,11 @@ One of the most powerful methods of proof --- and one of the most difficult
 to wrap your head around --- is called \textbf{mathematical induction}, or
 just ``induction" for short. I like to call it ``proof by recursion,"
 because this is exactly what it is. Remember that we discussed recursion in
-the context of rooted trees (see p.\ref{recursion}). A tree can be thought
+the context of rooted trees (see p.\pageref{recursion}). A tree can be thought
 of as a node with several children --- each of which are, in turn, trees.
 Each of \textit{them} is the root node of a tree comprised of yet
 smaller trees, and so on and so forth. If you flip back to the left-hand
-side of Figure~\ref{rootedtree} on p.\ref{page:rootedtree}, you'll see that
+side of Figure~\ref{rootedtree} on p.\pageref{page:rootedtree}, you'll see that
 A is the root of one tree, and its two children, F and B, are roots of
 their own smaller trees in turn. If we were to traverse this tree in (say)
 pre-order, we'd visit the root, then visit the left and right subtrees in
@@ -593,7 +593,7 @@ Solution: Let P($n$) be the proposition that $(ab)^n=a^n b^n$.
 \item \textbf{base case.} We prove that P(1) is true simply by plugging it
 in. Setting $n=1$ we have
 \begin{align*}
-(ab)^1 &= \stackrel{?}{=} a^1 b^1 \\
+(ab)^1 & \stackrel{?}{=} a^1 b^1 \\
 ab &= ab \quad \checkmark
 \end{align*}
 
@@ -757,7 +757,7 @@ since actually neither of those numbers is expressible as a product of
 primes. Fun fact.)
 
 \item \textbf{inductive step.}
-We now must prove that ($\forall i \leq k$ \ P($k$))$\Rightarrow$P($k+1$).
+We now must prove that ($\forall i \leq k$ \ P($i$))$\Rightarrow$P($k+1$).
 Put another way, we \textit{assume} that P($i$) is true for every number up
 to $k$, and then use that assumption to prove that P($k+1$) is true as
 well.
@@ -808,7 +808,7 @@ edges.
 just a single lonely node, and has no edges.
 
 \item \textbf{inductive step.}
-We now must prove that ($\forall i \leq k$ \ P($k$))$\Rightarrow$P($k+1$).
+We now must prove that ($\forall i \leq k$ \ P($i$))$\Rightarrow$P($k+1$).
 Put another way, we assume that all trees \textit{smaller} than the one
 we're looking at have one more node than edge, and then use that
 assumption to prove that the tree we're looking at also has one more node
