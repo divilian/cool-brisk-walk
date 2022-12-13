@@ -154,13 +154,23 @@ then Y must necessarily also be true. We call the first part of a
 $\Rightarrow$ proposition the \textbf{premise}, and the second part the
 \textbf{conclusion}. Here, X is the premise and Y the conclusion.
 
-So far, it seems easy. It gets tougher when you realize that
-X$\Rightarrow$Y is true \textit{whenever either X is false or Y is true
-(or both).} For example, A$\Rightarrow$C is a true proposition, believe
-it or not. In English, it says ``UMW being in Virginia implies that dogs
-are carnivores." The proposition B$\Rightarrow$A is also true: ``The
-King of England being female implies that UMW is in Virginia." What possible
-sense can we make out of these nonsensical claims?
+So far, it seems easy. It gets a little slippery when you realize that the
+\textit{only} claim ``X$\Rightarrow$Y'' is making is: ``\textit{if} X is true,
+then Y \textit{must be} true''. If X is \textit{not} true, then
+``X$\Rightarrow$Y'' is making no claim at all.
+
+Confusingly enough, this means that except for the one scenario where X is true
+but Y is false, the statement ``X$\Rightarrow$Y itself'' is \textit{always
+true}. So, besides the obviously sensible case when X and Y are both true,
+X$\Rightarrow$Y is true even when: (1) X is false and Y is true, and (2) X is
+false and Y is false. Or, to put it succinctly: X$\Rightarrow$Y is true
+\textit{whenever either X is false or Y is true or both.}
+
+For example, A$\Rightarrow$C is a true proposition, believe it or not. In
+English, it says ``UMW being in Virginia implies that dogs are carnivores.''
+The proposition B$\Rightarrow$A is also true: ``The King of England being
+female implies that UMW is in Virginia.'' What possible sense can we make out
+of these nonsensical claims?
 
 The key to understanding it, for me at least, is twofold. First, remember
 that to a computer (or a logic system), there is no \textit{meaning} to the
