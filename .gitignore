@@ -6,3 +6,4 @@
 *.toc
 *.ilg
 *.ind
+.container*
