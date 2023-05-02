@@ -981,10 +981,7 @@ between Vichy and Lyon to show that it will officially be a supply line.
 \framebox{\includegraphics[width=0.5\textwidth]{Prim5.png}}
 \framebox{\includegraphics[width=0.5\textwidth]{Prim6.png}}
 \framebox{\includegraphics[width=0.5\textwidth]{Prim7.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Prim9.png}}
-
-% TODO: ERROR in slide 4: Briancon should be attached using the 200 edge from
-% Lyon, not the 250 edge from Nice.
+\framebox{\includegraphics[width=0.5\textwidth]{Prim8.png}}
 
 \caption{The stages of Prim's minimal connecting edge set algorithm. Heavy
 lines indicate edges that have been (irrevocably) added to the set.}
@@ -994,25 +991,26 @@ lines indicate edges that have been (irrevocably) added to the set.}
 
 \afterpage{\clearpage}
 
-And so it goes. In successive frames, we add Marseille, Nice, and
-Brian\c{c}on to the set of connected nodes, since we can do no better than
-150 km, 150 km, and 250 km, respectively. Note that in frame 5 we do
-\textit{not} darken the edge between Lyon and Brian\c{c}on, even though 200
-km is the shortest connected edge, because those nodes have already been
-previously connected. Note also that the algorithm can jump around from
-side to side --- we aren't looking for the shortest edge from the most
-recently added node, but rather the shortest edge from \textit{any}
-connected node.
+And so it goes. In successive frames, we add Marseille, Nice, and Brian\c{c}on
+to the set of connected nodes, since we can do no better than 150 km, 150 km,
+and 200 km, respectively. Note carefully that in frame 4 we connect
+Brian\c{c}on to Lyon -- \textit{not} to Nice -- because $200 <
+250$.\footnote{It's very easy to fall into a trance and always add nodes only
+to the ends of the growing snake. In fact, I originally did that with this very
+example! Thanks to Prafulla Giri for pointing out my mistake.} Note also that
+the algorithm can jump around from side to side --- we aren't looking for the
+shortest edge from the most recently added node, but rather the shortest edge
+from \textit{any} connected node.
 
-The final result is shown in the last frame. This is the best way to
-connect all the cities to each other, if ``best" means ``least total supply
-line distance." But if you look carefully, you'll notice a fascinating
-thing. \textit{This network of edges does \textbf{not} contain the shortest
-path from Bordeaux to Strasbourg!} I find that result dumbfounding.
-Wouldn't you think that the shortest path between any two nodes would land
-right on this Prim network? Yet if you compare Figure~\ref{prim} with
-Figure~\ref{fig:dijkstra} you'll see that the quickest way to Strasborg is
-directly through Marseille, not Vichy.
+The final result is shown in the last frame. This is the best way to connect
+all the cities to each other, if ``best" means ``least total supply line
+distance," which in this case works out to 2450 total kilometers. But if you
+look carefully, you'll notice a fascinating thing. \textit{This network of
+edges does \textbf{not} contain the shortest path from Bordeaux to Strasbourg!}
+I find that result dumbfounding. Wouldn't you think that the shortest path
+between any two nodes would land right on this Prim network? Yet if you compare
+Figure~\ref{prim} with Figure~\ref{fig:dijkstra} you'll see that the quickest
+way to Strasborg is through Marseille, not Vichy.
 
 So we end up with the remarkable fact that the shortest route between two
 points has nothing whatsoever to do with the shortest \textit{total}
