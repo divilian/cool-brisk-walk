@@ -185,7 +185,12 @@ subtree come after it), there is a single exception: \textsl{Zoe} is in
 \hline
 \item How could we fix it?
 &
-Many ways; one would be to swap \textsl{Zoe}'s and \textsl{Wash}'s positions.\\
+Many ways; one would be to swap \textsl{Zoe}'s and \textsl{Wash}'s positions.
+If we do that, the fixed tree would be:
+\begin{center}
+\includegraphics[width=0.4\textwidth]{structuresEx6.png}
+\end{center} Take a moment and convince yourself that every node of this new
+tree does in fact satisfy the BST property.\\
 \hline
 \item Is the tree balanced?
 &
@@ -194,10 +199,10 @@ of 4, whereas all its nodes would fit in a tree of height 3).\\
 \hline
 \item How could we make it more balanced?
 &
-Many ways; one would be to make \textsl{Zoe} be \textsl{Wash}'s right child,
-instead of \textsl{Simon}'s. \textsl{Simon} would then be a leaf. (Whether
-\textsl{Zoe} would feel comfortable with this is another matter: \textsl{Zoe}'s
-pretty alpha...)\\
+Many ways; one would be to rotate the
+\textsl{River}--\textsl{Simon}--\textsl{Wash} threesome so that \textsl{Simon}
+becomes \textsl{Zoe}'s left child. \textsl{Simon} would then be the parent of
+\textsl{River} (on his left) and \textsl{Wash} (on his right).\\
 \hline
 \item If we wanted to add a new node called ``\textsl{Shepherd}'' to this tree,
 where would he go?
@@ -207,12 +212,15 @@ To \textsl{Simon}'s left.\\
 \item If we wanted to remove the ``\textsl{Mal}'' node from this tree, how
 would we do that?
 &
-Two options include: put the right-most node of \textsl{Mal}'s left subtree
-(that would be \textsl{Kaylee}) in \textsl{Mal}'s place, or put the left-most
-node of \textsl{Mal}'s right subtree (that would be \textsl{River}) in
-\textsl{Mal}'s place. In the former case, \textsl{Jayne} would simply lose his
-right subchild; in the latter, \textsl{Simon} (and everything under him) would
-become \textsl{Wash}'s left child.\\
+We can put the left-most node of \textsl{Mal}'s right subtree (that would be
+\textsl{River}) in \textsl{Mal}'s place, and then make \textsl{Simon} (and
+everything under him) become \textsl{Wash}'s left child. The result would look
+like this:
+\begin{center}
+\includegraphics[width=0.4\textwidth]{structuresEx7.png}
+\end{center}
+Take a moment and convince yourself that this \textsl{Mal}-less
+tree does in fact satisfy the BST property.\\
 \hline
 \end{longtable}
 \end{enumerate}

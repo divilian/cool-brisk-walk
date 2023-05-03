@@ -999,8 +999,8 @@ Brian\c{c}on to Lyon -- \textit{not} to Nice -- because $200 <
 to the ends of the growing snake. In fact, I originally did that with this very
 example! Thanks to Prafulla Giri for pointing out my mistake.} Note also that
 the algorithm can jump around from side to side --- we aren't looking for the
-shortest edge from the most recently added node, but rather the shortest edge
-from \textit{any} connected node.
+shortest edge from the most recently added node, but from \textit{any}
+connected node.
 
 The final result is shown in the last frame. This is the best way to connect
 all the cities to each other, if ``best" means ``least total supply line
@@ -1714,31 +1714,49 @@ entry without messing up the structure of the tree? It's easy to see how to
 delete Molly: since she's just a leaf, just remove her and be done with it.
 But how to delete Jessica? Or for that matter, Mitch?
 
-Your first inclination might be to eliminate a node and promote one of its
-children to go up in its place. For instance, if we delete Jessica, we
-could just elevate Ben up to where Jessica was, and then move Jennifer up
-under Ben as well. This doesn't work, though. The result would look like
-Figure~\ref{bstremovewrong}, with Jennifer in the wrong place. The next
-time we look for Jennifer in the tree, we'll search to the \textit{right}
-of Ben (as we should), completely missing her. Jennifer has effectively
-been lost.
+Your first inclination might be to eliminate the node and promote one of its
+children to go up in its place. For instance, if we delete Jessica, you might
+think we could just elevate Ben up to where Jessica was, and then move Jennifer
+up under Ben as well. This doesn't work, though. The result would look like
+Figure~\ref{bstremovewrong}, with Jennifer in the wrong place. The next time we
+look for Jennifer in the tree, we'll search to the \textit{right} of Ben (as we
+should), completely missing her. Jennifer has effectively been lost.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.6\textwidth]{binarySearchTreeRemoveWrong.png}
-\caption{An \textbf{incorrect} would-be-BST after removing Jessica
-incorrectly.}
+\caption{A \textbf{wrong} (non)-BST after removing Jessica incorrectly.}
 \label{bstremovewrong}
 \end{figure}
 
-One correct way (there are others) to do a node removal is to replace the
-node with \textit{the left-most descendant of its right subtree}. (Or,
-equivalently, the right-most descendant of its left subtree).
-Figure~\ref{bstremoveright} shows the result after removing Jessica. We
-replaced her with Jim, \textit{not} because it's okay to blindly promote
-the right child, but because \textit{Jim had no left descendants.} If he
-had, promoting him would have been just as wrong as promoting Ben. Instead,
-we would have promoted \textit{Jim's left-most descendant.}
+One correct way (there are others) to do a node removal is to replace the node
+with \textit{the left-most descendant of its right subtree}. (Or, equivalently,
+the right-most descendant of its left subtree). Let's be careful to define
+this: to get the left-most descendant of a node's right subtree, we (1) go to
+the \textit{right} child of the node, and then (2) go
+as-left-as-we-possibly-can from there, until we come to a node that has no
+left child. That node (the one without a left child) is officially the
+left-most descendent of the original node's right subtree.
+
+Example: flip back to Figure~\ref{binarytree} (p.~\pageref{binarytree}). What
+is the left-most descendent of G's right subtree? Answer: A. We start by going
+right from G down to H, and then we go as-left-as-possible...which turns out to
+be only one node's worth of ``left,'' because we hit A, and A has no left child
+(or right child, for that matter.) Work these additional examples out for
+yourself: what is the left-most descendent of K's right subtree? Of D's? Of
+H's?\footnote{Answers: The left-most descendent of K's right subtree is
+\textbf{C}, of D's right subtree is \textbf{O}, and of H's, \textbf{F}.}
+
+Okay, let's return to Figure~\ref{bstadd1} (p.~\pageref{bstadd1}) and remove
+Jessica the \textit{correct} way. We simply find the left-most descendent of
+her right subtree -- namely, Jim -- and promote him in place of her.
+Figure~\ref{bstremoveright} shows the result. Note that we replaced her with
+Jim \textit{not} because it's okay to blindly promote her right child, but
+because \textit{Jim had no left descendants}, and hence he was the left-most
+node in her right subtree. (If he \textit{had} left descendents, promoting him
+would have been just as wrong as promoting Ben. Instead, we would have gone
+left from Jim until we couldn't go left anymore, and promoted \textit{that}
+node.)
 
 \begin{figure}[ht]
 \centering
