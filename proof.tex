@@ -137,7 +137,7 @@ way to flex your muscles as you announce that you're done.)
 
 Not all proofs are performed in formal logic like this; some use algebra,
 set theory, or just plain English. But the idea is the same: start with
-what you know, procede to derive new knowledge using only legal operations,
+what you know, proceed to derive new knowledge using only legal operations,
 and end with your conclusion.
 
 \index{axioms}
@@ -344,11 +344,11 @@ One of the most powerful methods of proof --- and one of the most difficult
 to wrap your head around --- is called \textbf{mathematical induction}, or
 just ``induction" for short. I like to call it ``proof by recursion,"
 because this is exactly what it is. Remember that we discussed recursion in
-the context of rooted trees (see p.\ref{recursion}). A tree can be thought
+the context of rooted trees (see p.\pageref{recursion}). A tree can be thought
 of as a node with several children --- each of which are, in turn, trees.
 Each of \textit{them} is the root node of a tree comprised of yet
 smaller trees, and so on and so forth. If you flip back to the left-hand
-side of Figure~\ref{rootedtree} on p.\ref{page:rootedtree}, you'll see that
+side of Figure~\ref{rootedtree} on p.\pageref{page:rootedtree}, you'll see that
 A is the root of one tree, and its two children, F and B, are roots of
 their own smaller trees in turn. If we were to traverse this tree in (say)
 pre-order, we'd visit the root, then visit the left and right subtrees in
@@ -382,11 +382,11 @@ Suppose I want to prove that in the state of Virginia, all legal drinkers
 can vote. Then I could say ``let \textsc{Vote}($n$) be the proposition that
 a citizen of age $n$ can vote."
 
-If I want to prove an algebraic identity, like $\sum_{i=1}^x{i} =
+If I want to prove an algebraic identity, like $\sum\limits_{i=1}^x{i} =
 \frac{x(x+1)}{2}$, then I have to figure out which variable is the one that
 needs to vary across the natural numbers. In this case it's the $x$
 variable in my equation. So I'll say ``let P($n$) be the proposition that
-$\sum_{i=1}^n{i} = \frac{n(n+1)}{2}$." (The choice of the letter ``$n$"
+$\sum\limits_{i=1}^n{i} = \frac{n(n+1)}{2}$." (The choice of the letter ``$n$"
 isn't important here --- it just needs to be a letter that stands for a
 number. We could have chosen anything, even sticking with $x$. Later, we'll
 use ``$k$" as a stand-in, so keep your eyes peeled for that.)
@@ -466,7 +466,7 @@ old enough to vote next year. Unless the laws change, there will never be a
 case when someone old enough to vote this year turns out to be too young to
 vote next year.
 
-\item Wow. We're done. \textit{Q.E.D.} and all that.
+\item \textbf{conclusion.} Wow. We're done. \textit{Q.E.D.} and all that.
 \end{enumerate}
 The only specific example we showed was true was \textsc{Vote}(21). And yet
 we managed to prove \textsc{Vote}($n$) for \textit{any} number $n\geq21$.
@@ -526,11 +526,11 @@ the numbers from 1 to $x$, where $x$ is any integer at all, you'll get
 $\frac{x}{2}$ sums of $x+1$ each, so the answer will be $\frac{x(x+1)}{2}$.
 
 Now, use mathematical induction to prove that Gauss was right
-(\textit{i.e.}, that $\sum_{i=1}^x{i} = \frac{x(x+1)}{2}$) for all numbers
+(\textit{i.e.}, that $\sum\limits_{i=1}^x{i} = \frac{x(x+1)}{2}$) for all numbers
 $x$.
 
 First we have to cast our problem as a predicate about natural numbers.
-This is easy: we say ``let P($n$) be the proposition that $\sum_{i=1}^n{i}
+This is easy: we say ``let P($n$) be the proposition that $\sum\limits_{i=1}^n{i}
 = \frac{n(n+1)}{2}$."
 
 Then, we satisfy the requirements of induction:
@@ -577,9 +577,8 @@ multiply things out and factor it all together. Watch carefully:
 &= \frac{(k+1)(k+2)}{2} \\
 &= \frac{(k+1)((k+1)+1)}{2}. \quad \checkmark
 \end{align*}
-
+\item \textbf{conclusion.} Therefore, $\forall n\geq1 \ \text{P}(n)$.
 \end{enumerate}
-Therefore, $\forall n\geq1 \ \text{P}(n)$.
 
 
 \subsubsection{Example 3}
@@ -593,7 +592,7 @@ Solution: Let P($n$) be the proposition that $(ab)^n=a^n b^n$.
 \item \textbf{base case.} We prove that P(1) is true simply by plugging it
 in. Setting $n=1$ we have
 \begin{align*}
-(ab)^1 &= \stackrel{?}{=} a^1 b^1 \\
+(ab)^1 & \stackrel{?}{=} a^1 b^1 \\
 ab &= ab \quad \checkmark
 \end{align*}
 
@@ -626,9 +625,8 @@ Adding in our inductive hypothesis then lets us determine:
 &= a \cdot a^k \cdot b \cdot b^k \\
 &= a^{k+1} b^{k+1} \quad \checkmark
 \end{align*}
+\item \textbf{conclusion.} Therefore, $\forall n\geq1 \ \text{P}(n)$.
 \end{enumerate}
-
-Therefore, $\forall n\geq1 \ \text{P}(n)$.
 
 
 \subsubsection{Example 4}
@@ -686,17 +684,14 @@ Combining these two facts, we have $i_{k+1} = i_k + 2^k$. By the inductive
 hypothesis, we assume that $2^k = i_k + 1$, and we now must prove that
 $2^{k+1} = i_{k+1} + 1$. Here goes:
 \begin{align*}
-n_{k+1} &= n_k + 2^k &\textsl{(property of trees)} \\
-n_{k+1} &= 2^k - 1 + 2^k &\textsl{(using inductive hypothesis)} \\
-n_{k+1} + 1 &= 2^k + 2^k \\
-n_{k+1} + 1 &= 2(2^k) \\
-n_{k+1} + 1 &= 2^{k+1}. \quad \checkmark
+i_{k+1} &= i_k + 2^k &\textsl{(property of trees)} \\
+i_{k+1} &= 2^k - 1 + 2^k &\textsl{(using inductive hypothesis)} \\
+i_{k+1} + 1 &= 2^k + 2^k \\
+i_{k+1} + 1 &= 2(2^k) \\
+i_{k+1} + 1 &= 2^{k+1}. \quad \checkmark
 \end{align*}
-
+\item \textbf{conclusion.} Therefore, $\forall n\geq0 \ \text{P}(n)$.
 \end{enumerate}
-
-Therefore, $\forall n\geq0 \ \text{P}(n)$.
-
 
 \subsection{Proof by induction: strong form}
 \index{strong form of induction}
@@ -757,7 +752,7 @@ since actually neither of those numbers is expressible as a product of
 primes. Fun fact.)
 
 \item \textbf{inductive step.}
-We now must prove that ($\forall i \leq k$ \ P($k$))$\Rightarrow$P($k+1$).
+We now must prove that ($\forall i \leq k$ \ P($i$))$\Rightarrow$P($k+1$).
 Put another way, we \textit{assume} that P($i$) is true for every number up
 to $k$, and then use that assumption to prove that P($k+1$) is true as
 well.
@@ -777,10 +772,9 @@ you multiply them together to get $k+1$, you will have a longer string of
 primes multiplied together. Therefore, ($\forall i \leq k$ \
 P($k$))$\Rightarrow$P($k+1$).
 
+\item \textbf{conclusion.}Therefore, by the strong form of mathematical induction, $\forall n \geq 2$
+  \ P($n$).
 \end{enumerate}
-
-Therefore, by the strong form of mathematical induction, $\forall n \geq 2$
-\ P($n$).
 
 You can see why we needed the strong form here. If we wanted to prove that
 15 is expressible as the product of primes, knowing that 14 is expressible
@@ -808,7 +802,7 @@ edges.
 just a single lonely node, and has no edges.
 
 \item \textbf{inductive step.}
-We now must prove that ($\forall i \leq k$ \ P($k$))$\Rightarrow$P($k+1$).
+We now must prove that ($\forall i \leq k$ \ P($i$))$\Rightarrow$P($k+1$).
 Put another way, we assume that all trees \textit{smaller} than the one
 we're looking at have one more node than edge, and then use that
 assumption to prove that the tree we're looking at also has one more node
@@ -843,11 +837,10 @@ gave us a total of $k-1$ edges. Therefore, that original tree must have had
 $k$ edges. We have now proven that a tree of $k+1$ nodes has $k$ edges,
 assuming that all smaller trees also have one less edge than node.
 
-\end{enumerate}
-
-Therefore, by the strong form of mathematical induction, $\forall n \geq 1$
+\item \textbf{conclusion.} Therefore, by the strong form of mathematical induction, $\forall n \geq 1$
 \ P($n$).
 
+\end{enumerate}
 \section{Final word}
 
 Finding proofs is an art. In some ways, it's like programming: you have a
@@ -867,15 +860,15 @@ Appel and Haken who finally cracked the infamous four-color map problem in
 mathematical properties may never have proofs, such as Christian Goldbach's
 1742 conjecture that every even integer is the sum of two primes, or the
 most elusive and important question in computing theory: does P=NP? (Put
-very simply: does the class of problems where it's easy to verify a
-solution once you have it but crazy hard to find one actually have an easy
-algorithm for finding them we just haven't figured out yet? Most computer 
+very simply: does the class of problems -- where it's easy to verify a
+solution once we have it, but crazy hard to find it in the first place -- actually have an easy
+algorithm for finding the solution, that we just haven't figured out yet?) Most computer
 scientists think ``no," but despite a mind-boggling number of hours
 invested by the brightest minds in the world, no one has ever been able to
-prove it one way or the other.)
+prove it one way or the other.
 
 Most practicing computer scientists spend time taking advantage of the
-known results about mathematical objects and structures, and rarely if ever
+known results about mathematical objects and structures, and rarely (if ever)
 have to construct a water-tight proof about them. For the more
 theoretically-minded student, however, who enjoys probing the basis behind
 the tools and speculating about additional properties that might exist,
