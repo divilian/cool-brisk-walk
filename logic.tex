@@ -871,14 +871,23 @@ replaces it with a mobocracy, perhaps we'll state:
 \index{quantifiers}
 
 Some illuminating themes can be seen when we examine the relationship that
-the two types of quantifiers have to each other. Consider this one first:
+the two types of quantifiers have to each other. Consider this one first:\footnote{(\ref{inter1}) Everybody was driving. $\Leftrightarrow$ Nobody exists
+who was not driving.}
 \begin{align}
-\forall x \ P(x) \Leftrightarrow \neg \exists x\ \neg P(x), \label{inter1}
+  \forall x \ P(x) \Leftrightarrow \neg \exists x\ \neg P(x), \label{inter1}
 \end{align}
 where P is any predicate (or for that matter, any expression involving many
 predicates). That's sensible. It states: ``if $P$ is true of all things,
 then there does \textit{not} exist anything that it \textit{isn't} true
-for." Three other equivalences come to light:
+for." Three other equivalences come to light:\footnote{
+(\ref{inter2}) Not everybody was driving. $\Leftrightarrow$ At least one person
+was not driving.
+
+\quad (\ref{inter3}) Everybody was not driving. $\Leftrightarrow$ Nobody was driving.
+
+\quad (\ref{inter4}) Not everybody was not driving. $\Leftrightarrow$ At least one
+person was driving.
+}
 \begin{align}
 \neg \forall x \ P(x) & \Leftrightarrow \exists x\ \neg P(x)    \label{inter2}\\
      \forall x \ \neg P(x) & \Leftrightarrow \neg \exists x\ P(x)
