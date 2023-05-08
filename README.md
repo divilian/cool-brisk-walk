@@ -10,3 +10,11 @@ $ pdflatex brisk.tex
 $ makeindex brisk.idx 
 $ pdflatex brisk.tex
 ```
+Or the shorter: `make pdf`
+
+If you don't have `pdflatex` in your environment, and don't want to pollute it, you can use
+[containers](https://en.wikipedia.org/wiki/OS-level_virtualization) so long as you have a container
+runtime engine like [`docker`](https://www.docker.com/) or [`podman`](https://podman.io/) on your machine.
+Run `make env` to set up an environment, and `make pdf` inside the container's shell to generate the pdf.
+Consult the [Makefile](Makefile) for further details (and [Makefile Tutorial](https://makefiletutorial.com/)
+to understand Makefiles in general).
