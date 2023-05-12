@@ -13,7 +13,7 @@ CRE=${CONTAINER_RUNTIME_ENGINE}
 IMAGE_TAG=cool-brisk-walk-image
 
 container_env: container_image
-	${CRE} run --rm --volume `pwd`:/sources --workdir="/sources" ${IMAGE_TAG} make pdf
+	${CRE} run --rm --volume `pwd`:/sources:z --workdir="/sources" ${IMAGE_TAG} make pdf
 
 container_image: .container_image_id
 .container_image_id: Containerfile
