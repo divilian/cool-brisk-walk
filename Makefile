@@ -17,5 +17,5 @@ container_env: container_image
 
 container_image: .container_image_id
 .container_image_id: Containerfile
-	${CRE} build --file $< --tag ${IMAGE_TAG}
+	${CRE} build --file $< --tag ${IMAGE_TAG} .
 	${CRE} inspect --format {{.Id}} ${IMAGE_TAG} > .container_image_id
