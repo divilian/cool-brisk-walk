@@ -13,7 +13,7 @@ CRE=${CONTAINER_RUNTIME_ENGINE}
 IMAGE_TAG=cool-brisk-walk-image
 
 container_env: container_image
-	${CRE} run --rm --interactive --tty --volume `pwd`:/sources --workdir="/sources" ${IMAGE_TAG}
+	${CRE} run --rm --interactive --tty --volume `pwd`:/sources:z --workdir="/sources" ${IMAGE_TAG}
 
 container_image: .container_image_id
 .container_image_id: Containerfile
