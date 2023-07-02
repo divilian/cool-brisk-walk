@@ -1045,7 +1045,16 @@ in some sense, a free tree doesn't contain anything ``extra."
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-2.1cm}{-3cm}
-\includegraphics[width=0.5\textwidth]{freeTree.png}
+  \begin{tikzpicture}
+  \node[circle,draw] (C) at (0,0) {C};
+  \node[circle,draw] (B) at (-0.3,2) {B};
+  \node[circle,draw] (D) at (2,2) {D};
+  \node[circle,draw] (E) at (2,-2) {E};
+  \node[circle,draw] (A) at (-3,1.7) {A};
+  \node[circle,draw] (F) at (-2,-2) {F};
+  \draw (F) -- (A) -- (B) -- (C) -- (D);
+  \draw (C) -- (E);
+  \end{tikzpicture}
 \caption{A free tree.}
 \label{freetree}
 \end{custommargins}
@@ -1101,8 +1110,25 @@ free tree did: B is connected to both A and C, F is connected only to A,
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-2.1cm}{-3cm}
-\includegraphics[width=0.4\textwidth]{rootedTree1.png} \quad\quad\quad
-\includegraphics[width=0.35\textwidth]{rootedTree2.png}
+
+  \tikz [nodes={circle,draw}]
+  \node {A}
+  child { node {F} }
+  child { node {B}
+    child { node {C}
+      child { node {D} }
+      child { node {E} }
+    }
+  };
+  \quad\quad\quad
+  \tikz [nodes={circle,draw}]
+  \node {C}
+  child { node {B}
+    child { node {A}
+      child { node {F} } } }
+  child { node {D} }
+  child { node {E} };
+
 \caption{Two different rooted trees with the same vertices and edges.}
 \label{rootedtree}
 \end{custommargins}
@@ -1270,8 +1296,33 @@ half is not (C has three children). A larger binary tree (of height 4) is
 shown in Figure~\ref{binarytree}.
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{binaryTree.png}
+  \centering
+    \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+    \node {G}
+    child { node {K}
+      child { node {D}
+        child[missing]
+        child { node {O}
+          child[missing]
+          child { node {I} }
+        }
+      }
+      child { node {M}
+        child { node {C} }
+        child { node {E} }
+      }
+    }
+    child { node {H}
+      child { node {A} }
+      child { node {B}
+        child { node {F} }
+        child { node {N}
+          child { node {L} }
+          child[missing]
+        }
+      }
+    };
+
 \caption{A binary tree.}
 \label{binarytree}
 \end{figure}
@@ -1325,7 +1376,31 @@ for a visual.)
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{preorder.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {G$_1$}
+  child { node {K$_2$}
+    child { node {D$_3$}
+      child[missing]
+      child { node {O$_4$}
+        child[missing]
+        child { node {I$_5$} }
+      }
+    }
+    child { node {M$_6$}
+      child { node {C$_7$} }
+      child { node {E$_8$} }
+    }
+  }
+  child { node {H$_9$}
+    child { node {A$_{10}$} }
+    child { node {B$_{11}$}
+      child { node {F$_{12}$} }
+      child { node {N$_{13}$}
+        child { node {L$_{14}$} }
+        child[missing]
+      }
+    }
+  };
 \caption{The order of node visitation in \textbf{pre-order} traversal.}
 \label{preorder}
 \end{figure}
@@ -1364,7 +1439,31 @@ up.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{postorder.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {G$_{14}$}
+  child { node {K$_7$}
+    child { node {D$_3$}
+      child[missing]
+      child { node {O$_2$}
+        child[missing]
+        child { node {I$_1$} }
+      }
+    }
+    child { node {M$_6$}
+      child { node {C$_4$} }
+      child { node {E$_5$} }
+    }
+  }
+  child { node {H$_{13}$}
+    child { node {A$_{8}$} }
+    child { node {B$_{12}$}
+      child { node {F$_{9}$} }
+      child { node {N$_{11}$}
+        child { node {L$_{10}$} }
+        child[missing]
+      }
+    }
+  };
 \caption{The order of node visitation in \textbf{post-order} traversal.}
 \label{postorder}
 \end{figure}
@@ -1403,7 +1502,31 @@ that wouldn't change the order and have K visited earlier.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{inorder.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {G$_{8}$}
+  child { node {K$_4$}
+    child { node {D$_1$}
+      child[missing]
+      child { node {O$_2$}
+        child[missing]
+        child { node {I$_3$} }
+      }
+    }
+    child { node {M$_6$}
+      child { node {C$_5$} }
+      child { node {E$_7$} }
+    }
+  }
+  child { node {H$_{10}$}
+    child { node {A$_{9}$} }
+    child { node {B$_{12}$}
+      child { node {F$_{11}$} }
+      child { node {N$_{14}$}
+        child { node {L$_{13}$} }
+        child[missing]
+      }
+    }
+  };
 \caption{The order of node visitation in \textbf{in-order} traversal.}
 \label{inorder}
 \end{figure}
@@ -1445,7 +1568,31 @@ blank nodes in Figure~\ref{fullbinarytree}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{fullBinaryTree.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {G}
+  child { node {K}
+    child { node {D}
+      child { node {}}
+      child { node {O}
+        child { node {}}
+        child { node {I} }
+      }
+    }
+    child { node {M}
+      child { node {C} }
+      child { node {E} }
+    }
+  }
+  child { node {H}
+    child { node {A} }
+    child { node {B}
+      child { node {F} }
+      child { node {N}
+        child { node {L} }
+        child { node {} }
+      }
+    }
+  };
 \caption{A full binary tree.}
 \label{fullbinarytree}
 \end{figure}
@@ -1463,7 +1610,37 @@ Figure~\ref{completebinarytree}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{completeBinaryTree.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {G}
+  child { node {K}
+    child { node {D}
+      child { node {}
+        child { node {} }
+        child { node {} }
+      }
+      child { node {O}
+        child { node {}}
+        child { node {I} }
+      }
+    }
+    child { node {M}
+      child { node {C}
+        child { node {} }
+        child { node {} }
+      }
+      child { node {E} }
+    }
+  }
+  child { node {H}
+    child { node {A}
+      child { node {} }
+      child { node {L} }
+    }
+    child { node {B}
+      child { node {F} }
+      child { node {N} }
+    }
+  };
 \caption{A complete binary tree.}
 \label{completebinarytree}
 \end{figure}
@@ -1483,7 +1660,28 @@ Figure~\ref{perfectbinarytree}.)
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{perfectBinaryTree.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {G}
+  child { node {K}
+    child { node {D}
+      child { node {} }
+      child { node {O} }
+    }
+    child { node {M}
+      child { node {C} }
+      child { node {E} }
+    }
+  }
+  child { node {H}
+    child { node {A}
+      child { node {} }
+      child { node {I} }
+    }
+    child { node {B}
+      child { node {F} }
+      child { node {N} }
+    }
+  };
 \caption{A ``perfect" binary tree.}
 \label{perfectbinarytree}
 \end{figure}
@@ -1578,7 +1776,20 @@ children repeats itself all the way down the tree. (Check it!)
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.7\textwidth]{binarySearchTree.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node {Jessica}
+      child { node {Ben} }
+      child { node {Jim} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
 \caption{A binary search tree.}
 \label{bst}
 \end{figure}
@@ -1596,7 +1807,20 @@ be sure to check your BST's all the way up and down.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{falseBST.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node[fill=gray] {Mitch} {
+    child { node {Jessica}
+      child { node {Ben} }
+      child { node[fill=gray] {Nancy} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
 \caption{\textbf{NOT} a binary search tree, though
 it looks like one at first glance. (Notice Nancy and Mitch)}
 \label{falsebst}
@@ -1688,9 +1912,43 @@ Figure~\ref{bstadd1}.)
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{binarySearchTreeAdd1.png}
+\begin{custommargins}{-2.1cm}{-3cm}
+
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node {Jessica}
+      child { node {Ben} }
+      child { node {Jim} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
+  \quad
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node {Jessica}
+      child { node {Ben}
+        child[missing]
+        child { node[fill=gray] {Jennifer} }
+      }
+      child { node {Jim} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
 \caption{The BST after adding Jennifer.}
 \label{bstadd1}
+\end{custommargins}
 \end{figure}
 
 \index{O(lg n) algorithm}
@@ -1724,9 +1982,45 @@ should), completely missing her. Jennifer has effectively been lost.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{binarySearchTreeRemoveWrong.png}
+  \begin{custommargins}{-2.1cm}{-3cm}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node[dashed] {Jessica}
+      child { node {Ben}
+        child[missing]
+        child { node {Jennifer} }
+      }
+      child { node {Jim} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
+  \quad
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node[fill=gray] {Ben}
+      child { node[fill=gray] {Jennifer}
+        edge from parent
+        node[above,sloped,loosely dotted] {!}
+      }
+      child { node {Jim} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
 \caption{A \textbf{wrong} (non)-BST after removing Jessica incorrectly.}
 \label{bstremovewrong}
+\end{custommargins}
 \end{figure}
 
 One correct way (there are others) to do a node removal is to replace the node
@@ -1760,9 +2054,46 @@ node.)
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{binarySearchTreeRemoveRight.png}
+\begin{custommargins}{-2.1cm}{-3cm}
+
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node[dashed] {Jessica}
+      child { node {Ben}
+        child[missing]
+        child { node {Jennifer} }
+      }
+      child { node {Jim} }
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
+  \quad
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Mitch} {
+    child { node[fill=gray] {Jim}
+      child { node {Ben}
+        child[missing]
+        child { node {Jennifer} }
+      }
+      child[missing]
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
 \caption{The BST after removing Jessica correctly.}
 \label{bstremoveright}
+\end{custommargins}
 \end{figure}
 
 As another example, let's go whole-hog and remove the root node, Mitch. The
@@ -1772,9 +2103,42 @@ Because she was the left-most descendant of Mitch's right subtree.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{binarySearchTreeRemoveRight2.png}
+  \begin{custommargins}{-2.1cm}{-3cm}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node[dashed] {Mitch} {
+    child { node {Jim}
+      child { node {Ben}
+        child[missing]
+        child { node {Jennifer} }
+      }
+      child[missing]
+    }
+    child { node {Randi}
+      child { node {Owen}
+        child { node {Molly} }
+        child[missing]
+      }
+      child { node {Xander} }
+    }
+  };
+  \quad
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node[fill=gray] {Molly} {
+    child { node {Jim}
+      child { node {Ben}
+        child[missing]
+        child { node {Jennifer} }
+      }
+      child[missing]
+    }
+    child { node {Randi}
+      child { node {Owen} }
+      child { node {Xander} }
+    }
+  };
 \caption{The BST after removing Mitch.}
 \label{bstremoveright2}
+\end{custommargins}
 \end{figure}
 
 \index{in-order traversal}
@@ -1801,7 +2165,31 @@ up in a plain-old list. We're back to O(n) performance.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{binarySearchTreeUnbalanced.png}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+  \node {Ben} {
+    child[missing]
+    child { node {Jennifer} {
+        child[missing]
+        child { node {Jim} {
+            child[missing]
+            child { node {Molly} {
+                child[missing]
+                child { node {Owen} {
+                    child[missing]
+                    child { node {Randi} {
+                        child[missing]
+                        child { node {Xander} }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  };
 \caption{An incredibly bad, but still technically legit, BST.}
 \label{bstunbalanced}
 \end{figure}
