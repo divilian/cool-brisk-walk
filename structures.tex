@@ -1462,27 +1462,27 @@ for a visual.)
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
-  \node {G$_1$}
-  child { node {K$_2$}
-    child { node {D$_3$}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw}, every label/.style={above,draw=none,inner sep=0pt,font=\tiny}]
+  \node[label=1] {G}
+  child { node[label=2] {K}
+    child { node[label=3] {D}
       child[missing]
-      child { node {O$_4$}
+      child { node[label=4] {O}
         child[missing]
-        child { node {I$_5$} }
+        child { node[label=5] {I} }
       }
     }
-    child { node {M$_6$}
-      child { node {C$_7$} }
-      child { node {E$_8$} }
+    child { node[label=6] {M}
+      child { node[label=7] {C} }
+      child { node[label=8] {E} }
     }
   }
-  child { node {H$_9$}
-    child { node {A$_{10}$} }
-    child { node {B$_{11}$}
-      child { node {F$_{12}$} }
-      child { node {N$_{13}$}
-        child { node {L$_{14}$} }
+  child { node[label=9] {H}
+    child { node[label=10] {A} }
+    child { node[label=11] {B}
+      child { node[label=12] {F} }
+      child { node[label=13] {N}
+        child { node[label=14] {L} }
         child[missing]
       }
     }
@@ -1525,27 +1525,27 @@ up.
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
-  \node {G$_{14}$}
-  child { node {K$_7$}
-    child { node {D$_3$}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw},every label/.style={above,draw=none,inner sep=0pt,font=\tiny}]
+  \node[label=14] {G}
+  child { node[label=7] {K}
+    child { node[label=3] {D}
       child[missing]
-      child { node {O$_2$}
+      child { node[label=2] {O}
         child[missing]
-        child { node {I$_1$} }
+        child { node[label=1] {I} }
       }
     }
-    child { node {M$_6$}
-      child { node {C$_4$} }
-      child { node {E$_5$} }
+    child { node[label=6] {M}
+      child { node[label=4] {C} }
+      child { node[label=5] {E} }
     }
   }
-  child { node {H$_{13}$}
-    child { node {A$_{8}$} }
-    child { node {B$_{12}$}
-      child { node {F$_{9}$} }
-      child { node {N$_{11}$}
-        child { node {L$_{10}$} }
+  child { node[label=13] {H}
+    child { node[label=8] {A} }
+    child { node[label=12] {B}
+      child { node[label=9] {F} }
+      child { node[label=11] {N}
+        child { node[label=10] {L} }
         child[missing]
       }
     }
@@ -1588,27 +1588,27 @@ that wouldn't change the order and have K visited earlier.
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
-  \node {G$_{8}$}
-  child { node {K$_4$}
-    child { node {D$_1$}
+  \tikz [grow=down,binary tree layout,nodes={circle,draw},every label/.style={above,draw=none,inner sep=0pt,font=\tiny}]
+  \node[label=8] {G}
+  child { node[label=4] {K}
+    child { node[label=1] {D}
       child[missing]
-      child { node {O$_2$}
+      child { node[label=2] {O}
         child[missing]
-        child { node {I$_3$} }
+        child { node[label=3] {I} }
       }
     }
-    child { node {M$_6$}
-      child { node {C$_5$} }
-      child { node {E$_7$} }
+    child { node[label=6] {M}
+      child { node[label=5] {C} }
+      child { node[label=7] {E} }
     }
   }
-  child { node {H$_{10}$}
-    child { node {A$_{9}$} }
-    child { node {B$_{12}$}
-      child { node {F$_{11}$} }
-      child { node {N$_{14}$}
-        child { node {L$_{13}$} }
+  child { node[label=10] {H}
+    child { node[label=9] {A} }
+    child { node[label=12] {B}
+      child { node[label=11] {F} }
+      child { node[label=14] {N}
+        child { node[label=13] {L} }
         child[missing]
       }
     }
