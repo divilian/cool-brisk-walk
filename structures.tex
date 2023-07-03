@@ -49,7 +49,19 @@ joined to which others.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.7\textwidth]{graph.png}
+\begin{tikzpicture}[every node/.style={ellipse,draw}]
+  \node (Abe) at (0,0) {Abraham Lincoln};
+  \node (DC)  at (-2,-1.5) {Washington, DC};
+  \node (Ford) at (1,-3) {Ford's Theatre};
+  \node (Pres) at (3,1) {President};
+  \node (JWB) at (4,-1) {John Wilkes Booth};
+  \node (Actr) at (7,-2) {Actor};
+  \node (CW) at (4.2,-2.5) {Civil War}; % Really tempted to change this to 'Vampire'
+  \node (Getys) at (5,-4) {Gettysburg}; % and this to 'Vampire Hunter'
+  \draw (Pres) -- (Abe) -- (DC) -- (Ford) -- (JWB) -- (Actr);
+  \draw (Abe) -- (Ford);
+  \draw (CW) -- (Getys);
+\end{tikzpicture}
 \caption{A graph (undirected).}
 \label{graph}
 \end{figure}
@@ -144,7 +156,18 @@ norm, and certainly not the rule, with a directed graph.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.7\textwidth]{directedGraph.png}
+  \begin{tikzpicture}[every node/.style={ellipse,draw}]
+  \node (MA) at (0,0) {Muhammad Ali};
+  \node (JF) at (0,-2) {Joe Frazier};
+  \node (SL) at (3,1) {Sonny Liston};
+  \node (GF) at (4,-1) {George Foreman};
+  \graph [multi] {
+    (MA) ->[bend left] (JF) ->[bend left] (MA);
+    (MA) -> (SL);
+    (MA) -> (GF);
+    (GF) -> (JF);
+  };
+  \end{tikzpicture}
 \caption{A directed graph.}
 \label{directedGraph}
 \end{figure}
@@ -163,7 +186,16 @@ have its own weight.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{weightedGraph.png}
+  \begin{tikzpicture}
+    \node[ellipse,draw] (DC) at (0,0) {Washington, DC};
+    \node[ellipse,draw] (F) at (0,-2) {Fredericksburg};
+    \node[ellipse,draw] (R) at (0,-4) {Richmond};
+    \node[ellipse,draw] (V) at (5,-3) {Virginia Beach};
+    \graph [multi] {
+      (DC) --["50"] (F) --["60"] (R) --["100"'] (V);
+      (F) --["150"] (V);
+    };
+  \end{tikzpicture}
 \caption{A weighted (and undirected) graph.}
 \label{weightedGraph}
 \end{figure}
@@ -231,7 +263,25 @@ that it's done before pouring the brown goop into it.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{DAG.png}
+  \begin{tikzpicture}
+    \node[ellipse,draw] (Mix) at (2,0) {mix ingredients};
+    \node[ellipse,draw] (Pour2Bowl) at (0,3.5) {pour brown stuff in bowl};
+    \node[ellipse,draw] (Crack) at (-2,2) {crack two eggs};
+    \node[ellipse,draw] (Measure) at (4,2) {measure 2 tbsp oil};
+    \node[ellipse,draw] (Preheat) at (-3,0) {preheat oven};
+    \node[ellipse,draw] (Bake) at (-1.7,-2) {bake for 30 mins};
+    \node[ellipse,draw] (Grease) at (6,4) {grease pan};
+    \node[ellipse,draw] (Pour2Pan) at (5,-1.5) {pour into pan};
+    \node[ellipse,draw] (Cool) at (2,-3) {cool};
+    \node[ellipse,draw] (Enjoy) at (5,-3.5) {enjoy!};
+    \graph [multi] {
+      (Crack) ->[bend right] (Mix);
+      (Measure) ->[bend left] (Mix);
+      (Pour2Bowl) -> (Mix) -> (Pour2Pan) -> (Bake);
+      (Grease) ->[bend left] (Pour2Pan);
+      (Preheat) -> (Bake) -> (Cool) -> (Enjoy);
+    };
+  \end{tikzpicture}
 \caption{A DAG.}
 \label{DAG}
 \end{figure}
@@ -277,7 +327,19 @@ diagrams, there are the same vertices, and the same edges between them
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.7\textwidth]{directedGraphDiff.png}
+  \begin{tikzpicture}[every node/.style={ellipse,draw}]
+    \node (SL) at (-0.5,0) {Sonny Liston};
+    \node (MA) at (4,0) {Muhammad Ali};
+    \node (GF) at (-5,0) {George Foreman};
+    \node (JF) at (0,-2) {Joe Frazier};
+    \graph [multi] {
+      (MA) -> (SL);
+      (MA) -> (JF) ->[bend right] (MA);
+      (GF) -> (JF);
+      (MA) ->[bend right] (GF);
+    };
+\end{tikzpicture}
+
 \caption{A different look to \textbf{the same graph as
 Figure~\ref{directedGraph}}.}
 \label{directedGraphDiff}
@@ -327,7 +389,20 @@ represented by both forms?
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.5\textwidth]{relationGraph.png}
+\begin{tikzpicture}[every node/.style={ellipse,draw}]
+  \node (Hr) at (4,4) {Hermione};
+  \node (R) at (2,5) {Ron};
+  \node (N) at (7,5) {Neville};
+  \node (Ha) at (0,4) {Harry};
+  \graph [multi] {
+    (R) -> (Hr);
+    (R) -> (N) ->[bend left] (Ha);
+    (R) ->[bend right] (Ha);
+    (Ha) ->[bend right] (R);
+  };
+  \draw
+  (Hr) edge [->,loop above] (Hr);
+\end{tikzpicture}
 \caption{A graph depicting a endorelation.}
 \label{relationgraph}
 \end{figure}
@@ -354,7 +429,18 @@ relation:
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.3\textwidth]{symRelationGraph.png}
+  \begin{tikzpicture}[every node/.style={ellipse,draw}]
+    \node (Ha) at (0,1) {Harry};
+    \node (R) at (4,0.5) {Ron};
+    \node (Hr) at (0,-1) {Hermione};
+    \node (N) at (4,-1) {Neville};
+    \graph [multi] {
+      (Ha) -- (R) -- (Hr);
+    };
+    \draw[every loop/.style={}]
+    (Ha) edge [in=190,out=130,loop] (Ha)
+    (N) edge [in=-25,out=20,loop] (N);
+  \end{tikzpicture}
 \caption{A graph depicting a symmetric endorelation.}
 \label{symrelationgraph}
 \end{figure}
