@@ -1168,7 +1168,30 @@ depend on how quickly these reinforcements can reach the front.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.6\textwidth]{DijkstraOrig.png}
+  \begin{tikzpicture}[every node/.style={draw,ellipse,inner sep=1pt},
+      every edge/.style={draw,nodes={draw=none}}]
+    \node (V) at (0,0) {Vichy};
+    \node (L) at (2,-1.3) {Lyon};
+    \node (B) at (4.5,-2) {Briançon};
+    \node (N) at (5,-3.5) {Nice};
+    \node (M) at (2,-3.6) {Marseille};
+    \node (T) at (-1.5,-3.5) {Toulouse};
+    \node (Bdx) at (-3,-1.7) {Bordeaux};
+    \node (Nts) at (-4,1) {Nantes};
+    \node (P) at (-2,2) {Paris};
+    \node (Lle) at (0.3,3) {Lille};
+    \node (S) at (5,2.5) {Strasbourg};
+    \graph [multi] {
+      (V) --["250"] (L) --["200"] (B) --["250"] (N)
+      --["150"'] (M) --["150"'] (L) --["600"] (T)
+      --["300"] (M);
+      (T) --["300"'] (V) --["450"] (Bdx) --["150"'] (Nts)
+      --["300"] (P) --["350"] (Lle) --["500"] (S) --["400"] (B);
+      (T) --["200"] (Bdx);
+      (Lle) --["400"] (V) --["350"'] (P);
+      (L) --["650"] (S);
+    };
+  \end{tikzpicture}
 \caption{A weighted graph, through which we desire to find the shortest
 path from Bordeaux to Strasbourg.}
 \label{france}
