@@ -665,15 +665,168 @@ then repeat the process.
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-1.4cm}{-1.8cm}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT1.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT2.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT3.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT4.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT5.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT6.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT7.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT8.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{BFT9.png}}
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {1};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy -- Greg[fill=gray] -- Chuck --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Greg};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {2};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[fill=gray] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Chuck $\vert$ Izzy};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {3};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[fill=gray] -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Izzy $\vert$ Adrian};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {4};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[fill=gray] -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine[fill=gray] --
+                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Adrian $\vert$ Elaine};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {5};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[fill=gray] -- Brittany --
+                 Faith -- Kim -- Elaine[fill=gray] --
+                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Elaine $\vert$ Jackie};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {6};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[fill=gray] -- Brittany --
+                 Faith[fill=gray] -- Kim[fill=gray] -- Elaine[dotted] --
+                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Jackie $\vert$ Kim $\vert$ Faith};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {7};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
+                 Faith[fill=gray] -- Kim[fill=gray] -- Elaine[dotted] --
+                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Kim $\vert$ Faith $\vert$ Brittany};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {8};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
+                 Faith[fill=gray] -- Kim[dotted] -- Elaine[dotted] --
+                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Faith $\vert$ Brittany};
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {9};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
+                 Faith[dotted] -- Kim[dotted] -- Elaine[dotted] --
+                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12) {Queue: Brittany};
+      \end{tikzpicture}
+    }
+  }
 \caption{The stages of breadth-first traversal. Marked nodes are grey, and
 visited nodes are black. The order of visitation is: G, C, I, A, E, J, K,
 F, B.}
@@ -786,16 +939,204 @@ difference is the order in which it visits the nodes.
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-1.4cm}{-1.8cm}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT1.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT2.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT3.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT4.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT5.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT6.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT7.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT8.png}}
-\framebox{\includegraphics[width=0.32\textwidth]{DFT9.png}}
-
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {1};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy -- Greg[fill=gray] -- Chuck --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{1}{*}{Stack:} & Greg
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {2};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[fill=gray] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{2}{*}{Stack:} & Chuck \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {3};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[fill=gray] -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{2}{*}{Stack:} & Adrian \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {4};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[fill=gray] -- Brittany --
+                 Faith -- Kim -- Elaine --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{2}{*}{Stack:} & Jackie \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {5};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
+                 Faith -- Kim -- Elaine[fill=gray] --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{3}{*}{Stack:} & Brittany \\ & Elaine \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {6};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
+                 Faith[fill=gray] -- Kim[fill=gray] -- Elaine[fill=gray] --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{4}{*}{Stack:} & Kim \\ & Faith \\ & Elaine \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {7};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
+                 Faith[fill=gray] -- Kim[dotted] -- Elaine[fill=gray] --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{3}{*}{Stack:} & Faith \\ & Elaine \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {8};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
+                 Faith[dotted] -- Kim[dotted] -- Elaine[fill=gray] --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{2}{*}{Stack:} & Elaine \\ & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.32\textwidth}{!}{
+      \begin{tikzpicture}
+        \node[draw=none,align=left,font=\huge,thick] at (-5,0) {9};
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+               {
+                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
+                 Faith[dotted] -- Kim[dotted] -- Elaine[dotted] --
+                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian;
+                 Brittany -- Kim;
+                 Elaine -- {Faith, Jackie};
+                 Hank -- Danielle;
+               };
+               \node[draw=none,align=center,font=\huge] at (0,-12.5) {
+                 \begin{tabular}{r l}
+                   \multirow{1}{*}{Stack:} & Izzy \\
+                 \end{tabular}
+               };
+      \end{tikzpicture}
+    }
+  }
 \caption{The stages of depth-first traversal. Marked nodes are grey, and
 visited nodes are black. The order of visitation is: G, C, A, J, B, K, F,
 E, I.}
