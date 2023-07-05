@@ -1324,18 +1324,290 @@ lines.
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-2.4cm}{-2.8cm}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra1.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra2.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra3.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra4.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra5.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra6.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra7.png}}
-\framebox{\includegraphics[width=0.5\textwidth]{Dijkstra8.png}}
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {1};
+        \node[label=$\infty$] (V) at (0,0) {Vichy};
+        \node[label=$\infty$] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=$\infty$] (N) at (5,-3.5) {Nice};
+        \node[label=$\infty$] (M) at (2,-3.6) {Marseille};
+        \node[label=$\infty$] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,current] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=$\infty$] (Nts) at (-4,1) {Nantes};
+        \node[label=$\infty$] (P) at (-2,2) {Paris};
+        \node[label=$\infty$] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) --["250"] (L) --["200"] (B) --["250"] (N)
+          --["150"'] (M) --["150"'] (L) --["600"] (T)
+          --["300"] (M);
+          (T) --["300"'] (V) --["450"] (Brdx) --["150"'] (Nts)
+          --["300"'] (P) --["350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) --["200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {2};
+        \node[label=450] (V) at (0,0) {Vichy};
+        \node[label=$\infty$] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=$\infty$] (N) at (5,-3.5) {Nice};
+        \node[label=$\infty$] (M) at (2,-3.6) {Marseille};
+        \node[label=200] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,current] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150] (Nts) at (-4,1) {Nantes};
+        \node[label=$\infty$] (P) at (-2,2) {Paris};
+        \node[label=$\infty$] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) --["250"] (L) --["200"] (B) --["250"] (N)
+          --["150"'] (M) --["150"'] (L) --["600"] (T)
+          --["300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          --["300"'] (P) --["350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {3};
+        \node[label=450] (V) at (0,0) {Vichy};
+        \node[label=$\infty$] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=$\infty$] (N) at (5,-3.5) {Nice};
+        \node[label=$\infty$] (M) at (2,-3.6) {Marseille};
+        \node[label=200] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,visited] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150,current] (Nts) at (-4,1) {Nantes};
+        \node[label=450] (P) at (-2,2) {Paris};
+        \node[label=$\infty$] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) --["250"] (L) --["200"] (B) --["250"] (N)
+          --["150"'] (M) --["150"'] (L) --["600"] (T)
+          --["300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          ->[determined,"300"'] (P) --["350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {4};
+        \node[label=450] (V) at (0,0) {Vichy};
+        \node[label=800] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=$\infty$] (N) at (5,-3.5) {Nice};
+        \node[label=500] (M) at (2,-3.6) {Marseille};
+        \node[label=200,current] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,visited] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150,visited] (Nts) at (-4,1) {Nantes};
+        \node[label=450] (P) at (-2,2) {Paris};
+        \node[label=$\infty$] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) --["250"] (L) --["200"] (B) --["250"] (N)
+          --["150"'] (M) --["150"'] (L) <-[determined,"600"] (T)
+          ->[determined,"300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          ->[determined,"300"'] (P) --["350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {5};
+        \node[label=450,current] (V) at (0,0) {Vichy};
+        \node[label=700] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=$\infty$] (N) at (5,-3.5) {Nice};
+        \node[label=500] (M) at (2,-3.6) {Marseille};
+        \node[label=200,visited] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,visited] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150,visited] (Nts) at (-4,1) {Nantes};
+        \node[label=450] (P) at (-2,2) {Paris};
+        \node[label=850] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) ->[determined,"250"] (L) --["200"] (B) --["250"] (N)
+          --["150"'] (M) --["150"'] (L) --["600"] (T)
+          ->[determined,"300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          ->[determined,"300"'] (P) --["350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) <-[determined,"400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {6};
+        \node[label=450,visited] (V) at (0,0) {Vichy};
+        \node[label=700] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=$\infty$] (N) at (5,-3.5) {Nice};
+        \node[label=500] (M) at (2,-3.6) {Marseille};
+        \node[label=200,visited] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,visited] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150,visited] (Nts) at (-4,1) {Nantes};
+        \node[label=450,current] (P) at (-2,2) {Paris};
+        \node[label=800] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) ->[determined,"250"] (L) --["200"] (B) --["250"] (N)
+          --["150"'] (M) --["150"'] (L) --["600"] (T)
+          ->[determined,"300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          ->[determined,"300"'] (P) ->[determined,"350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=left,font=\Large,thick] at (-4,3) {7};
+        \node[label=450,visited] (V) at (0,0) {Vichy};
+        \node[label=650] (L) at (2,-1.3) {Lyon};
+        \node[label=$\infty$] (B) at (4.5,-2) {Briançon};
+        \node[label=650] (N) at (5,-3.5) {Nice};
+        \node[label=500,current] (M) at (2,-3.6) {Marseille};
+        \node[label=200,visited] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,visited] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150,visited] (Nts) at (-4,1) {Nantes};
+        \node[label=450,visited] (P) at (-2,2) {Paris};
+        \node[label=800] (Lle) at (0.3,3) {Lille};
+        \node[label=$\infty$] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) --["250"] (L) --["200"] (B) --["250"] (N)
+          <-[determined,"150"'] (M) ->[determined,"150"'] (L) --["600"] (T)
+          ->[determined,"300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          ->[determined,"300"'] (P) ->[determined,"350"'] (Lle) --["500"] (S) --["400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
+  \framebox{
+    \resizebox{0.5\textwidth}{!}{
+      \begin{tikzpicture}
+        [every node/.style={draw,ellipse,inner sep=1pt},
+          every edge/.style={dotted,draw,nodes={draw=none}},
+          every label/.style={right,signal,signal to=left,inner sep=1pt,fill=lightgray,text=black,font=\normalsize},
+          label distance=5pt,
+          visited/.style={fill=black,text=white},
+          determined/.style={solid,very thick},
+          current/.style={thick,fill=gray}]
+        \node[draw=none,align=center,font=\Large] at (-4,3) {$\cdots$};
+        \node[label=450,visited] (V) at (0,0) {Vichy};
+        \node[label=650,visited] (L) at (2,-1.3) {Lyon};
+        \node[label=850,visited] (B) at (4.5,-2) {Briançon};
+        \node[label=650,visited] (N) at (5,-3.5) {Nice};
+        \node[label=500,visited] (M) at (2,-3.6) {Marseille};
+        \node[label=200,visited] (T) at (-1.5,-3.5) {Toulouse};
+        \node[label=0,visited] (Brdx) at (-3,-1.7) {Bordeaux};
+        \node[label=150,visited] (Nts) at (-4,1) {Nantes};
+        \node[label=450,visited] (P) at (-2,2) {Paris};
+        \node[label=800,visited] (Lle) at (0.3,3) {Lille};
+        \node[label=1250,visited] (S) at (5,2.5) {Strasbourg};
+        \graph [multi] {
+          (V) --["250"] (L) ->[determined,"200"] (B) --["250"] (N)
+          <-[determined,"150"'] (M) ->[determined,"150"'] (L) --["600"] (T)
+          ->[determined,"300"] (M);
+          (T) --["300"'] (V) <-[determined,"450"] (Brdx) ->[determined,"150"'] (Nts)
+          ->[determined,"300"'] (P) ->[determined,"350"'] (Lle) --["500"] (S) <-[determined,"400"] (B);
+          (T) <-[determined,"200"] (Brdx);
+          (Lle) --["400"] (V) --["350"'] (P);
+          (L) --["650"] (S);
+        };
+      \end{tikzpicture}
+    }
+  }
 
 \caption{The stages of Dijkstra's shortest-path algorithm. The ``current
 node" is shown in grey, with visited nodes (whose best paths and shortest
-distances have been unalterably determined) in black. The diamond next to
+distances have been unalterably determined) in black. The sign next to
 each node shows the tentative shortest distance to that node from
 Bordeaux.}
 \label{fig:dijkstra}
