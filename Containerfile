@@ -1,5 +1,7 @@
-FROM docker.io/debian:bookworm
-RUN apt update && apt -y upgrade
-RUN apt install -y make texlive-latex-recommended
-RUN apt install -y texlive-latex-extra
+FROM docker.io/fedora:38
+RUN dnf -y upgrade
+RUN dnf -y install texlive-scheme-basic
+RUN dnf -y install make
+RUN dnf -y install texlive-ulem texlive-multirow texlive-fancybox texlive-mdwtools
+RUN dnf -y install texlive-ccicons
 CMD bash
