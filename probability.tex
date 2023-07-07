@@ -188,7 +188,17 @@ obviously a great deal of overlap.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.7\textwidth]{idol.png}
+\resizebox{0.7\textwidth}{!}{
+  \begin{tikzpicture}[elem/.style={fill=black,circle,inner sep=1pt}]
+    \node (a) [elem,label={[name=La,above]:Kelly (.2)}] {};
+    \node (b) [below left=100pt of a,elem,label={[name=Lb,above]:David (.5)}] {};
+    \node (c) [right=100pt of a,elem,label={[name=Lc,above]:Fantasia (.2)}] {};
+    \node (d) [right=210pt of b,elem,label={[name=Ld,above]:Carrie (.1)}] {};
+    \node[draw,dotted,ellipse,fit=(a) (La) (c) (Lc),label={[right,inner sep=55pt,font=\tiny]:Underage}] {};
+    \node[draw,dashed,regular polygon,regular polygon sides=4,fit=(a) (c) (d),label={[above,font=\tiny]Female}] {};
+    \node[draw,solid,tape,fit=(a) (La) (b) (Lb),label={[above,font=\tiny]:Rockstar}] {};
+  \end{tikzpicture}
+}
 \caption{Various events, and their overlap.}
 \label{venn}
 \end{figure}
