@@ -715,7 +715,19 @@ learned that, don't worry about it.)
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\textwidth]{pascal.png}
+  \tikz
+  \path[x=0.75cm,y=0.5cm]
+  \foreach \n in {0,...,5} { % row
+    \foreach \k in {0,...,\n} { % column
+      (-\n/2+\k,-\n) node[font=\Large\bfseries] {
+        \tikzmath{
+          integer \p;
+          \p = \n!/((\n-\k)!*\k!);
+        }
+        \p
+      }
+    }
+  };
 \caption{The first six rows of Pascal's triangle.}
 \label{pascal}
 \end{figure}
