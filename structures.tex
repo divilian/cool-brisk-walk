@@ -669,11 +669,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {1};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
                  Adrian -- Jackie -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy -- Greg[fill=gray] -- Chuck --
+                 Izzy -- Greg[marked] -- Chuck --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -687,11 +689,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {2};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
                  Adrian -- Jackie -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[fill=gray] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[marked] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -705,11 +709,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {3};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[fill=gray] -- Jackie -- Brittany --
+                 Adrian[marked] -- Jackie -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -723,11 +729,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {4};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[fill=gray] -- Jackie -- Brittany --
-                 Faith -- Kim -- Elaine[fill=gray] --
-                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[marked] -- Jackie -- Brittany --
+                 Faith -- Kim -- Elaine[marked] --
+                 Izzy[visited] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -741,11 +749,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {5};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[fill=gray] -- Brittany --
-                 Faith -- Kim -- Elaine[fill=gray] --
-                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[marked] -- Brittany --
+                 Faith -- Kim -- Elaine[marked] --
+                 Izzy[visited] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -759,11 +769,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {6};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[fill=gray] -- Brittany --
-                 Faith[fill=gray] -- Kim[fill=gray] -- Elaine[dotted] --
-                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[marked] -- Brittany --
+                 Faith[marked] -- Kim[marked] -- Elaine[visited] --
+                 Izzy[visited] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -777,11 +789,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {7};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
-                 Faith[fill=gray] -- Kim[fill=gray] -- Elaine[dotted] --
-                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[marked] --
+                 Faith[marked] -- Kim[marked] -- Elaine[visited] --
+                 Izzy[visited] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -795,11 +809,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {8};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
-                 Faith[fill=gray] -- Kim[dotted] -- Elaine[dotted] --
-                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[marked] --
+                 Faith[marked] -- Kim[visited] -- Elaine[visited] --
+                 Izzy[visited] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -813,11 +829,13 @@ then repeat the process.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {9};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
-                 Faith[dotted] -- Kim[dotted] -- Elaine[dotted] --
-                 Izzy[dotted] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[marked] --
+                 Faith[visited] -- Kim[visited] -- Elaine[visited] --
+                 Izzy[visited] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -943,11 +961,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {1};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
                  Adrian -- Jackie -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy -- Greg[fill=gray] -- Chuck --
+                 Izzy -- Greg[marked] -- Chuck --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -965,11 +985,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {2};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
                  Adrian -- Jackie -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[fill=gray] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[marked] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -987,11 +1009,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {3};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[fill=gray] -- Jackie -- Brittany --
+                 Adrian[marked] -- Jackie -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -1009,11 +1033,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {4};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[fill=gray] -- Brittany --
+                 Adrian[visited] -- Jackie[marked] -- Brittany --
                  Faith -- Kim -- Elaine --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -1031,11 +1057,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {5};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[fill=gray] --
-                 Faith -- Kim -- Elaine[fill=gray] --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[marked] --
+                 Faith -- Kim -- Elaine[marked] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -1053,11 +1081,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {6};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
-                 Faith[fill=gray] -- Kim[fill=gray] -- Elaine[fill=gray] --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[visited] --
+                 Faith[marked] -- Kim[marked] -- Elaine[marked] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -1075,11 +1105,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {7};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
-                 Faith[fill=gray] -- Kim[dotted] -- Elaine[fill=gray] --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[visited] --
+                 Faith[marked] -- Kim[visited] -- Elaine[marked] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -1097,11 +1129,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {8};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
-                 Faith[dotted] -- Kim[dotted] -- Elaine[fill=gray] --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[visited] --
+                 Faith[visited] -- Kim[visited] -- Elaine[marked] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
@@ -1119,11 +1153,13 @@ difference is the order in which it visits the nodes.
     \resizebox{0.32\textwidth}{!}{
       \begin{tikzpicture}
         \node[draw=none,align=left,font=\huge,thick] at (-5,0) {9};
-        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse}]
+        \graph [simple necklace layout, grow'=down, node sep=3em,nodes={draw,ellipse},
+          visited/.style={fill=black,text=white},
+          marked/.style={thick,fill=gray}]
                {
-                 Adrian[dotted] -- Jackie[dotted] -- Brittany[dotted] --
-                 Faith[dotted] -- Kim[dotted] -- Elaine[dotted] --
-                 Izzy[fill=gray] -- Greg[dotted] -- Chuck[dotted] --
+                 Adrian[visited] -- Jackie[visited] -- Brittany[visited] --
+                 Faith[visited] -- Kim[visited] -- Elaine[visited] --
+                 Izzy[marked] -- Greg[visited] -- Chuck[visited] --
                  Adrian;
                  Brittany -- Kim;
                  Elaine -- {Faith, Jackie};
