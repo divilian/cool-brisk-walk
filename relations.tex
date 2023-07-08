@@ -531,8 +531,8 @@ this one:
     \node (d) [right=200pt of a,elem,label={[name=Ld,above]:Mt. Dew}] {};
     \node (pad) [below=of d] {};
     \node (e) [below=of pad,elem,label={[name=Le,below]:Dr. Pepper}] {};
-    \node[draw,cloud,cloud puffs=7,fit=(a) (La) (b) (c) (Lc)] {};
-    \node[draw,tape,fit=(d) (Ld) (e) (Le)] {} ;
+    \node[draw,ellipse,fit=(a) (La) (b) (c) (Lc)] {};
+    \node[draw,ellipse,fit=(d) (Ld) (e) (Le)] {} ;
     \foreach \i/\j in {a/e,b/e,c/d} \draw [-latex] (\i) -- (\j);
   \end{tikzpicture}
 \caption{A function represented graphically.}
