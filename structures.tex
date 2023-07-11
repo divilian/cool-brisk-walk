@@ -263,25 +263,27 @@ that it's done before pouring the brown goop into it.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.81\textwidth}{!}{
   \begin{tikzpicture}
     \node[ellipse,draw] (Mix) at (2,0) {mix ingredients};
-    \node[ellipse,draw] (Pour2Bowl) at (0,3.5) {pour brown stuff in bowl};
-    \node[ellipse,draw] (Crack) at (-2,2) {crack two eggs};
-    \node[ellipse,draw] (Measure) at (4,2) {measure 2 tbsp oil};
-    \node[ellipse,draw] (Preheat) at (-3,0) {preheat oven};
-    \node[ellipse,draw] (Bake) at (-1.7,-2) {bake for 30 mins};
-    \node[ellipse,draw] (Grease) at (6,4) {grease pan};
-    \node[ellipse,draw] (Pour2Pan) at (5,-1.5) {pour into pan};
-    \node[ellipse,draw] (Cool) at (2,-3) {cool};
-    \node[ellipse,draw] (Enjoy) at (5,-3.5) {enjoy!};
+    \node[ellipse,draw] (Pour2Bowl) at (2,3) {pour brown stuff in bowl};
+    \node[ellipse,draw] (Crack) at (0,2) {crack two eggs};
+    \node[ellipse,draw] (Measure) at (4.5,2) {measure 2 tbsp oil};
+    \node[ellipse,draw] (Preheat) at (0,1) {preheat oven};
+    \node[ellipse,draw] (Bake) at (1,-1.3) {bake for 30 mins};
+    \node[ellipse,draw] (Grease) at (5.5,1) {grease pan};
+    \node[ellipse,draw] (Pour2Pan) at (5,-0.75) {pour into pan};
+    \node[ellipse,draw] (Cool) at (0,-2.5) {cool};
+    \node[ellipse,draw] (Enjoy) at (6,-2) {enjoy!};
     \graph [multi] {
-      (Crack) ->[bend right] (Mix);
-      (Measure) ->[bend left] (Mix);
+      (Crack) ->[bend left] (Mix);
+      (Measure) ->[bend right] (Mix);
       (Pour2Bowl) -> (Mix) -> (Pour2Pan) -> (Bake);
       (Grease) ->[bend left] (Pour2Pan);
-      (Preheat) -> (Bake) -> (Cool) -> (Enjoy);
+      (Preheat) ->[bend right] (Bake) ->[bend right] (Cool) -> (Enjoy);
     };
   \end{tikzpicture}
+}
 \caption{A DAG.}
 \label{DAG}
 \end{figure}
@@ -327,6 +329,7 @@ diagrams, there are the same vertices, and the same edges between them
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.97\textwidth}{!}{
   \begin{tikzpicture}[every node/.style={ellipse,draw}]
     \node (SL) at (-0.5,0) {Sonny Liston};
     \node (MA) at (4,0) {Muhammad Ali};
@@ -338,8 +341,8 @@ diagrams, there are the same vertices, and the same edges between them
       (GF) -> (JF);
       (MA) ->[bend right] (GF);
     };
-\end{tikzpicture}
-
+  \end{tikzpicture}
+}
 \caption{A different look to \textbf{the same graph as
 Figure~\ref{directedGraph}}.}
 \label{directedGraphDiff}
@@ -2919,7 +2922,7 @@ Figure~\ref{bstadd1}.)
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-2.1cm}{-3cm}
-
+\resizebox{0.93\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw}]
   \node {Mitch} {
     child { node {Jessica}
@@ -2952,6 +2955,7 @@ Figure~\ref{bstadd1}.)
       child { node {Xander} }
     }
   };
+}
 \caption{The BST after adding Jennifer.}
 \label{bstadd1}
 \end{custommargins}
@@ -2988,7 +2992,8 @@ should), completely missing her. Jennifer has effectively been lost.
 
 \begin{figure}[ht]
 \centering
-  \begin{custommargins}{-2.1cm}{-3cm}
+\begin{custommargins}{-2.1cm}{-3cm}
+\resizebox{0.93\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw}]
   \node {Mitch} {
     child { node[dashed] {Jessica}
@@ -3024,6 +3029,7 @@ should), completely missing her. Jennifer has effectively been lost.
       child { node {Xander} }
     }
   };
+}
 \caption{A \textbf{wrong} (non)-BST after removing Jessica incorrectly.}
 \label{bstremovewrong}
 \end{custommargins}
@@ -3061,7 +3067,7 @@ node.)
 \begin{figure}[ht]
 \centering
 \begin{custommargins}{-2.1cm}{-3cm}
-
+\resizebox{0.93\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw}]
   \node {Mitch} {
     child { node[dashed] {Jessica}
@@ -3097,6 +3103,7 @@ node.)
       child { node {Xander} }
     }
   };
+}
 \caption{The BST after removing Jessica correctly.}
 \label{bstremoveright}
 \end{custommargins}
@@ -3109,7 +3116,8 @@ Because she was the left-most descendant of Mitch's right subtree.
 
 \begin{figure}[ht]
 \centering
-  \begin{custommargins}{-2.1cm}{-3cm}
+\begin{custommargins}{-2.1cm}{-3cm}
+\resizebox{0.93\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw}]
   \node[dashed] {Mitch} {
     child { node {Jim}
@@ -3142,6 +3150,7 @@ Because she was the left-most descendant of Mitch's right subtree.
       child { node {Xander} }
     }
   };
+}
 \caption{The BST after removing Mitch.}
 \label{bstremoveright2}
 \end{custommargins}
