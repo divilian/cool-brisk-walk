@@ -2577,7 +2577,8 @@ blank nodes in Figure~\ref{fullbinarytree}.
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+\resizebox{0.7\textwidth}{!}{
+  \tikz [grow=down,binary tree layout,nodes={circle,draw,minimum size=3em}]
   \node {G}
   child { node {K}
     child { node {D}
@@ -2602,6 +2603,7 @@ blank nodes in Figure~\ref{fullbinarytree}.
       }
     }
   };
+}
 \caption{A full binary tree.}
 \label{fullbinarytree}
 \end{figure}
@@ -2619,7 +2621,8 @@ Figure~\ref{completebinarytree}.
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+\resizebox{0.9\textwidth}{!}{
+  \tikz [grow=down,binary tree layout,nodes={circle,draw,minimum size=3em}]
   \node {G}
   child { node {K}
     child { node {D}
@@ -2650,6 +2653,7 @@ Figure~\ref{completebinarytree}.
       child { node {N} }
     }
   };
+}
 \caption{A complete binary tree.}
 \label{completebinarytree}
 \end{figure}
@@ -2669,7 +2673,8 @@ Figure~\ref{perfectbinarytree}.)
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+\resizebox{0.9\textwidth}{!}{
+  \tikz [grow=down,binary tree layout,nodes={circle,draw,minimum size=3em}]
   \node {G}
   child { node {K}
     child { node {D}
@@ -2691,6 +2696,7 @@ Figure~\ref{perfectbinarytree}.)
       child { node {N} }
     }
   };
+}
 \caption{A ``perfect" binary tree.}
 \label{perfectbinarytree}
 \end{figure}
