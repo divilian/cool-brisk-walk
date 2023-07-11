@@ -3180,7 +3180,8 @@ up in a plain-old list. We're back to O(n) performance.
 
 \begin{figure}[ht]
 \centering
-  \tikz [grow=down,binary tree layout,nodes={circle,draw}]
+\resizebox{0.65\textwidth}{!}{
+  \tikz [grow=down,binary tree layout,nodes={circle,draw,minimum size=5em,sibling distance=7em}]
   \node {Ben} {
     child[missing]
     child { node {Jennifer} {
@@ -3205,6 +3206,7 @@ up in a plain-old list. We're back to O(n) performance.
       }
     }
   };
+}
 \caption{An incredibly bad, but still technically legit, BST.}
 \label{bstunbalanced}
 \end{figure}
