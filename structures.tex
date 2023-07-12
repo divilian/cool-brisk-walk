@@ -49,6 +49,7 @@ joined to which others.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.95\textwidth}{!}{
 \begin{tikzpicture}[every node/.style={ellipse,draw}]
   \node (Abe) at (0,0) {Abraham Lincoln};
   \node (DC)  at (-2,-1.5) {Washington, DC};
@@ -62,6 +63,7 @@ joined to which others.
   \draw (Abe) -- (Ford);
   \draw (CW) -- (Getys);
 \end{tikzpicture}
+}
 \caption{A graph (undirected).}
 \label{graph}
 \end{figure}
@@ -156,6 +158,7 @@ norm, and certainly not the rule, with a directed graph.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.7\textwidth}{!}{
   \begin{tikzpicture}[every node/.style={ellipse,draw}]
   \node (MA) at (0,0) {Muhammad Ali};
   \node (JF) at (0,-2) {Joe Frazier};
@@ -168,6 +171,7 @@ norm, and certainly not the rule, with a directed graph.
     (GF) -> (JF);
   };
   \end{tikzpicture}
+}
 \caption{A directed graph.}
 \label{directedGraph}
 \end{figure}
@@ -186,6 +190,7 @@ have its own weight.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.7\textwidth}{!}{
   \begin{tikzpicture}
     \node[ellipse,draw] (DC) at (0,0) {Washington, DC};
     \node[ellipse,draw] (F) at (0,-2) {Fredericksburg};
@@ -196,6 +201,7 @@ have its own weight.
       (F) --["150"] (V);
     };
   \end{tikzpicture}
+}
 \caption{A weighted (and undirected) graph.}
 \label{weightedGraph}
 \end{figure}
@@ -392,6 +398,7 @@ represented by both forms?
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.9\textwidth}{!}{
 \begin{tikzpicture}[every node/.style={ellipse,draw}]
   \node (Hr) at (4,4) {Hermione};
   \node (R) at (2,5) {Ron};
@@ -406,6 +413,7 @@ represented by both forms?
   \draw
   (Hr) edge [->,loop above] (Hr);
 \end{tikzpicture}
+}
 \caption{A graph depicting a endorelation.}
 \label{relationgraph}
 \end{figure}
@@ -432,6 +440,7 @@ relation:
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.9\textwidth}{!}{
   \begin{tikzpicture}[every node/.style={ellipse,draw}]
     \node (Ha) at (0,1) {Harry};
     \node (R) at (4,0.5) {Ron};
@@ -441,9 +450,10 @@ relation:
       (Ha) -- (R) -- (Hr);
     };
     \draw[every loop/.style={}]
-    (Ha) edge [in=190,out=130,loop] (Ha)
+    (Ha) edge [in=175,out=235,loop] (Ha)
     (N) edge [in=-25,out=20,loop] (N);
   \end{tikzpicture}
+}
 \caption{A graph depicting a symmetric endorelation.}
 \label{symrelationgraph}
 \end{figure}
@@ -1207,6 +1217,7 @@ depend on how quickly these reinforcements can reach the front.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.89\textwidth}{!}{
   \begin{tikzpicture}[every node/.style={draw,ellipse,inner sep=1pt},
       every edge/.style={draw,nodes={draw=none}}]
     \node (V) at (0,0) {Vichy};
@@ -1231,6 +1242,7 @@ depend on how quickly these reinforcements can reach the front.
       (L) --["650"] (S);
     };
   \end{tikzpicture}
+}
 \caption{A weighted graph, through which we desire to find the shortest
 path from Bordeaux to Strasbourg.}
 \label{france}
@@ -2385,6 +2397,7 @@ for a visual.)
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.59\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw}, every label/.style={above,draw=none,inner sep=0pt,font=\tiny}]
   \node[label=1] {G}
   child { node[label=2] {K}
@@ -2410,6 +2423,7 @@ for a visual.)
       }
     }
   };
+}
 \caption{The order of node visitation in \textbf{pre-order} traversal.}
 \label{preorder}
 \end{figure}
@@ -2448,6 +2462,7 @@ up.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.63\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw},every label/.style={above,draw=none,inner sep=0pt,font=\tiny}]
   \node[label=14] {G}
   child { node[label=7] {K}
@@ -2473,6 +2488,7 @@ up.
       }
     }
   };
+}
 \caption{The order of node visitation in \textbf{post-order} traversal.}
 \label{postorder}
 \end{figure}
@@ -2511,6 +2527,7 @@ that wouldn't change the order and have K visited earlier.
 
 \begin{figure}[ht]
 \centering
+\resizebox{0.59\textwidth}{!}{
   \tikz [grow=down,binary tree layout,nodes={circle,draw},every label/.style={above,draw=none,inner sep=0pt,font=\tiny}]
   \node[label=8] {G}
   child { node[label=4] {K}
@@ -2536,6 +2553,7 @@ that wouldn't change the order and have K visited earlier.
       }
     }
   };
+}
 \caption{The order of node visitation in \textbf{in-order} traversal.}
 \label{inorder}
 \end{figure}
