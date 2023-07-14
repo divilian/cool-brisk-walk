@@ -5,6 +5,31 @@ brisk.pdf: *.tex
 
 pdf: brisk.pdf
 
+front-cover.pdf: cover.svg
+	type inkscape && \
+		inkscape $^ --batch-process \
+			--export-area-drawing --export-type=pdf \
+			--export-id="layer3" \
+			--export-filename=$@  || \
+		rsvg-convert --unlimited --format=pdf \
+			--left=-173mm --page-width=6.08in --page-height=9in \
+			$^ > $@
+
+CoolBriskWalk.pdf: pdfmarks.ps front-cover.pdf brisk.pdf metadata.ps
+	gs -q -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$@ $^
+	rm $(filter %.ps,$^)
+
+pdfmarks.ps:
+	@echo "[ /Label (front-cover) /SrcPg 1 /PAGELABEL pdfmark" > $@
+	@echo "[ /Title (Front Cover) /SrcPg 1 /OUT pdfmark" >> $@
+	@echo "[ /Title (Sources URL) /SrcPg 3 /Contents (https://github.com/divilian/cool-brisk-walk) /Subtype /Text /Rect [300 0 100 205] /Color [1 1 .75] /ANN pdfmark" >> $@
+
+metadata.ps:
+	@echo "[ /Title (A Cool Brisk Walk Through Discrete Mathematics)" > $@
+	@echo "  /Author (Stephen Davies)" >> $@
+	@echo "  /Keywords (discrete mathematics, computer science)" >> $@
+	@echo "  /DOCINFO pdfmark" >> $@
+
 env: container_env
 
 ### Containers
