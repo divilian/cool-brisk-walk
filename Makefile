@@ -13,21 +13,26 @@ front-cover.pdf: cover.svg
 			--export-filename=$@  || \
 		rsvg-convert --unlimited --format=pdf \
 			--left=-173mm --page-width=6.08in --page-height=9in \
-			$^ > $@
+			$< > $@
 
-CoolBriskWalk.pdf: pdfmarks.ps front-cover.pdf brisk.pdf metadata.ps
-	gs -q -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$@ $^
+brisk-sans-titlepage.pdf: brisk.pdf
+	gs -q -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dFirstPage=2 -sOutputFile=$@ $^
+
+coolbrisk.pdf: pdfmarks.ps front-cover.pdf brisk-sans-titlepage.pdf metadata.ps
+	gs -q -o $@ -sDEVICE=pdfwrite -f $^ -c "[ /Label (a) /PAGELABEL pdfmark"
 	rm $(filter %.ps,$^)
 
 pdfmarks.ps:
-	@echo "[ /Label (front-cover) /SrcPg 1 /PAGELABEL pdfmark" > $@
-	@echo "[ /Title (Front Cover) /SrcPg 1 /OUT pdfmark" >> $@
-	@echo "[ /Title (Sources URL) /SrcPg 3 /Contents (https://github.com/divilian/cool-brisk-walk) /Subtype /Text /Rect [300 0 100 205] /Color [1 1 .75] /ANN pdfmark" >> $@
+	@echo "[ /Title (Front Cover) /SrcPg 1 /OUT pdfmark" > $@
+	@echo "[ /Title (Sources URL) /SrcPg 2 /Contents (https://github.com/divilian/cool-brisk-walk) /Subtype /Text /Rect [300 0 100 205] /Color [1 1 .75] /ANN pdfmark" >> $@
 
 metadata.ps:
 	@echo "[ /Title (A Cool Brisk Walk Through Discrete Mathematics)" > $@
 	@echo "  /Author (Stephen Davies)" >> $@
-	@echo "  /Keywords (discrete mathematics, computer science)" >> $@
+	@echo "  /Subject (Discrete Mathematics)" >> $@
+	@echo "  /Keywords (discrete mathematics, computer science, sets, relations," >> $@
+	@echo "  probability, structures, graphs, trees, counting, combinatorics," >> $@
+	@echo "  numbers, logic, proof)" >> $@
 	@echo "  /DOCINFO pdfmark" >> $@
 
 env: container_env
