@@ -6,7 +6,7 @@ brisk.pdf: *.tex
 pdf: brisk.pdf
 
 front-cover.pdf: cover.svg
-	type inkscape && \
+	type inkscape 2> /dev/null && \
 		inkscape $^ --batch-process \
 			--export-area-drawing --export-type=pdf \
 			--export-id="layer3" \
