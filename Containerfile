@@ -6,4 +6,5 @@ RUN dnf -y install texlive-ulem texlive-multirow texlive-fancybox texlive-mdwtoo
 RUN dnf -y install texlive-ccicons
 RUN dnf -y install ghostscript
 RUN dnf -y install librsvg2-tools
+RUN dnf -y install texlive-textcase
 CMD bash

@@ -2,6 +2,7 @@ brisk.pdf: *.tex
 	lualatex $(subst .pdf,.tex,$@)
 	makeindex $(subst .pdf,.idx,$@)
 	lualatex $(subst .pdf,.tex,$@)
+	lualatex $(subst .pdf,.tex,$@)
 
 pdf: brisk.pdf
 
