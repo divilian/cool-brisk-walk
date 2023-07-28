@@ -27,12 +27,39 @@
 \usepackage{enumitem}        % To "resume" enumerated lists.
 \usepackage{epsfig}       
 \usepackage{afterpage}       
-\usepackage{multicol}       
+\usepackage{multicol}
+\usepackage{multirow}
 \usepackage{fancybox}       
 \usepackage{makeidx}
 \usepackage{footnote}
 \makesavenoteenv{tabular}
 \usepackage[hidelinks]{hyperref}
+%%%%% TikZ and fam
+% TikZ and all the sub-libraries therein, for 'native' pictures
+% Consult the following for reference/information:
+% https://en.wikipedia.org/wiki/PGF/TikZ
+% https://tikz.dev/
+\usepackage{tikz}
+% for trees
+\usetikzlibrary{graphdrawing}
+% graph drawing library: trees, layered
+\usegdlibrary{trees,layered}
+% for 'ellipse' nodes, and for 'sign' labels
+\usetikzlibrary{shapes.geometric,shapes.symbols}
+% for graph syntax
+\usetikzlibrary{graphs}
+% for graph edge weights: 'A --["weight"] B'
+\usetikzlibrary{quotes}
+% for mathematical evaluations
+\usetikzlibrary{math}
+% for positioning using "left of __" etc.
+\usetikzlibrary{positioning}
+% for fitting things into others
+\usetikzlibrary{fit}
+% for circular graphs
+\usegdlibrary{circular}
+%%%%% end of TikZ and fam
+\usepackage[scale=3]{ccicons}
 %\usepackage{enumerate}       
 
 % Lulu.com
@@ -95,7 +122,7 @@
 \author{Stephen Davies, Ph.D.\\Computer Science Department\\University of Mary Washington}
 \date{}
 \maketitle
-
+\thispagestyle{empty}
 \include{copyright}
 \frontmatter
 

@@ -11,7 +11,16 @@
 \vspace{-.2in}
 \item How many vertices are there in the graph below?
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx1.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow=down,layered layout,nodes={circle,draw,fill=lightgray},edges={bend left}] {
+        D --[bend right] C;
+        A --[bend right] F;
+        A -- { E, B };
+        F -- E -- B -- F;
+      };
+    \end{tikzpicture}
+  }
 \end{center}
 &
 6.\\
@@ -60,7 +69,15 @@ present.)\\
 \vspace{-.2in}
 \item How many vertices and edges are there in the graph below?
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx2.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow'=down,layered layout,nodes={draw,circle,fill=lightgray},node sep=4em,sibling distance=4em,edges={-latex,bend right}] {
+        M --[bend left] K --[bend left] J;
+        H -- {G -- L -- I -- J, L, I};
+        I -- G --[bend left] M;
+      };
+    \end{tikzpicture}
+  }
 \end{center}
 &
 7 and 10, respectively.\\
@@ -126,7 +143,13 @@ it have?
 \item Suppose we traversed the graph below in depth-first fashion, starting
 with node \textsl{P}. In what order would we visit the nodes?
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx3.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow'=down,simple necklace layout,nodes={draw,circle,fill=lightgray},node sep=3em,edges={bend left}] {
+        N -- O -- P -- Q -- R -- S -- T -- N;
+      };
+    \end{tikzpicture}
+  }
 \end{center}
 &
 There are two possible answers: \textsl{P}, \textsl{Q}, \textsl{R}, \textsl{S}, \textsl{T}, \textsl{N}, \textsl{O}, or else \textsl{P}, \textsl{O}, \textsl{N}, \textsl{T}, \textsl{S}, \textsl{R},
@@ -145,7 +168,13 @@ very early.\\
 \item If we traversed the tree below in pre-order fashion, in what order would
 we visit the nodes?
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx4.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow=down,binary tree layout,nodes={draw,circle,fill=lightgray}] {
+        G -- { S -- {Y -- {H, E}, }, W -- {D -- {, P -- {, U}}, A }};
+      };
+    \end{tikzpicture}
+  }
 \end{center}
 &
 \textsl{G}, \textsl{S}, \textsl{Y}, \textsl{H}, \textsl{E}, \textsl{W},
@@ -165,7 +194,13 @@ we visit the nodes?
 \hline
 \item Is the graph below a tree?
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx5.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow=down,binary tree layout,nodes={draw,circle,fill=lightgray},sibling distance=5em,level distance=1em] {
+        Mal -- { Jayne -- {Inara, Kaylee}, Wash -- {River -- {, Simon -- {, Zoe}}, }};
+      };
+    \end{tikzpicture}
+  }
 \end{center}
 &
 Yes. (Every node has one and only one path to the root, and to every other node
@@ -188,7 +223,13 @@ subtree come after it), there is a single exception: \textsl{Zoe} is in
 Many ways; one would be to swap \textsl{Zoe}'s and \textsl{Wash}'s positions.
 If we do that, the fixed tree would be:
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx6.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow=down,binary tree layout,nodes={draw,circle,fill=lightgray}] {
+        Mal -- { Jayne -- {Inara, Kaylee}, Zoe -- {River -- {, Simon -- {, Wash}}, }};
+      };
+    \end{tikzpicture}
+  }
 \end{center} Take a moment and convince yourself that every node of this new
 tree does in fact satisfy the BST property.\\
 \hline
@@ -217,7 +258,13 @@ We can put the left-most node of \textsl{Mal}'s right subtree (that would be
 everything under him) become \textsl{Wash}'s left child. The result would look
 like this:
 \begin{center}
-\includegraphics[width=0.4\textwidth]{structuresEx7.png}
+  \resizebox{0.4\textwidth}{!}{
+    \begin{tikzpicture}
+      \graph [grow=down,binary tree layout,nodes={draw,circle,fill=lightgray}] {
+        River -- { Jayne -- {Inara, Kaylee}, Zoe -- {Simon -- {, Wash}, }};
+      };
+    \end{tikzpicture}
+  }
 \end{center}
 Take a moment and convince yourself that this \textsl{Mal}-less
 tree does in fact satisfy the BST property.\\

@@ -520,7 +520,21 @@ this one:
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.9\textwidth]{function.png}
+  \begin{tikzpicture}[
+      elem/.style={fill=black,circle,inner sep=1pt},
+      every fit/.style={inner sep=2pt},
+      every label/.style={inner sep=3pt}
+    ]
+    \node (a) [elem,label={[name=La,above]:Harry}] {};
+    \node (b) [below=of a,elem,label=left:Ron] {};
+    \node (c) [below=of b,elem,label={[name=Lc,below]:Hermione}] {};
+    \node (d) [right=200pt of a,elem,label={[name=Ld,above]:Mt. Dew}] {};
+    \node (pad) [below=of d] {};
+    \node (e) [below=of pad,elem,label={[name=Le,below]:Dr. Pepper}] {};
+    \node[draw,ellipse,fit=(a) (La) (b) (c) (Lc)] {};
+    \node[draw,ellipse,fit=(d) (Ld) (e) (Le)] {} ;
+    \foreach \i/\j in {a/e,b/e,c/d} \draw [-latex] (\i) -- (\j);
+  \end{tikzpicture}
 \caption{A function represented graphically.}
 \label{function}
 \end{figure}

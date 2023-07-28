@@ -70,7 +70,17 @@ digits from your mind. Think of a number as what is is: a
 \textbf{quantity}. Here's what the number seventeen \textit{really} looks
 like:
 \begin{center}
-\includegraphics[width=0.2\textwidth]{seventeen.png}
+\begin{pgfpicture}
+  \pgfmathsetseed{39}
+   \foreach \x in {1,...,17}{
+      \pgfmathrandominteger{\a}{1}{10}
+      \pgfmathrandominteger{\b}{1}{10}
+      \pgfpathcircle{\pgfpoint{+\a mm}{+\b mm}}{0.5mm}
+      \color{white}
+      \pgfsetstrokecolor{black}
+      \pgfusepath{stroke}
+   };
+\end{pgfpicture}
 \end{center}
 It's just an \textit{amount}. There are more circles in that picture than
 in some pictures, and less than in others. But in no way is it ``two
@@ -80,18 +90,54 @@ or less than any other digits.
 Let's keep thinking about this. Consider this number, which I'll label
 ``A":
 \begin{center}
-{\large (A)} \quad\quad \raisebox{-1cm}{\includegraphics[width=0.15\textwidth]{eight.png}}
+  {\large (A)} \quad\quad \raisebox{-0.25cm}{
+    \begin{pgfpicture}
+      \pgfmathsetseed{8234}
+      \foreach \x in {1,...,8}{
+        \pgfmathrandominteger{\a}{1}{10}
+        \pgfmathrandominteger{\b}{1}{10}
+        \pgfpathcircle{\pgfpoint{+\a mm}{+\b mm}}{0.5mm}
+        \color{white}
+        \pgfsetstrokecolor{black}
+        \pgfusepath{stroke}
+      };
+    \end{pgfpicture}
+  }
 \end{center}
 Now let's add another circle to it, creating a different number I'll call
 ``B":
 \begin{center}
 {\large (B)} \quad\quad
-\raisebox{-1cm}{\includegraphics[width=0.15\textwidth]{nine.png}}
+\raisebox{-0.25cm}{
+  \begin{pgfpicture}
+    \pgfmathsetseed{8234}
+    \foreach \x in {1,...,9}{
+      \pgfmathrandominteger{\a}{1}{10}
+      \pgfmathrandominteger{\b}{1}{10}
+      \pgfpathcircle{\pgfpoint{+\a mm}{+\b mm}}{0.5mm}
+      \color{white}
+      \pgfsetstrokecolor{black}
+      \pgfusepath{stroke}
+    };
+  \end{pgfpicture}
+}
 \end{center}
 And finally, we'll do it one more time to get ``C":
 \begin{center}
 {\large (C)} \quad\quad
-\raisebox{-1cm}{\includegraphics[width=0.15\textwidth]{ten.png}}
+\raisebox{-0.25cm}{
+  \begin{pgfpicture}
+    \pgfmathsetseed{8234}
+    \foreach \x in {1,...,10}{
+      \pgfmathrandominteger{\a}{1}{10}
+      \pgfmathrandominteger{\b}{1}{10}
+      \pgfpathcircle{\pgfpoint{+\a mm}{+\b mm}}{0.5mm}
+      \color{white}
+      \pgfsetstrokecolor{black}
+      \pgfusepath{stroke}
+    };
+  \end{pgfpicture}
+}
 \end{center}
 (Look carefully at those images and convince yourself that I added one
 circle each time.)
@@ -1158,13 +1204,13 @@ Let's try adding $103_{10}$ and $95_{10}$ in two's-complement, two numbers
 which fit in our -128 to 127 range, but whose sum will not:
 \[
 \begin{array}{*{9}{c@{\hspace{0pt}}}{l}}
-{\footnotesize \text{carry-in}} \rightarrow & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}}  & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \\
+\text{\footnotesize \text{carry-in}} \rightarrow & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}}  & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \texttt{{\footnotesize 1}} & \\
   & \texttt{0} & \texttt{1} & \texttt{1} & \texttt{0} & \texttt{0} & \texttt{1} & \texttt{1} & \texttt{1} 
 & \quad \textsl{$\leftarrow$ $103_{10}$}\\
 \quad + & \texttt{0} & \texttt{1} & \texttt{0} & \texttt{1} & \texttt{1} & \texttt{1} & \texttt{1} & \texttt{1} 
 & \quad \textsl{$\leftarrow$ $95_{10}$}\\
 \hline
-{\footnotesize \text{carry-out}} \rightarrow \texttt{0} & \texttt{1} & \texttt{1} & \texttt{0} & \texttt{0} & \texttt{0} & \texttt{1} & \texttt{1} & \texttt{0} \\
+\text{\footnotesize \text{carry-out}} \rightarrow \texttt{0} & \texttt{1} & \texttt{1} & \texttt{0} & \texttt{0} & \texttt{0} & \texttt{1} & \texttt{1} & \texttt{0} \\
 \end{array}
 \]
 The carry-in to the last bit was 1, but the carry-out was 0, so for
