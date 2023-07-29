@@ -25,7 +25,7 @@ coolbrisk.pdf: pdfmarks.ps front-cover.pdf brisk-sans-titlepage.pdf metadata.ps
 
 pdfmarks.ps:
 	@echo "[ /Title (Front Cover) /SrcPg 1 /OUT pdfmark" > $@
-	@echo "[ /Title (Sources URL) /SrcPg 2 /Contents (https://github.com/divilian/cool-brisk-walk) /Subtype /Text /Rect [300 0 100 205] /Color [1 1 .75] /ANN pdfmark" >> $@
+#	@echo "[ /Title (Sources URL) /SrcPg 2 /Contents (https://github.com/divilian/cool-brisk-walk) /Subtype /Text /Rect [300 0 100 205] /Color [1 1 .75] /ANN pdfmark" >> $@
 
 metadata.ps:
 	@echo "[ /Title (A Cool Brisk Walk Through Discrete Mathematics)" > $@
