@@ -111,8 +111,10 @@ that a male child will be born. In the game example, if we say Pr($M$) =
 first. In all cases, a probability of 0 means ``impossible to occur" and a
 probability of 1 means ``absolutely certain to occur." In colloquial
 English, we most often use percentages to talk about these things: we'll
-say ``there's a 60\% chance Biden will win the election" rather than
-``there's a .6 probability of Biden winning." The math's a bit clumsier
+say ``there's a 60\% chance \href{https://en.wikipedia.org/wiki/Citizen_Kane}
+{Charles Foster Kane} will win the election" rather than
+``there's a .6 probability of \href{https://en.wikipedia.org/wiki/Charles_Foster_Kane}
+{Charles Foster Kane} winning." The math's a bit clumsier
 if we deal with percentages, though, so from now on we'll get in the
 habit of using probabilities rather than `percent chances,' and we'll use
 values in the 0 to 1 range rather than 0 to 100.
@@ -588,45 +590,46 @@ the loop is the expression to the right of the sign. The last line with the
 $\Sigma$ is just a more compact way of expressing the preceding line.}
 
 \index{movie theatre}
-\index{Spiderman@\textit{Spiderman: No Way Home}}
-\index{Here Before@\textit{Here Before}}
-\index{Sonic the Hedgehog@\textit{Sonic the Hedgehog}}
+\index{The Kid@\textit{The Kid}}
+\index{Sunrise@\textit{Sunrise: A Song of Two Humans}}
+\index{Popeye the Sailor Meets Sindbad the Sailor@\textit{Popeye the Sailor Meets Sindbad the Sailor}}
 
 Let's take an example of this approach. Suppose that as part of a promotion
-for Muvico Cinemas movie theatre, we're planning to give a door prize to
+for \textsc{Ye Olde Movie House}, we're planning to give a door prize to
 the $1000^{\text{th}}$ customer this Saturday afternoon. We want to know,
 though, the probability that this person will be a minor. Figuring out how
 many patrons overall will be under 18 might be difficult. But suppose we're
-showing these three films on Saturday: \textit{Spiderman: No Way Home},
-\textit{Here Before}, and
-\textit{Sonic the Hedgehog 2}. We can estimate the fraction of each movie's viewers
+showing these three films on Saturday: \href{https://en.wikipedia.org/wiki/The_Kid_(1921_film)}{\textit{The Kid} (Comedy-drama, 1921)};
+\href{https://en.wikipedia.org/wiki/Sunrise:_A_Song_of_Two_Humans}{\textit{Sunrise: A Song of Two Humans} (Romantic-drama, 1927)};
+and \href{https://en.wikipedia.org/wiki/Popeye_the_Sailor_Meets_Sindbad_the_Sailor}{\textit{Popeye the Sailor Meets Sindbad the Sailor}
+(Animated Cartoon, 1936)}. We can estimate the fraction of each movie's viewers
 that will be minors: .6, .01, and .95, respectively. We can also predict
-how many tickets will be sold for each film: 2,000 for the Spiderman, 500
-for Here Before, and 1,000 for Sonic.
+how many tickets will be sold for each film: 2,000 for \textit{The Kid}, 500
+for \textit{Sunrise}, and 1,000 for \textit{Popeye}.
 
 Applying frequentist principles, we can compute the probability that a
 particular visitor will be seeing each of the movies:
 
 \begin{center}
-Pr(Spiderman) = $\frac{2000}{2000+500+1000} = .571$ \\[.1in]
-Pr(Here Before) = $\frac{500}{2000+500+1000} = .143$\\[.1in]
-Pr(Sonic) = $\frac{1500}{2000+500+1000} = .286$
+Pr(The Kid) = $\frac{2000}{2000+500+1000} = .571$ \\[.1in]
+Pr(Sunrise) = $\frac{500}{2000+500+1000} = .143$\\[.1in]
+Pr(Popeye) = $\frac{1500}{2000+500+1000} = .286$
 \end{center}
 
 To be clear: this is saying that if we select a visitor at random on
-Saturday, the probability that they will be seeing Spiderman is .571.
+Saturday, the probability that they will be seeing \textit{The Kid} is .571.
 
 \index{conditional probability}
 But (and this is the trick) we can also compute the \textit{conditional}
 probability that an attendee of each of these films will be a minor:
 
 \begin{align*}
-\text{Pr(minor}|\text{Spiderman)} &= .6 \\
-\text{Pr(minor}|\text{Here Before)} &= .01 \\
-\text{Pr(minor}|\text{Sonic)} &= .95
+\text{Pr(minor}|\text{The Kid)} &= .6 \\
+\text{Pr(minor}|\text{Sunrise)} &= .01 \\
+\text{Pr(minor}|\text{Popeye)} &= .95
 \end{align*}
 
-In words: ``If we know that a visitor is coming to see Spiderman, there's a .6
+In words: ``If we know that a visitor is coming to see \textit{The Kid}, there's a .6
 probability that they'll be a minor." We're using the background knowledge to
 determine the conditional probability. It might be hard to figure out the
 probability of minors in general, but easier to figure out the probability of
@@ -635,18 +638,17 @@ minors watching a specific movie.
 Now, it's just a matter of stitching together the parts:
 
 \begin{align*}
-\text{Pr(minor)} = &\ \text{Pr(minor}|\text{Spiderman) Pr(Spiderman)} +  \\
-&\ \text{Pr(minor}|\text{Here Before) Pr(Here Before)} +  \\
-&\ \text{Pr(minor}|\text{Sonic) Pr(Sonic)}\\
+\text{Pr(minor)} = &\ \text{Pr(minor}|\text{The Kid) Pr(The Kid)} +  \\
+&\ \text{Pr(minor}|\text{Sunrise) Pr(Sunrise)} +  \\
+&\ \text{Pr(minor}|\text{Popeye) Pr(Popeye)}\\
 = &\ .6 \cdot .571 + .01 \cdot .143 + .95 \cdot .286 \\
 = &\ .343 + .00143 + .272 \approx .616
 \end{align*}
 
 In words, there are three different ways for a visitor to be a minor: they
-could be a Spiderman fan and a minor (pretty likely, since there's lots of
-Spiderman fans), or a Here Before fan and a minor (not likely), or a Sonic
-fan and a minor (fairly likely, since although there's not a ton of Sonic
-fans overall, most of them are minors). Adding up these probabilities is
+could be a Charlie Chaplin fan (\textit{The Kid}) and a minor (pretty likely, since there's lots of
+fans of The Little Tramp); or a Janet Gaynor fan (\textit{Sunrise}) and a minor (not likely); or a Popeye
+fan and a minor (fairly likely, since Popeye the Sailor is practically a superhero). Adding up these probabilities is
 legit only \textit{because} the three movies form a partition of the
 visitors (\textit{i.e.}, every visitor is there to see one and only one
 movie).
