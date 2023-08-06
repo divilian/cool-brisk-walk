@@ -1,0 +1,28 @@
+name: Build Container Image
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Containerfile'
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  Build_And_Publish_Container_Image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Modify Containerfile for Actions
+        run: sed --in-place '/^CMD.*/i RUN dnf -y install nodejs git' Containerfile
+      - name: Build Container Image
+        run: docker build --file Containerfile --tag ${{ github.repository }} .
+      - name: Tag Container Image
+        run: docker tag ${{ github.repository }} ${{ env.REGISTRY }}/${{ github.repository }}
+      - name: Login To Registry
+        run: echo ${{ secrets.REGISTRY_TOKEN }} | docker login ${{ env.REGISTRY }} --username ${{ github.repository_owner }} --password-stdin
+      - name: Push Image
+        run: docker push ${{ env.REGISTRY }}/${{ github.repository }}
