@@ -1,0 +1,52 @@
+name: Build and ship PDF
+
+on:
+  workflow_run:
+    workflows: [Build Container Image]
+    types: [completed]
+    branches: [master]
+  push:
+    paths:
+      - '*.tex'
+  pull_request_target:
+    paths:
+      - '*.tex'
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+    container:
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#context-availability
+      image: ${{ format('{0}/{1}', 'ghcr.io', github.repository) }}
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Build PDF
+        run: make --jobs=2 coolbrisk.pdf
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: coolbriskwalk
+          path: coolbrisk.pdf
+
+  Ship:
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+      - name: Download Artifacts From Build
+        uses: actions/download-artifact@v3
+        with:
+          name: coolbriskwalk
+      - name: Prepare For Shipping
+        run: mv -v coolbrisk.pdf brisk.pdf # Preserve current URL (http://stephendavies.org/brisk.pdf)
+      - name: Ship
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          username: ${{ secrets.SSH_USERNAME }}
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "brisk.pdf"
+          target: ${{ secrets.SSH_DESTINATION_DIR }}
