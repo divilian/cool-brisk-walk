@@ -1,16 +1,7 @@
 name: Build and ship PDF
 
 on:
-  workflow_run:
-    workflows: [Build Container Image]
-    types: [completed]
-    branches: [master]
-  push:
-    paths:
-      - '*.tex'
-  pull_request_target:
-    paths:
-      - '*.tex'
+  workflow_dispatch
 
 jobs:
 
