@@ -1,7 +1,11 @@
 name: Build Container Image
 
 on:
-  workflow_dispatch
+  push:
+    branches:
+      - master
+    paths:
+      - 'Containerfile'
 
 env:
   REGISTRY: ghcr.io
