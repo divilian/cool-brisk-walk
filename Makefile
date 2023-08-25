@@ -1,10 +1,10 @@
+pdf: brisk.pdf
+
 brisk.pdf: *.tex
 	lualatex $(subst .pdf,.tex,$@)
 	makeindex $(subst .pdf,.idx,$@)
 	lualatex $(subst .pdf,.tex,$@)
 	lualatex $(subst .pdf,.tex,$@)
-
-pdf: brisk.pdf
 
 front-cover.pdf: cover.svg
 	type inkscape 2> /dev/null && \
@@ -36,17 +36,39 @@ metadata.ps:
 	@echo "  numbers, logic, proof)" >> $@
 	@echo "  /DOCINFO pdfmark" >> $@
 
-env: container_env
+##### Environment
+env: needs := guix docker podman
+env : has := $(foreach need,$(needs),$(shell which $(need)))
+env:
+ifeq ($(words $(has)),'0')
+	$(error Unable to find any of the following: $(foreach need,$(needs),`$(need)`))
+endif
+	@if [ -f "`which guix`" ]; then \
+		make .guix_env; \
+	elif [ -f "`which docker`" ] || [ -f "`which podman`" ]; then \
+		make .container_env; \
+	else \
+		echo "This should not execute." && false; \
+	fi
 
-### Containers
+### Environment: Guix Shell
+.guix_env:
+	guix shell --container \
+		coreutils-minimal sed make \
+		texlive-scheme-basic texlive-ulem texlive-multirow texlive-fancybox \
+		texlive-mdwtools texlive-textcase texlive-ccicons texlive-memoir \
+		texlive-paralist texlive-enumitem texlive-hyperref texlive-pgf \
+		texlive-etoolbox texlive-xkeyval ghostscript librsvg
+
+### Environment: Containers
 CONTAINER_RUNTIME_ENGINE=$(shell which docker || echo "podman")
 CRE=${CONTAINER_RUNTIME_ENGINE}
 IMAGE_TAG=cool-brisk-walk-image
 
-container_env: container_image
+.container_env: .container_image
 	${CRE} run --rm --interactive --tty --volume `pwd`:/sources:z --workdir="/sources" ${IMAGE_TAG}
 
-container_image: .container_image_id
+.container_image: .container_image_id
 .container_image_id: Containerfile
 	${CRE} build --file $< --tag ${IMAGE_TAG} .
 	${CRE} inspect --format {{.Id}} ${IMAGE_TAG} > .container_image_id
